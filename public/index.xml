@@ -5,7 +5,17 @@
     <link>/</link>
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 04 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automate your dumps with Powershell(part 1)</title>
+      <link>/blog/automateddumpspt1/</link>
+      <pubDate>Fri, 27 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/automateddumpspt1/</guid>
+      <description>The Ask I was asked to do the following. First, I needed to run a backup of specific databases, both in Postgres and MySQL. Second, I needed to gzip the backup. Finally, it had to be uploaded to an S3 bucket. Seemed straight forward enough.
+The How In a previous life, I worked in a Sysadmin/DBA hybrid role where I wrote a lot of powershell scripts for support. I would prefer to use this opportunity to learn python (which is in the works now), but I needed to get this done in a time frame that would not allow for me to learn it.</description>
+    </item>
+    
     <item>
       <title>FreshRSS, but using Docker Compose</title>
       <link>/blog/freshrssdocker/</link>
