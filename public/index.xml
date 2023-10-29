@@ -5,7 +5,17 @@
     <link>/</link>
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 27 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automate your dumps with Powershell(part 2)</title>
+      <link>/blog/automateddumpspt2/</link>
+      <pubDate>Sun, 29 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/automateddumpspt2/</guid>
+      <description>Time for mysqldump The script is identical other than two things. First, we have to use a separate secrets file to the user and password to execute mysqldump. Secondly, the parameter order is different for mysqldump, and it is very picky. I have included some source post and documentation that helped me get around a few issues.
+Storing the password Like Postgres, I wanted to store the password somewhere so I wouldn&amp;rsquo;t need to manually enter for each dump (and avoid plain text exposure of my password when passing the command).</description>
+    </item>
+    
     <item>
       <title>Automate your dumps with Powershell(part 1)</title>
       <link>/blog/automateddumpspt1/</link>
