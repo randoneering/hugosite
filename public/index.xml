@@ -5,7 +5,16 @@
     <link>/</link>
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 29 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stay awhile, and listen...to my nixOS journey!</title>
+      <link>/blog/nixosjourneyp1/</link>
+      <pubDate>Fri, 29 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/nixosjourneyp1/</guid>
+      <description>NixOS Journey, Part 1 So, for those who have yet to go down this path, it would be helpful to explain what NixOS is. NixOS is a free and open-source Linux distribution. What sets itself apart from Pop!os, Debian, Ubuntu, Arch, and many others is that its entire operating system is built by the Nix package manager. This includes nix application packages, your kernel, system settings, SMB shares, and pretty much anything you can think of.</description>
+    </item>
+    
     <item>
       <title>Automate your dumps with Powershell(part 2)</title>
       <link>/blog/automateddumpspt2/</link>
