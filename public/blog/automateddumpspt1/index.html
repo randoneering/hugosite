@@ -11,7 +11,7 @@
 <meta name="author" content="Justin@Randoneering">
 <link rel="canonical" href="/blog/automateddumpspt1/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.06552370ee656d052a9867560d16175a7d7f45ddbe8dafdd6b7c5ce76b987903.css" integrity="sha256-BlUjcO5lbQUqmGdWDRYXWn1/Rd2&#43;ja/da3xc52uYeQM=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -163,68 +163,69 @@
 <p>Since I was dealing with MySQL and Postgres, I would need to use pg_dump (Postgres) and mysqldump (MySQL) seemed like the likely candidates for the database dumps. Compression could be done by 7zip. Then there is uploading to S3, which is just something I would write using aws cli. Seemed straightforward enough.</p>
 <h1 id="i-was-wrong">I was wrong</h1>
 <p>My first problem was finding a way to pass a database hostname through and for each of those hostnames, go down the line of databases that needed to be backed up. I reached out to a friend after trying many forms of arrays that simply did not work. He suggested the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$serverlistENV = @(
-</span></span><span style="display:flex;"><span>    @{
-</span></span><span style="display:flex;"><span>        hostname = <span style="color:#e6db74">&#34;database.hostname.tech&#34;</span>
-</span></span><span style="display:flex;"><span>        databases = @(
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;database1&#34;</span>
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    @{
-</span></span><span style="display:flex;"><span>        hostname = <span style="color:#e6db74">&#34;database2.hostname.tech&#34;</span>
-</span></span><span style="display:flex;"><span>        databases = @(
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;database2&#34;</span>
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>        )
-</span></span><span style="display:flex;"><span>    
-</span></span></code></pre></div><p>Now that I have my desired variable in place for my server names and database names, I went to work on the actual foreach loop that would do the work.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Password for your user</span>
-</span></span><span style="display:flex;"><span>$env:PGPASSFILE = <span style="color:#e6db74">&#39;path\to\pgpass.conf&#39;</span>
-</span></span><span style="display:flex;"><span>$pguser = <span style="color:#e6db74">&#39;svc_backup&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Setup alias for 7zip for easy gziping</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$7zipPath = <span style="color:#e6db74">&#34;</span>$env:ProgramFiles<span style="color:#e6db74">\7-Zip\7z.exe&#34;</span>
-</span></span><span style="display:flex;"><span>Set-Alias Compress-7Zip $7ZipPath
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Change working directory where pg_dump</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;path\to\pg_dump.exe&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Foreach loop</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> ($server <span style="color:#66d9ef">in</span> $serverlistENV){
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">foreach</span> ($database <span style="color:#66d9ef">in</span> $server.databases){
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#write logging, in the case you want to automate in a schedule </span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Start-Transcript <span style="color:#e6db74">&#34;path\to\logs\</span>$(<span style="color:#e6db74">&#34;env&#34;</span>+$date+$server.hostname)<span style="color:#e6db74">.log&#34;</span> -Append
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;Running backup for </span>$database<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Set dump location to X drive</span>
-</span></span><span style="display:flex;"><span>$dumpfile = <span style="color:#e6db74">&#34;path\to\backup\</span>$($database)<span style="color:#e6db74">.dump&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Check if file is already there, if so delete.</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(Test-Path $dumpfile){
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Remove-Item $dumpfile
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;</span>$dumpfile<span style="color:#e6db74"> removed&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}<span style="color:#66d9ef">else</span>{
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;</span>$dumpfile<span style="color:#e6db74"> does not exist. Proceeding&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Execute pg_dump with parameters</span>
-</span></span><span style="display:flex;"><span>.\pg_dumpall.exe -h $server.hostname -U $pguser <span style="color:#f92672">-f</span> $dumpfile --no-role-passwords --exclude-database=<span style="color:#e6db74">&#34;rdsadmin&#34;</span> --exclude-database=<span style="color:#e6db74">&#34;postgres&#34;</span> --database=$database
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="hold-up-some-variables">Hold up, some variables!</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$serverlistENV = @(
+    @{
+        hostname = <span style="color:#e6db74">&#34;database.hostname.tech&#34;</span>
+        databases = @(
+            <span style="color:#e6db74">&#34;database1&#34;</span>
+        )
+    },
+    @{
+        hostname = <span style="color:#e6db74">&#34;database2.hostname.tech&#34;</span>
+        databases = @(
+            <span style="color:#e6db74">&#34;database2&#34;</span>
+        )
+    }
+        )
+    
+</code></pre></div><p>Now that I have my desired variable in place for my server names and database names, I went to work on the actual foreach loop that would do the work.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">
+<span style="color:#75715e">#Password for your user</span>
+$env:PGPASSFILE = <span style="color:#e6db74">&#39;path\to\pgpass.conf&#39;</span>
+$pguser = <span style="color:#e6db74">&#39;svc_backup&#39;</span>
+
+<span style="color:#75715e">#Setup alias for 7zip for easy gziping</span>
+
+$7zipPath = <span style="color:#e6db74">&#34;$env:ProgramFiles\7-Zip\7z.exe&#34;</span>
+Set-Alias Compress-7Zip $7ZipPath
+
+<span style="color:#75715e">#Change working directory where pg_dump</span>
+
+cd <span style="color:#e6db74">&#34;path\to\pg_dump.exe&#34;</span>
+
+<span style="color:#75715e">#Foreach loop</span>
+<span style="color:#66d9ef">foreach</span> ($server <span style="color:#66d9ef">in</span> $serverlistENV){
+    <span style="color:#66d9ef">foreach</span> ($database <span style="color:#66d9ef">in</span> $server.databases){
+
+<span style="color:#75715e">#write logging, in the case you want to automate in a schedule </span>
+
+Start-Transcript <span style="color:#e6db74">&#34;path\to\logs\</span>$(<span style="color:#e6db74">&#34;env&#34;</span>+$date+$server.hostname)<span style="color:#e6db74">.log&#34;</span> -Append
+
+Write-Host <span style="color:#e6db74">&#34;Running backup for $database&#34;</span>
+
+<span style="color:#75715e">#Set dump location to X drive</span>
+$dumpfile = <span style="color:#e6db74">&#34;path\to\backup\</span>$($database)<span style="color:#e6db74">.dump&#34;</span>
+
+<span style="color:#75715e">#Check if file is already there, if so delete.</span>
+<span style="color:#66d9ef">if</span>(Test-Path $dumpfile){
+
+Remove-Item $dumpfile
+
+Write-Host <span style="color:#e6db74">&#34;$dumpfile removed&#34;</span>
+
+}<span style="color:#66d9ef">else</span>{
+
+Write-Host <span style="color:#e6db74">&#34;$dumpfile does not exist. Proceeding&#34;</span>
+
+}
+
+<span style="color:#75715e">#Execute pg_dump with parameters</span>
+.\pg_dumpall.exe -h $server.hostname -U $pguser <span style="color:#f92672">-f</span> $dumpfile --no-role-passwords --exclude-database=<span style="color:#e6db74">&#34;rdsadmin&#34;</span> --exclude-database=<span style="color:#e6db74">&#34;postgres&#34;</span> --database=$database
+
+    }
+}
+
+</code></pre></div><h2 id="hold-up-some-variables">Hold up, some variables!</h2>
 <p>If you are paying attention, you might have noticed a few variables.</p>
 <p>&lsquo;$env:PGPASSFILE&rsquo; in particular. I wanted the ability to pass credentials, relatively securely, and not in plain text. This was the best option, locally storing a password file. Otherwise, your script will hang until a password is passed through. More details on setting this up can be found here in the official Postgres documentation</p>
 <p><a href="https://www.postgresql.org/docs/current/libpq-pgpass.html">https://www.postgresql.org/docs/current/libpq-pgpass.html</a></p>
@@ -235,151 +236,153 @@
 <p>You might have ALSO noticed I used pg_dumpall instead of pg_dump. Interesting right? Turns out I needed to grab roles (without passwords) for my task, and pg_dump only dumps a single database, and not the global users.</p>
 <p>&lsquo;&ndash;no-role-passwords&rsquo; does what it looks like; dumps the roles but nulls the password. You will then need to go in and reset the passwords for these roles after restoring. Then there is the &lsquo;&ndash;exclude-database&rsquo; parameters, excluding the rdsadmin database and postgres default database. We did not want those as well.</p>
 <p>If you wanted to just dump one single database, then you can use the following command for that:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.<span style="color:#ae81ff">\p</span>g_dump.exe -h $server.hostname -u $pguser -F c -f $dumpfile $database
-</span></span></code></pre></div><p>Here, &lsquo;-F&rsquo; for the dump format and then &lsquo;c&rsquo; for custom, which eventually would just be .dump for the future user of &lsquo;pg_restore&rsquo;. As for the file output location, &lsquo;-f&rsquo; is used. Interestingly enough, I found a weird artifact using the &gt; operator when I originally wrote the pg_dump command in powershell. I ended up getting dumps that had a weird utf encoded header garbage that caused pg_restore to fail. Scratching my head, I went around looking for the cause. I found someone hit the same problem and it was due to the use of the &gt; operator inside the powershell script. Details here:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">.<span style="color:#ae81ff">\p</span>g_dump.exe -h $server.hostname -u $pguser -F c -f $dumpfile $database
+</code></pre></div><p>Here, &lsquo;-F&rsquo; for the dump format and then &lsquo;c&rsquo; for custom, which eventually would just be .dump for the future user of &lsquo;pg_restore&rsquo;. As for the file output location, &lsquo;-f&rsquo; is used. Interestingly enough, I found a weird artifact using the &gt; operator when I originally wrote the pg_dump command in powershell. I ended up getting dumps that had a weird utf encoded header garbage that caused pg_restore to fail. Scratching my head, I went around looking for the cause. I found someone hit the same problem and it was due to the use of the &gt; operator inside the powershell script. Details here:</p>
 <p><a href="https://dba.stackexchange.com/questions/44019/pg-dump-9-2-x-command-does-not-work-with-pg-dump-9-2-3">https://dba.stackexchange.com/questions/44019/pg-dump-9-2-x-command-does-not-work-with-pg-dump-9-2-3</a></p>
 <h1 id="finishing-the-script">Finishing the script</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e">#Variables for 7Zip</span>
-</span></span><span style="display:flex;"><span>$Source = $dumpfile
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Check if file is already there, if so delete</span>
-</span></span><span style="display:flex;"><span>$Destination = <span style="color:#e6db74">&#34;path\to\databasefile\</span>$($database)<span style="color:#e6db74">.gz&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(Test-Path $Destination){
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Remove-Item $Destination
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;</span>$Destination<span style="color:#e6db74"> removed&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}<span style="color:#66d9ef">else</span>{
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;</span>$Destination<span style="color:#e6db74"> does not exist. Proceeding&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Compress to gzip at highest compression</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Compress-7zip a -mx=<span style="color:#ae81ff">5</span> $Destination $Source
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Stop-Transcript
-</span></span></code></pre></div><p>I highly recommend, if your backups are larger than a few GB, to AVOID putting a compression higher than 5. It will take, a long time, depending on your resources (on the device you are executing this script on).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">#Variables for 7Zip</span>
+$Source = $dumpfile
+
+<span style="color:#75715e">#Check if file is already there, if so delete</span>
+$Destination = <span style="color:#e6db74">&#34;path\to\databasefile\</span>$($database)<span style="color:#e6db74">.gz&#34;</span>
+
+<span style="color:#66d9ef">if</span>(Test-Path $Destination){
+
+Remove-Item $Destination
+
+Write-Host <span style="color:#e6db74">&#34;$Destination removed&#34;</span>
+
+}<span style="color:#66d9ef">else</span>{
+
+Write-Host <span style="color:#e6db74">&#34;$Destination does not exist. Proceeding&#34;</span>
+
+}
+
+<span style="color:#75715e">#Compress to gzip at highest compression</span>
+
+Compress-7zip a -mx=5 $Destination $Source
+
+Stop-Transcript
+
+</code></pre></div><p>I highly recommend, if your backups are larger than a few GB, to AVOID putting a compression higher than 5. It will take, a long time, depending on your resources (on the device you are executing this script on).</p>
 <p>Last step-time to upload to s3</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>aws s3 cp path\to\gzips\ s3<span style="color:#960050;background-color:#1e0010">:</span>\\yourbuckethere --recursive 
-</span></span></code></pre></div><p>For the full script, feel free to use the github repo here. Free to use at your own discretion. Or copy-pasta from below (and change to your liking).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e">&lt;#
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Summary: The following script runs pg_dump, gzips the dump, and then uploads to an s3 bucket.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Initially I used the &gt; operator to pipe dump to file. This caused some issues with encoding. Therefore,
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">I used -f (file location) parameter instead.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">https://dba.stackexchange.com/questions/44019/pg-dump-9-2-x-command-does-not-work-with-pg-dump-9-2-3
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Password for svc_backup is in pgpass</span>
-</span></span><span style="display:flex;"><span>$env:PGPASSFILE =<span style="color:#e6db74">&#39;path\to\pgpass.conf&#39;</span>
-</span></span><span style="display:flex;"><span>$pguser = <span style="color:#e6db74">&#39;svc_backup&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Setup alias for 7zip for easy gziping</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$7zipPath = <span style="color:#e6db74">&#34;</span>$env:ProgramFiles<span style="color:#e6db74">\7-Zip\7z.exe&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Set-Alias Compress-7Zip $7ZipPath
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Find details here regarding 7zip alias work https://www.delftstack.com/howto/powershell/powershell-7zip/</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Change working directory to where pg_dump is located</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>cd <span style="color:#e6db74">&#34;path\to\pgdump.exe&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Array for Database Servers and Databases</span>
-</span></span><span style="display:flex;"><span>$serverlist= @(
-</span></span><span style="display:flex;"><span>@{
-</span></span><span style="display:flex;"><span>hostname = <span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>databases = @(
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#The actual work is done here</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> ($server <span style="color:#66d9ef">in</span> $serverlist) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> ($database <span style="color:#66d9ef">in</span> $server.databases){
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#write logging, in case we automate this in some task scheduler</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Start-Transcript <span style="color:#e6db74">&#34;path\to\logs\</span>$(<span style="color:#e6db74">&#34;env&#34;</span>+$date+$server.hostname)<span style="color:#e6db74">.log&#34;</span> -Append
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;Running backup for </span>$database<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Set dump location to X drive</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$dumpfile = <span style="color:#e6db74">&#34;path\to\dumps\</span>$($database)<span style="color:#e6db74">.dump&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Check if file is already there, if so delete.</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(Test-Path $dumpfile){
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Remove-Item $dumpfile
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;</span>$dumpfile<span style="color:#e6db74"> removed&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}<span style="color:#66d9ef">else</span>{
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;</span>$dumpfile<span style="color:#e6db74"> does not exist. Proceeding&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Execute pg_dump with parameters</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">##.\pg_dump.exe -h $server.hostname -U $pguser -F c -f $dumpfile $database</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>.\pg_dumpall.exe -h $server.hostname -U $pguser <span style="color:#f92672">-f</span> $dumpfile --no-role-passwords --exclude-database=<span style="color:#e6db74">&#34;rdsadmin&#34;</span> --exclude-database=<span style="color:#e6db74">&#34;postgres&#34;</span> --database=$database
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Variables for 7zip</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$Source = $dumpfile
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Check if file is already there, if so delete</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$Destination = <span style="color:#e6db74">&#34;path\to\gzips\</span>$($database)<span style="color:#e6db74">.gz&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(Test-Path $Destination){
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Remove-Item $Destination
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;</span>$Destination<span style="color:#e6db74"> removed&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}<span style="color:#66d9ef">else</span>{
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;</span>$Destination<span style="color:#e6db74"> does not exist. Proceeding&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Compress to gzip at highest compression</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Compress-7zip a -mx=<span style="color:#ae81ff">5</span> $Destination $Source
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Stop-Transcript
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Upload to s3 bucket</span>
-</span></span><span style="display:flex;"><span>aws s3 cp path\to\gzips\ s3<span style="color:#960050;background-color:#1e0010">:</span>//yourbuckethere--recursive
-</span></span></code></pre></div><h1 id="part-2-mysqldump">Part 2 mysqldump!</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">aws s3 cp path\to\gzips\ s3<span style="color:#960050;background-color:#1e0010">:</span>\\yourbuckethere --recursive 
+</code></pre></div><p>For the full script, feel free to use the github repo here. Free to use at your own discretion. Or copy-pasta from below (and change to your liking).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e">&lt;#
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">Summary: The following script runs pg_dump, gzips the dump, and then uploads to an s3 bucket.
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">Initially I used the &gt; operator to pipe dump to file. This caused some issues with encoding. Therefore,
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">I used -f (file location) parameter instead.
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">https://dba.stackexchange.com/questions/44019/pg-dump-9-2-x-command-does-not-work-with-pg-dump-9-2-3
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">#&gt;</span>
+
+<span style="color:#75715e">#Password for svc_backup is in pgpass</span>
+$env:PGPASSFILE =<span style="color:#e6db74">&#39;path\to\pgpass.conf&#39;</span>
+$pguser = <span style="color:#e6db74">&#39;svc_backup&#39;</span>
+
+<span style="color:#75715e"># Setup alias for 7zip for easy gziping</span>
+
+$7zipPath = <span style="color:#e6db74">&#34;$env:ProgramFiles\7-Zip\7z.exe&#34;</span>
+
+Set-Alias Compress-7Zip $7ZipPath
+
+<span style="color:#75715e"># Find details here regarding 7zip alias work https://www.delftstack.com/howto/powershell/powershell-7zip/</span>
+
+<span style="color:#75715e"># Change working directory to where pg_dump is located</span>
+
+cd <span style="color:#e6db74">&#34;path\to\pgdump.exe&#34;</span>
+
+<span style="color:#75715e">#Array for Database Servers and Databases</span>
+$serverlist= @(
+@{
+hostname = <span style="color:#e6db74">&#34;&#34;</span>
+databases = @(
+<span style="color:#e6db74">&#34;&#34;</span>
+)
+
+}
+
+)
+
+<span style="color:#75715e">#The actual work is done here</span>
+
+<span style="color:#66d9ef">foreach</span> ($server <span style="color:#66d9ef">in</span> $serverlist) {
+
+<span style="color:#66d9ef">foreach</span> ($database <span style="color:#66d9ef">in</span> $server.databases){
+
+<span style="color:#75715e">#write logging, in case we automate this in some task scheduler</span>
+
+Start-Transcript <span style="color:#e6db74">&#34;path\to\logs\</span>$(<span style="color:#e6db74">&#34;env&#34;</span>+$date+$server.hostname)<span style="color:#e6db74">.log&#34;</span> -Append
+
+Write-Host <span style="color:#e6db74">&#34;Running backup for $database&#34;</span>
+
+<span style="color:#75715e">#Set dump location to X drive</span>
+
+$dumpfile = <span style="color:#e6db74">&#34;path\to\dumps\</span>$($database)<span style="color:#e6db74">.dump&#34;</span>
+
+
+
+
+<span style="color:#75715e">#Check if file is already there, if so delete.</span>
+
+<span style="color:#66d9ef">if</span>(Test-Path $dumpfile){
+
+Remove-Item $dumpfile
+
+Write-Host <span style="color:#e6db74">&#34;$dumpfile removed&#34;</span>
+
+}<span style="color:#66d9ef">else</span>{
+
+Write-Host <span style="color:#e6db74">&#34;$dumpfile does not exist. Proceeding&#34;</span>
+
+}
+
+<span style="color:#75715e">#Execute pg_dump with parameters</span>
+
+<span style="color:#75715e">##.\pg_dump.exe -h $server.hostname -U $pguser -F c -f $dumpfile $database</span>
+
+.\pg_dumpall.exe -h $server.hostname -U $pguser <span style="color:#f92672">-f</span> $dumpfile --no-role-passwords --exclude-database=<span style="color:#e6db74">&#34;rdsadmin&#34;</span> --exclude-database=<span style="color:#e6db74">&#34;postgres&#34;</span> --database=$database
+
+<span style="color:#75715e">#Variables for 7zip</span>
+
+$Source = $dumpfile
+
+
+
+<span style="color:#75715e">#Check if file is already there, if so delete</span>
+
+$Destination = <span style="color:#e6db74">&#34;path\to\gzips\</span>$($database)<span style="color:#e6db74">.gz&#34;</span>
+
+<span style="color:#66d9ef">if</span>(Test-Path $Destination){
+
+Remove-Item $Destination
+
+Write-Host <span style="color:#e6db74">&#34;$Destination removed&#34;</span>
+
+}<span style="color:#66d9ef">else</span>{
+
+Write-Host <span style="color:#e6db74">&#34;$Destination does not exist. Proceeding&#34;</span>
+
+}
+
+<span style="color:#75715e">#Compress to gzip at highest compression</span>
+
+Compress-7zip a -mx=5 $Destination $Source
+
+Stop-Transcript
+
+}
+
+}
+
+<span style="color:#75715e">#Upload to s3 bucket</span>
+aws s3 cp path\to\gzips\ s3<span style="color:#960050;background-color:#1e0010">:</span>//yourbuckethere--recursive
+
+</code></pre></div><h1 id="part-2-mysqldump">Part 2 mysqldump!</h1>
 <p>I will post the mysqldump version in a future post. Hope this helps someone out there!</p>
 
   </div>
@@ -402,8 +405,7 @@
     </main>
     
 <footer class="footer">
-    <span> Copyright© Randoneering 2023
-      
+    <span> Copyright© Randoneering 2024
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

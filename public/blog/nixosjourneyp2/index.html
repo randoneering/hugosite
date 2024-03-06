@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>FreshRSS, but using Docker Compose | </title>
+<title>NixOS part 1.5 | </title>
 <meta name="keywords" content="" />
-<meta name="description" content="Don&#39;t like running LAMP stacks? Well, there is a docker image for that.">
+<meta name="description" content="What spending too much time in a single config file does to you">
 <meta name="author" content="Justin@Randoneering">
-<link rel="canonical" href="/blog/freshrssdocker/" />
+<link rel="canonical" href="/blog/nixosjourneyp2/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.06552370ee656d052a9867560d16175a7d7f45ddbe8dafdd6b7c5ce76b987903.css" integrity="sha256-BlUjcO5lbQUqmGdWDRYXWn1/Rd2&#43;ja/da3xc52uYeQM=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -120,12 +120,12 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="">Home</a>&nbsp;»&nbsp;<a href="/blog/">Blog</a></div>
     <h1 class="post-title">
-      FreshRSS, but using Docker Compose
+      NixOS part 1.5
     </h1>
     <div class="post-description">
-      Don&#39;t like running LAMP stacks? Well, there is a docker image for that.
+      What spending too much time in a single config file does to you
     </div>
-    <div class="post-meta"><span title='2023-07-04 00:00:00 +0000 UTC'>July 4, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Justin@Randoneering</div>
+    <div class="post-meta"><span title='2024-03-05 00:00:00 +0000 UTC'>March 5, 2024</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Justin@Randoneering</div>
   </header> <div class="toc">
     <details >
         <summary accesskey="c" title="(Alt + C)">
@@ -134,55 +134,71 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#this-is-a-quick-one" aria-label="This is a quick one">This is a quick one</a></li>
+                    <a href="#i-gave-up" aria-label="I gave up">I gave up</a><ul>
+                        
                 <li>
-                    <a href="#oh-linuxserverio-how-i-adore-you" aria-label="Oh, linuxserver.io, how I adore you">Oh, linuxserver.io, how I adore you</a></li>
+                    <a href="#what-was-is-great-about-nixos" aria-label="What was is great about NixOS">What <del>was</del> is great about NixOS</a><ul>
+                        
                 <li>
-                    <a href="#next-project-please" aria-label="Next project please">Next project please</a>
+                    <a href="#switching-desktop-environments" aria-label="Switching Desktop Environments">Switching Desktop Environments</a></li>
+                <li>
+                    <a href="#services" aria-label="Services">Services</a></li>
+                <li>
+                    <a href="#fixing-your-mistakes" aria-label="Fixing your mistakes">Fixing your mistakes</a></li></ul>
                 </li>
+                <li>
+                    <a href="#what-next" aria-label="What next?">What next?</a>
+                </li>
+            </ul>
+            </li>
             </ul>
         </div>
     </details>
 </div>
 
   <div class="post-content">
-  <h1 id="this-is-a-quick-one">This is a quick one</h1>
-<p>To prove a point, and make it &ldquo;easier&rdquo;, you could just use docker and run FreshRSS that way. It takes less time, honestly, and less complicated. So, why not:</p>
-<h1 id="oh-linuxserverio-how-i-adore-you">Oh, linuxserver.io, how I adore you</h1>
-<p>I went with the instructions and image curated by linuxserver.io:</p>
-<p><a href="https://docs.linuxserver.io/images/docker-freshrss">https://docs.linuxserver.io/images/docker-freshrss</a></p>
-<p>This cuts out a lot of the work, and actually setups up a cronjob to refresh your feeds automatically. No fussing around with systemd or crontabs yourself. Here is my docker-compose</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">---
-<span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;2.1&#34;</span>
-<span style="color:#f92672">services</span>:
-  <span style="color:#f92672">freshrss</span>:
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">lscr.io/linuxserver/freshrss:latest</span>
-    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">freshrss</span>
-    <span style="color:#f92672">environment</span>:
-      - <span style="color:#ae81ff">PUID=1000</span>
-      - <span style="color:#ae81ff">PGID=1000</span>
-      - <span style="color:#ae81ff">TZ=America/Chicago</span>
-    <span style="color:#f92672">volumes</span>:
-      - <span style="color:#ae81ff">/path/to/data:/config</span>
-    <span style="color:#f92672">ports</span>:
-      - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>
-    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
-</code></pre></div><p>However, if docker cmd is your thing:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -d <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  --name<span style="color:#f92672">=</span>freshrss <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -e PUID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -e PGID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -e TZ<span style="color:#f92672">=</span>Etc/UTC <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -p 80:80 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -v /path/to/data:/config <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  --restart unless-stopped <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  lscr.io/linuxserver/freshrss:latest
-</code></pre></div><p>These are pretty much exact copies from the linuxserver.io site but as far as database backend, I actually reused the same database server (mariadb) that I used in the previous post. However, you can stick with sqlite and go through the install instructions once you have connected to the server url.</p>
-<h1 id="next-project-please">Next project please</h1>
-<p>This time round, I went with the FeedMe rss reader, added tailscale on the server I was running the image one and went on my way. And, I didn&rsquo;t have to reset my feeds, I just simply exported my feeds and import into the new FreshRSS server.</p>
-<figure><img src="/images/importexport.png"/>
-</figure>
+  <h1 id="i-gave-up">I gave up</h1>
+<p>To save the trouble of leaving you all on a cliff hanger, I switched back to pop_OS. I&rsquo;ll explain, to my best ability why. But I do want to point out some of things I learned about NixOS that make it one of the best operating systems I have ever used. At the end of the day, I wanted to be on a platform that did not require me to fight to use every time I wanted to add something to my config file. Anyways, let&rsquo;s get to the point of this post.</p>
+<h2 id="what-was-is-great-about-nixos">What <del>was</del> is great about NixOS</h2>
+<h3 id="switching-desktop-environments">Switching Desktop Environments</h3>
+<p>It is no secret I am a fan of Gnome desktop. I basically have been using this since 2010 , or whenever I first used Ubuntu. So, it was an obvious choice for me to use the latest version of Gnome when using NixOS. Right?</p>
+<p>I did install NixOS first with Gnome, and went through my usual routine of getting my favorite extensions installed. Once I had my Dracula theme configured just right, I went about my business. In the time frame of starting the journey with NixOS, I also picked up a SteamDeck for Christmas. As some of you might know, SteamOS uses KDE for the desktop environment. Whenever I needed to go into desktop mode, I was left learning more about KDE and where everything was. You could imagine that after a few weeks, I figured why not give KDE a shot on NixOS?</p>
+<p>After a quick search on the NixOS documentation site and posts, it was clear to me that this was way too easy. Two lines to my config, change or comment out gnome related settings, and do a rebuild? That is it?</p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf">services.xserver.enable = true;
+services.xserver.displayManager.sddm.enable = true;
+services.xserver.desktopManager.plasma5.enabled = true;
 
+</code></pre><p>No catch here-that was really it. After my rebuild, I did a quick reboot for safe keepings and I was presented with a new login page. KDE, here we go!</p>
+<p>From there on, I continued to tweak my preferences in KDE only to ask myself &ldquo;How can I make sure that all of these customizations are in my config as well?&rdquo; I saw posts and mentions of Home Manager, but never really looked into it. You could add it as module in your config,  and from a high level you could essentially set it so your customizations are in the config just like everything else. Well, now I kind of want to do that! But, let&rsquo;s take a step back first because I didn&rsquo;t realize it at the time but I actually had something broken after switching to KDE that didn&rsquo;t surface until I picked up my laptop to bring to bed with me that night. Can you guess what wasn&rsquo;t working?</p>
+<p>If you said audio, nice guess but you are wrong. No, my audio was working like a charm. What was not working was my wifi! For some reason, the switch to KDE disabled my wifi so I figured a quick enabling of the service would do the trick. That didn&rsquo;t work either, which made me laugh. Did I just bork my wifi card?</p>
+<p>Again, back to documentation and posts I went and discovered others experienced this as well. Throwing in the following in my config did the trick:</p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf">networking.wireless.enable = true;
+
+# Later I found out that I should have used below, for my specific setup since I kept losing wifi connection randomly. Found this in post in a thread (look for buovjaga's response) https://discourse.nixos.org/t/how-do-i-set-up-wifi-with-kde-plasma/18560/3
+
+
+networking.networkmanager.enable = true; #should already be in your config
+networking.wireless.iwd.enable = true;
+networking.networkmanager.wifi.backend = &quot;iwd&quot;;
+
+
+</code></pre><p>I am sure there is a logical reason behind this, related to different network managers in KDE and Gnome, but I didn&rsquo;t care. It was working.</p>
+<h3 id="services">Services</h3>
+<p>Naturally, I use a few services that could be baked into my config. For the sake of this post, I will use talescale and syncthing. Watch as I enable both services, complete with the necessary settings, with just a few lines of code in your config.</p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf"># Enable Syncthing
+services.syncthing = {
+    enable = true;
+    user = &quot;randoneering&quot;;
+    dataDir = &quot;/home/randoneering/Documents/&quot;; # Default folder for new synced folders
+    configDir = &quot;/home/randoneering/Documents/.config/syncthing&quot;;
+    };
+# Enable Tailscale
+services.tailscale.enable = true; 
+
+</code></pre><h3 id="fixing-your-mistakes">Fixing your mistakes</h3>
+<p>Something we take for granted is having the ability to rollback the mistakes you make in life&hellip;wait, we don&rsquo;t get that luxury. Yet, if you bork your config, you can simply revert your changes. One way you can do this is by rebooting your session, selecting a previous build in the list. You will boot right up, using the previous config state. There, you can tiddy up your config or leave it. Make sure to do a <code>nix-collect-garbage -d</code> then <code>nixos-rebuild switch</code>. This cleans up the previous versions of your configs and updates the boot entries.</p>
+<h2 id="what-next">What next?</h2>
+<p>I will eventually get back to nixOS, but for now, I am patiently waiting for COSMIC DE from our folks who make pop_OS (system76). I have been trying to write this post for almost two months, and I am about to post this after Plasma 6 was officially released. It is not enough to get me back into nixOS, but you can if you want to switch to the unstable channel. Best of luck, and happy config-cofiguring.</p>
 
   </div>
 
@@ -190,7 +206,7 @@
 
 <div class="share-buttons">
 
-    <a target="_blank" rel="noopener noreferrer" aria-label="share FreshRSS, but using Docker Compose on linkedin"
+    <a target="_blank" rel="noopener noreferrer" aria-label="share NixOS part 1.5 on linkedin"
         href="https://www.linkedin.com/in/justin-frye-b4b14763/">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path

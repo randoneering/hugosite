@@ -5,7 +5,16 @@
     <link>/</link>
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 29 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NixOS part 1.5</title>
+      <link>/blog/nixosjourneyp2/</link>
+      <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/nixosjourneyp2/</guid>
+      <description>I gave up To save the trouble of leaving you all on a cliff hanger, I switched back to pop_OS. I&amp;rsquo;ll explain, to my best ability why. But I do want to point out some of things I learned about NixOS that make it one of the best operating systems I have ever used. At the end of the day, I wanted to be on a platform that did not require me to fight to use every time I wanted to add something to my config file.</description>
+    </item>
+    
     <item>
       <title>Stay awhile, and listen...to my nixOS journey!</title>
       <link>/blog/nixosjourneyp1/</link>
