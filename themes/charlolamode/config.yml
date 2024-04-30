@@ -27,8 +27,7 @@ params:
     author: Justin@Randoneering
 
 
-    defaultTheme: auto
-    # disableThemeToggle: true
+    defaultTheme: dark
     ShowShareButtons: true
     ShowReadingTime: true
     displayFullLangName: true
@@ -44,7 +43,7 @@ params:
 
            
            
-           AWS DBA/Sysadmin | Randoneer(TM) 
+           AWS DBRE/Sysadmin | Randoneer(TM) 
            
            
            I have too many hobbies and like tinkering, so I write about it.
@@ -55,9 +54,6 @@ params:
         # imageWidth: 120
         # imageHeight: 120
         buttons:
-            - name: Check out TechnoTim!
-              url: https://technotim.live
-
             - name: Check out onramp!
               url: https://github.com/traefikturkey/onramp 
     mainSections:
