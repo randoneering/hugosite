@@ -5,7 +5,7 @@ description: While I was gone, I was busy at work with IaC and my first public g
 topic: IaC and HTML/CSS
 date: 2024-07-14
 ---
-ire
+
 # I have been busy
 
 You will notice how my posts are spread out, and my answer for that is simple; life. Between several life changes, a cross country move, and busy work life, it is hard for me to muster the energy to do anything other than meditate and go to sleep. So here are a few things I have been working on in the limited time I have.
