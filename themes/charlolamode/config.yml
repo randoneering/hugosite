@@ -38,12 +38,13 @@ params:
     profileMode:
         # Disable to populate home page with 'mainSections' content
         enabled: true
-        title: Justin @ Randoneering
-        description: |
+        title: Randoneering
+        description: 
 
            
            
-           AWS DBRE/Sysadmin | Randoneer(TM) 
+          Senior Database Engineer | Randoneer(TM) 
+           
            
            
            I have too many hobbies and like tinkering, so I write about it.
@@ -51,8 +52,8 @@ params:
         imageUrl: "/images/randoneering_logo_only.jpg"
 
         #imageTitle:
-        # imageWidth: 120
-        # imageHeight: 120
+        #imageWidth: 375
+        #imageHeight: 350
         buttons:
             - name: Check out onramp!
               url: https://github.com/traefikturkey/onramp 

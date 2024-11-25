@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+    <lastmod>2024-07-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/</loc>
-    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+    <lastmod>2024-07-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/projectupdate/</loc>
+    <lastmod>2024-07-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/nixosjourneyp2/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
