@@ -45,10 +45,23 @@
     {{- partial "share_icons.html" . -}}
     {{- end }}
   </footer>
-
+  <script src="https://giscus.app/client.js"
+  data-repo="randoneering/hugosite"
+  data-repo-id="R_kgDOJ7Rs5w"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOJ7Rs584Ck7Xe"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="transparent_dark"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+</script>
   {{- if (.Param "comments") }}
   {{- partial "comments.html" . }}
   {{- end }}
 </article>
-
 {{- end }}{{/* end main */}}
