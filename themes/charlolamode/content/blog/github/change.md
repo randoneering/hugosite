@@ -22,7 +22,7 @@ So, I didn't want to go with the older Pop!OS, I considered Fedora, but I really
 
 The point of this goal is to write posts on things that I found interesting for the week. This could be apps, pieces of news and my thoughts on it, or maybe a tool/thing I wrote that could help someone out there. I told myself the post does not need to be super dense, but to avoid fluff and be more to the point. And links, lots of links. 
 
-## Contribute to Open Source
+### Contribute to Open Source
 
 This is a loaded goal as there are several ways I could contribute to a project. I could provide professional advice on database structure and design, help write queries, and even write playbooks/terraform modules if needed. 
 
@@ -30,16 +30,16 @@ Additionally, I could contribute by doing something completely different from my
 
 Either way, I need to start committing things to other public repos (other than mine). I have a few in mind, so that's good.
 
-## Post on Projects
+### Post on Projects
 
 Since moving to Idaho, I have not had a chance to really work on projects. My weather stations are up and running, and I really want to get to building a dashboard for aggregating the data from both of them. In that same area, I have ideas on getting more home automation setup and get ADS-B radar up to start tracking flights that come through Boise (and over my house!)
 
-## Document my "make cool stuff" adventures
+### Document my "make cool stuff" adventures
 
 I do not think I need to really talk much about this other than I have so many hobbies that I should just document my journey. Heck, I am considering getting a GoPro and taking that with me on my trail runs. 
 
 
-## Accountability and End of Post
+### Accountability and End of Post
 
 One of the first things I want to work on is documenting and organizing my thoughts on what to do first. Which, ironically, means trying out various productivity apps and note taking apps. Luckily, these are some of my favorite apps to test out and see how it stands against my ADHD brain. You might be hearing alot of logseq from me in the coming posts. 
 
