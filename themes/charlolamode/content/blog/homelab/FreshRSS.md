@@ -3,7 +3,7 @@ title: FreshRSS RSS Feed Aggregator
 type: page
 description: Self-host your own rss feed aggregator, and use your own app to read!
 topic: self-hosted
-date: 2023-06-23
+publishDate: 2023-06-23
 ---
 
 # I love RSS

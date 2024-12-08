@@ -3,7 +3,7 @@ title: DBRE Terraform Modules, Ansible-Playbooks, and my first Public Project
 type: page
 description: While I was gone, I was busy at work with IaC and my first public github project
 topic: IaC and HTML/CSS
-date: 2024-07-14
+publishDate: 2024-07-14
 ---
 
 # I have been busy

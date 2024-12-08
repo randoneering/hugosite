@@ -3,6 +3,7 @@ title: Basic MariaDB Install Playbook
 type: page
 description: When you just want a simple install of MariaDB via Ansible
 topic: Ansible
+publishDate: 2022-01-01
 ---
 
 # Getting Down to the Basics

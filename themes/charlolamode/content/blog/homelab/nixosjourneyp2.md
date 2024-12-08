@@ -3,7 +3,7 @@ title: NixOS part 1.5
 type: page
 description: What spending too much time in a single config file does to you
 topic: NixOS
-date: 2024-03-05
+publishDate: 2024-03-05
 ---
 
 # I gave up

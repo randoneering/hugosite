@@ -3,7 +3,7 @@ title: Stay awhile, and listen...to my nixOS journey!
 type: page
 description: Taking immutable to a new level
 topic: NixOS
-date: 2023-12-29
+publishDate: 2023-12-29
 ---
 
 

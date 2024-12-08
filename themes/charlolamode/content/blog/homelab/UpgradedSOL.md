@@ -3,6 +3,7 @@ title: Upgraded SOL
 type: page
 description: Time to upgrade the SOLar Server
 topic: Homelab
+publishDate: 2022-01-01
 ---
 
 As a true homelab enthusiast, I decided to swap out the middle fans of my supermicro 826 server chassis and the two X5860s  with two L5640s. For months, I have left my lab running, but barely using the 20+ cores and 128GB of RAM I have in the box. Paired with a 1000w power supply, I was feeling pretty guilty having this old server sucking power and it not going to good use.

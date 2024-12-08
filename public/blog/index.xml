@@ -67,21 +67,21 @@
     <item>
       <title>Basic MariaDB Install Playbook</title>
       <link>/blog/homelab/mariadbplaybook/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
       <guid>/blog/homelab/mariadbplaybook/</guid>
       <description>Getting Down to the Basics This will be an ongoing task and is in a private repo currently. However, I wanted to share the core of the playbook here. Check back periodically where I will make adjustments to include other best practices. Once I feel like this is in a solid state, I will open up the github repo for easy of use.&#xA;Before You Copy Pasta Notice the variables-you will need to add your own vars file, inventory file, and your ansible.</description>
     </item>
     <item>
       <title>Upgraded SOL</title>
       <link>/blog/homelab/upgradedsol/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
       <guid>/blog/homelab/upgradedsol/</guid>
       <description>As a true homelab enthusiast, I decided to swap out the middle fans of my supermicro 826 server chassis and the two X5860s with two L5640s. For months, I have left my lab running, but barely using the 20+ cores and 128GB of RAM I have in the box. Paired with a 1000w power supply, I was feeling pretty guilty having this old server sucking power and it not going to good use.</description>
     </item>
     <item>
       <title>When Two Weather Stations Walk Into A Bar</title>
       <link>/blog/homelab/weatherstation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
       <guid>/blog/homelab/weatherstation/</guid>
       <description>Davis Vantage Pro2 Acquired&#xA;A few years ago, my wife&amp;rsquo;s grandfather gifted me a Davis Vantage Pro2 weather station. Originally, he was given this weather station by one of his sons who was deployed on active duty in the Middle East shortly after 9/11. This specific weather station was used at his post and when his deployment ended, and the station was gearing down, his son packed up the weather station.</description>
     </item>

@@ -3,6 +3,7 @@ title: When Two Weather Stations Walk Into A Bar
 type: page
 description: A gifted weather station starts a new hobby
 topic: Weather Stations
+publishDate: 2022-01-01
 ---
 
 

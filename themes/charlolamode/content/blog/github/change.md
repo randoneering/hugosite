@@ -3,7 +3,7 @@ title: I swear I still write things.
 type: page
 description: Time to get back to regular posts
 topic: misc
-date: 2024-12-06
+publishDate: 2024-12-06
 ---
 
 # I Still Use This Website

@@ -3,7 +3,7 @@ title: Automate your dumps with Powershell(part 2)
 type: page
 description: Using Powershell to automate adhoc or scheduled database dumps for MySQL in next post
 topic: Database Administration
-date: 2023-10-29
+publishDate: 2023-10-29
 ---
 
 # Time for mysqldump

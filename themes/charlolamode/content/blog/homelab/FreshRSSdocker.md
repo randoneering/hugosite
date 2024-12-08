@@ -3,7 +3,7 @@ title: FreshRSS, but using Docker Compose
 type: page
 description: Don't like running LAMP stacks? Well, there is a docker image for that.
 topic: self-hosted
-date: 2023-07-04
+publishDate: 2023-07-04
 ---
 
 
