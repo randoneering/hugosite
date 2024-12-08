@@ -1,7 +1,7 @@
 // add required deps
 const Masto = require('mastodon')
 const fs = require('fs')
-const glob = require('glob')
+const {glob} = require('glob')
 const { resolve, join, path } = require('path')
 const matter = require('gray-matter')
 
