@@ -25,6 +25,6 @@ jobs:
             - name: Install Node modules
               run: yarn
             - name: Toot message
-              run: node toot.js
+              run: node toot.cjs
               env:
                   MASTODON_AUTH_TOKEN: ${{ secrets.MASTODON_AUTH_TOKEN }}
