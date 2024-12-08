@@ -23,13 +23,13 @@ const getAllPosts = () => {
 
     // use glob and cwd (current working directory) to grab all of our posts
     glob(
-        '**/*.mdx',
-        { cwd: '../src/pages/words/' },
+        '**/*.md',
+        { cwd: '../themes/charlolamode/content/blog/' },
         async function (er, files) {
             const filesArray = (array) => {
                 const promises = array.map(async (file) => {
                     const content = fs.readFileSync(
-                        resolve(join('../src/pages/words/', file))
+                        resolve(join('../public/images/', file))
                     )
                     return {
                         file: file,
@@ -52,7 +52,7 @@ const getAllPosts = () => {
             latestFile = getLatestFile(filesToSort) // getLatesFile() is below
 
             metaData = async (latestFile) => {
-                const filePath = '../public/blog/' + latestFile.file.file
+                const filePath = '../themes/charlolamode/content/blog/' + latestFile.file.file
                 const n = filePath.lastIndexOf('/')
                 const latest = filePath.substring(n + 1)
                 const imageDir = '../public/images/' // change this to your image dir
@@ -102,8 +102,8 @@ const post = (toot, dir, postPath) => {
         post =
             'New post: ' +
             toot.data.title +
-            ' https://joshuaiz.com/words/' +
-            postPath.replace('.mdx', '')
+            ' https://randoneering.tech/blog/' +
+            postPath.replace('.md', '')
     }
 
     const tootImageAltText = toot.data.postImageAlt
@@ -124,9 +124,9 @@ const post = (toot, dir, postPath) => {
     let b64content
 
     if (toot.data.blurb && toot.data.blurb === true) {
-        imagePath = dir + 'blurb.png'
+        imagePath = dir + 'randoneering_logo_120by100.jpeg'
     } else {
-        imagePath = postPath.replace('.mdx', '.jpg')
+        imagePath = postPath.replace('.md', '.jpeg')
         b64content = fs.readFileSync(resolve(join(dir + imagePath)), {
             encoding: 'base64',
         })
