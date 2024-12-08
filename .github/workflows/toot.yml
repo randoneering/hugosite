@@ -1,0 +1,30 @@
+name: Mastodon Post
+on: [push]
+defaults:
+    run:
+        working-directory: mastodon
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        if: "contains(github.event.head_commit.message, 'mastodon post')"
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+            - name: Install mastodon
+              run: yarn add 'mastodon'
+            - name: Install glob
+              run: yarn add 'glob'
+            - name: Install path
+              run: yarn add 'path'
+            - name: Install gray matter
+              run: yarn add 'gray-matter'
+            - name: Install Node modules
+              run: yarn
+            - name: Toot message
+              run: node toot.cjs
+              env:
+                  MASTODON_AUTH_TOKEN: ${{ secrets.MASTODON_AUTH_TOKEN }}
