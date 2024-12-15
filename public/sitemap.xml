@@ -3,42 +3,45 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/</loc>
+    <lastmod>2024-12-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/december142024/</loc>
+    <lastmod>2024-12-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/change/</loc>
     <lastmod>2024-12-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/github/change/</loc>
-    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/blog/homelab/projectupdate/</loc>
+    <loc>/blog/projectupdate/</loc>
     <lastmod>2024-07-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/homelab/nixosjourneyp2/</loc>
+    <loc>/blog/nixosjourneyp2/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/homelab/nixosjourneyp1/</loc>
+    <loc>/blog/nixosjourneyp1/</loc>
     <lastmod>2023-12-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/homelab/automateddumpspt2/</loc>
+    <loc>/blog/automateddumpspt2/</loc>
     <lastmod>2023-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/homelab/automateddumpspt1/</loc>
+    <loc>/blog/automateddumpspt1/</loc>
     <lastmod>2023-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/homelab/freshrssdocker/</loc>
+    <loc>/blog/freshrssdocker/</loc>
     <lastmod>2023-07-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/homelab/freshrss/</loc>
+    <loc>/blog/freshrss/</loc>
     <lastmod>2023-06-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/homelab/mariadbplaybook/</loc>
+    <loc>/blog/mariadbplaybook/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/homelab/upgradedsol/</loc>
+    <loc>/blog/upgradedsol/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/homelab/weatherstation/</loc>
+    <loc>/blog/weatherstation/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/</loc>

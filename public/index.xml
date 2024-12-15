@@ -6,83 +6,90 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 06 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Weekly Post (2024-12-16)</title>
+      <link>/blog/december142024/</link>
+      <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>/blog/december142024/</guid>
+      <description>Notable Articles The &amp;ldquo;Ideal&amp;rdquo; Pull Request Template https://ashleemboyer.com/blog/pull-request-template/&#xA;I started to see this more at the company I work with now when I get tagged for schema reviews. To be honest, I love templates; I used to have a go to template for my test cases when I was a QA Test Lead. They helped me create repeatable tests that included the necessary information for anyone to pick it up and repeat that same test in the same manner.</description>
+    </item>
+    <item>
       <title>I swear I still write things.</title>
-      <link>/blog/github/change/</link>
+      <link>/blog/change/</link>
       <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/blog/github/change/</guid>
+      <guid>/blog/change/</guid>
       <description>I Still Use This Website Yet another large gap in my posts, and the only answer I can provide to you is lack of time and motivation to do anything about it. However, I have told myself that I should hold myself accountable for posting and doing research on the things that I love. If some of that becomes interesting enough to put on this site, then I can do that!</description>
     </item>
     <item>
       <title>DBRE Terraform Modules, Ansible-Playbooks, and my first Public Project</title>
-      <link>/blog/homelab/projectupdate/</link>
+      <link>/blog/projectupdate/</link>
       <pubDate>Sun, 14 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/projectupdate/</guid>
+      <guid>/blog/projectupdate/</guid>
       <description>I have been busy You will notice how my posts are spread out, and my answer for that is simple; life. Between several life changes, a cross country move, and busy work life, it is hard for me to muster the energy to do anything other than meditate and go to sleep. So here are a few things I have been working on in the limited time I have.&#xA;Terraform Modules for DBREs Over the last few months, I have been working hard on deploying Database IaC at my jobby job.</description>
     </item>
     <item>
       <title>NixOS part 1.5</title>
-      <link>/blog/homelab/nixosjourneyp2/</link>
+      <link>/blog/nixosjourneyp2/</link>
       <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/nixosjourneyp2/</guid>
+      <guid>/blog/nixosjourneyp2/</guid>
       <description>I gave up To save the trouble of leaving you all on a cliff hanger, I switched back to pop_OS. I&amp;rsquo;ll explain, to my best ability why. But I do want to point out some of things I learned about NixOS that make it one of the best operating systems I have ever used. At the end of the day, I wanted to be on a platform that did not require me to fight to use every time I wanted to add something to my config file.</description>
     </item>
     <item>
       <title>Stay awhile, and listen...to my nixOS journey!</title>
-      <link>/blog/homelab/nixosjourneyp1/</link>
+      <link>/blog/nixosjourneyp1/</link>
       <pubDate>Fri, 29 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/nixosjourneyp1/</guid>
+      <guid>/blog/nixosjourneyp1/</guid>
       <description>NixOS Journey, Part 1 So, for those who have yet to go down this path, it would be helpful to explain what NixOS is. NixOS is a free and open-source Linux distribution. What sets itself apart from Pop!os, Debian, Ubuntu, Arch, and many others is that its entire operating system is built by the Nix package manager. This includes nix application packages, your kernel, system settings, SMB shares, and pretty much anything you can think of.</description>
     </item>
     <item>
       <title>Automate your dumps with Powershell(part 2)</title>
-      <link>/blog/homelab/automateddumpspt2/</link>
+      <link>/blog/automateddumpspt2/</link>
       <pubDate>Sun, 29 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/automateddumpspt2/</guid>
+      <guid>/blog/automateddumpspt2/</guid>
       <description>Time for mysqldump The script is identical other than two things. First, we have to use a separate secrets file to the user and password to execute mysqldump. Secondly, the parameter order is different for mysqldump, and it is very picky. I have included some source post and documentation that helped me get around a few issues.&#xA;Storing the password Like Postgres, I wanted to store the password somewhere so I wouldn&amp;rsquo;t need to manually enter for each dump (and avoid plain text exposure of my password when passing the command).</description>
     </item>
     <item>
       <title>Automate your dumps with Powershell(part 1)</title>
-      <link>/blog/homelab/automateddumpspt1/</link>
+      <link>/blog/automateddumpspt1/</link>
       <pubDate>Fri, 27 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/automateddumpspt1/</guid>
+      <guid>/blog/automateddumpspt1/</guid>
       <description>The Ask I was asked to do the following. First, I needed to run a backup of specific databases, both in Postgres and MySQL. Second, I needed to gzip the backup. Finally, it had to be uploaded to an S3 bucket. Seemed straight forward enough.&#xA;The How In a previous life, I worked in a Sysadmin/DBA hybrid role where I wrote a lot of powershell scripts for support. I would prefer to use this opportunity to learn python (which is in the works now), but I needed to get this done in a time frame that would not allow for me to learn it.</description>
     </item>
     <item>
       <title>FreshRSS, but using Docker Compose</title>
-      <link>/blog/homelab/freshrssdocker/</link>
+      <link>/blog/freshrssdocker/</link>
       <pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/freshrssdocker/</guid>
+      <guid>/blog/freshrssdocker/</guid>
       <description>This is a quick one To prove a point, and make it &amp;ldquo;easier&amp;rdquo;, you could just use docker and run FreshRSS that way. It takes less time, honestly, and less complicated. So, why not:&#xA;Oh, linuxserver.io, how I adore you I went with the instructions and image curated by linuxserver.io:&#xA;https://docs.linuxserver.io/images/docker-freshrss&#xA;This cuts out a lot of the work, and actually setups up a cronjob to refresh your feeds automatically. No fussing around with systemd or crontabs yourself.</description>
     </item>
     <item>
       <title>FreshRSS RSS Feed Aggregator</title>
-      <link>/blog/homelab/freshrss/</link>
+      <link>/blog/freshrss/</link>
       <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/freshrss/</guid>
+      <guid>/blog/freshrss/</guid>
       <description>I love RSS If you are like me and love RSS, I highly recommend hosting your own RSS Feed aggregator. A fellow community member in the TechnoTim discord (Thanks Blade) introduced me to FressRSS. It is free, lightweight, relatively easy to work with, and fully customizable. Though, it seems I like to do things the &amp;ldquo;hard way&amp;rdquo; and decided against using the docker image. So if you are looking for the fire and forget method you get with docker, then you are in the wrong place.</description>
     </item>
     <item>
       <title>Basic MariaDB Install Playbook</title>
-      <link>/blog/homelab/mariadbplaybook/</link>
+      <link>/blog/mariadbplaybook/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/mariadbplaybook/</guid>
+      <guid>/blog/mariadbplaybook/</guid>
       <description>Getting Down to the Basics This will be an ongoing task and is in a private repo currently. However, I wanted to share the core of the playbook here. Check back periodically where I will make adjustments to include other best practices. Once I feel like this is in a solid state, I will open up the github repo for easy of use.&#xA;Before You Copy Pasta Notice the variables-you will need to add your own vars file, inventory file, and your ansible.</description>
     </item>
     <item>
       <title>Upgraded SOL</title>
-      <link>/blog/homelab/upgradedsol/</link>
+      <link>/blog/upgradedsol/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/upgradedsol/</guid>
+      <guid>/blog/upgradedsol/</guid>
       <description>As a true homelab enthusiast, I decided to swap out the middle fans of my supermicro 826 server chassis and the two X5860s with two L5640s. For months, I have left my lab running, but barely using the 20+ cores and 128GB of RAM I have in the box. Paired with a 1000w power supply, I was feeling pretty guilty having this old server sucking power and it not going to good use.</description>
     </item>
     <item>
       <title>When Two Weather Stations Walk Into A Bar</title>
-      <link>/blog/homelab/weatherstation/</link>
+      <link>/blog/weatherstation/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/weatherstation/</guid>
+      <guid>/blog/weatherstation/</guid>
       <description>Davis Vantage Pro2 Acquired&#xA;A few years ago, my wife&amp;rsquo;s grandfather gifted me a Davis Vantage Pro2 weather station. Originally, he was given this weather station by one of his sons who was deployed on active duty in the Middle East shortly after 9/11. This specific weather station was used at his post and when his deployment ended, and the station was gearing down, his son packed up the weather station.</description>
     </item>
   </channel>
