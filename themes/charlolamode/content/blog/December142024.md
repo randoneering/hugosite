@@ -1,9 +1,9 @@
 ---
-title: Weekly Post (2024-12-16)
+title: Weekly Post (2024-12-15)
 type: page
 description: News, Projects, Meditation, and Tangents
 topic: weekly
-publishDate: 2024-12-14
+publishDate: 2024-12-15
 ---
  
 # Notable Articles
