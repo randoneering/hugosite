@@ -1,30 +1,40 @@
-name: Mastodon Post
-on: [push]
-defaults:
-    run:
-        working-directory: mastodon
+name: Send a toot to Mastodon
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        if: "contains(github.event.head_commit.message, 'mastodon post')"
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v3
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ">=20"
-            - name: Install mastodon
-              run: yarn add 'mastodon'
-            - name: Install glob
-              run: yarn add 'glob'
-            - name: Install path
-              run: yarn add 'path'
-            - name: Install gray matter
-              run: yarn add 'gray-matter'
-            - name: Install Node modules
-              run: yarn
-            - name: Toot message
-              run: node toot.cjs
-              env:
-                  MASTODON_AUTH_TOKEN: ${{ secrets.MASTODON_AUTH_TOKEN }}
+  post-to-mastodon:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+      # This is required to get the latest commit message with files names
+      - name: Set env variables
+        run: |
+          # prints the current branch name
+          echo $GITHUB_HEAD_REF
+          # checkouts to the current branch which in case is master
+          git checkout $GITHUB_HEAD_REF
+          # format the commit message
+          RECENTLY_ADDED_FILES=$(git log -1 --stat --oneline --name-only | tr '\n' '|')
+          echo $RECENTLY_ADDED_FILES
+          # set it as an environment variable
+          echo "RECENTLY_ADDED_FILES=$RECENTLY_ADDED_FILES" >> $GITHUB_ENV
+
+      - name: Post to Mastodon
+        uses: sumit4613/post-to-mastodon@v0.1
+        with:
+          # This is the message that will be sent to Mastodon, override it with your own message if you want
+          message: "Words have been submitted to the ether."
+          # Base URL of your blog post where your posts are hosted
+          base_blog_url: "https://randoneering.tech/blog/"
+          # access token of your Mastodon account
+          access_token: ${{ secrets.MASTODON_AUTH_TOKEN }}
+          # Mastodon instance URL, default is fosstodon.org
+          host: "fosstodon.org"
+          port: "443"
+          api: "api/v1"
