@@ -54,5 +54,5 @@ When he left Peloton this year, and we sold our bike off to another happy custom
 https://ghostty.org/
 
 ### Lobst.rs/Hacker News article comparison tool
-envok
+
 https://lobhn.skyshelf.app/
