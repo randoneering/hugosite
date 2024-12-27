@@ -6,12 +6,19 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 14 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Weekly Post (2024-12-16)</title>
+      <title>Weekly Post (2024-12-26)</title>
+      <link>/blog/december262024/</link>
+      <pubDate>Thu, 26 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>/blog/december262024/</guid>
+      <description>Notable Articles Gordon Mah Ung https://www.pcworld.com/article/2564783/gordon-mah-ung-remembered.html&#xA;Growing up in my PC Master Race years, I remember reading PCWorld articles, and eventually, watching clips with Gordon in front of the camera in the early days of youtube. And, if I can remember correctly, I believe the PCWorld mag podcast was one of the first podcasts I ever subscribed to. Gordon left a huge mark on the industry, and he will be greatly missed.</description>
+    </item>
+    <item>
+      <title>Weekly Post (2024-12-15)</title>
       <link>/blog/december142024/</link>
-      <pubDate>Sat, 14 Dec 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
       <guid>/blog/december142024/</guid>
       <description>Notable Articles The &amp;ldquo;Ideal&amp;rdquo; Pull Request Template https://ashleemboyer.com/blog/pull-request-template/&#xA;I started to see this more at the company I work with now when I get tagged for schema reviews. To be honest, I love templates; I used to have a go to template for my test cases when I was a QA Test Lead. They helped me create repeatable tests that included the necessary information for anyone to pick it up and repeat that same test in the same manner.</description>
     </item>
