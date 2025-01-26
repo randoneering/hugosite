@@ -36,12 +36,15 @@ features = [
 ]
 
 [author]
-  name = "Charlotte Martin"
-  homepage = "https://github.com/charlola/"
+  name = "Justin Frye"
+  homepage = "https://github.com/randoneering"
+  repo = "https://github.com/randoneering/hugo-dracula-charlolamode"
 
+
+[]
 # If porting an existing theme
 [original]
-  name = "Paper"
-  author = "nanxiaobei"
-  homepage = "https://github.com/nanxiaobei"
-  repo = "https://github.com/nanxiaobei/hugo-paper/"
+  name = "charlolamode"
+  author = "Charlotte Martin"
+  homepage = "https://github.com/charlola/"
+  repo = "https://github.com/charlola/hugo-theme-charlolamode/"
