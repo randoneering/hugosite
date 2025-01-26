@@ -55,8 +55,8 @@ params:
         #imageWidth: 375
         #imageHeight: 350
         buttons:
-            - name: Check out onramp!
-              url: https://github.com/traefikturkey/onramp 
+            - name: Donate to my ALF Fundraiser!
+              url: https://liverlifechallenge.org/chicago/support/#jfrye
     mainSections:
       - blog
     socialIcons:
