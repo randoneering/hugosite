@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>DBRE Terraform Modules, Ansible-Playbooks, and my first Public Project | </title>
+<title>Weekly Post (2025-01-25) | </title>
 <meta name="keywords" content="" />
-<meta name="description" content="While I was gone, I was busy at work with IaC and my first public github project">
+<meta name="description" content="News, Projects, Meditation, and Tangents">
 <meta name="author" content="Justin@Randoneering">
-<link rel="canonical" href="/blog/projectupdate/" />
+<link rel="canonical" href="/blog/jan212025/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.8550f40606bc997610bf512fb7e6b88d8d608543e163d892a5ff925458006087.css" integrity="sha256-hVD0Bga8mXYQv1Evt&#43;a4jY1ghUPhY9iSpf&#43;SVFgAYIc=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -58,12 +58,12 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="">Home</a>&nbsp;»&nbsp;<a href="/blog/">Blog</a></div>
     <h1 class="post-title">
-      DBRE Terraform Modules, Ansible-Playbooks, and my first Public Project
+      Weekly Post (2025-01-25)
     </h1>
     <div class="post-description">
-      While I was gone, I was busy at work with IaC and my first public github project
+      News, Projects, Meditation, and Tangents
     </div>
-    <div class="post-meta">July 14, 2024 - 3 min - Justin@Randoneering</div>
+    <div class="post-meta">January 25, 2025 - 4 min - Justin@Randoneering</div>
   </header> <div class="toc">
     <details >
         <summary accesskey="c" title="(Alt + C)">
@@ -72,15 +72,30 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#i-have-been-busy" aria-label="I have been busy">I have been busy</a><ul>
+                    <a href="#alf-chicago-marathon-2025-liver-life-challenge-update" aria-label="ALF Chicago Marathon 2025 Liver Life Challenge Update">ALF Chicago Marathon 2025 Liver Life Challenge Update</a></li>
+                <li>
+                    <a href="#distro-hoppin" aria-label="Distro-hoppin&#39;">Distro-hoppin'</a><ul>
                         
                 <li>
-                    <a href="#terraform-modules-for-dbres" aria-label="Terraform Modules for DBREs">Terraform Modules for DBREs</a></li>
+                    <a href="#back-on-popos-2204-again" aria-label="Back on pop!OS 22.04 again">Back on pop!OS 22.04 again</a><ul>
+                        <ul>
+                        
                 <li>
-                    <a href="#ansible-playbooks" aria-label="Ansible Playbooks">Ansible Playbooks</a></li>
+                    <a href="#" aria-label="COSMIC apps in pop shop">COSMIC apps in pop shop</a></li>
                 <li>
-                    <a href="#hugo-template" aria-label="Hugo Template">Hugo Template</a>
+                    <a href="#" aria-label="COSMIC Text Editor and Shell, side-by-side">COSMIC Text Editor and Shell, side-by-side</a></li></ul>
+                    </ul>
                 </li>
+                <li>
+                    <a href="#for-those-looking-to-the-fediverse" aria-label="For Those Looking to The Fediverse">For Those Looking to The Fediverse</a></li>
+                <li>
+                    <a href="#tool-shed" aria-label="Tool Shed">Tool Shed</a><ul>
+                        
+                <li>
+                    <a href="#atuin-shell-history" aria-label="Atuin (Shell History)">Atuin (Shell History)</a>
+                </li>
+            </ul>
+            </li>
             </ul>
             </li>
             </ul>
@@ -89,19 +104,35 @@
 </div>
 
   <div class="post-content">
-  <h1 id="i-have-been-busy">I have been busy</h1>
-<p>You will notice how my posts are spread out, and my answer for that is simple; life. Between several life changes, a cross country move, and busy work life, it is hard for me to muster the energy to do anything other than meditate and go to sleep. So here are a few things I have been working on in the limited time I have.</p>
-<h2 id="terraform-modules-for-dbres">Terraform Modules for DBREs</h2>
-<p>Over the last few months, I have been working hard on deploying Database IaC at my jobby job. When I first started building the modules, I realized how much there WASN&rsquo;T out there for fellow DBAs and DBREs. I would find overly complicated modules with more variables than members of the Duggar&rsquo;s Family, embedded scripts to ping alerts, etc. So I started building out modules that were easy to use, without anything complicated to it. Over time, I will iterate from these as they are now, but they can serve as a good base for your journey into IaC as a DBA/DBRE with Terraform.</p>
-<p>Full disclosure: these are written to work with AWS RDS, DocumentDB, DynamoDB, and AWS Aurora engines. In the future, I hope to include as many cloud providers as possible.</p>
-<p><a href="https://github.com/randoneering/aws_dba_terraform_modules">https://github.com/randoneering/aws_dba_terraform_modules</a></p>
-<h2 id="ansible-playbooks">Ansible Playbooks</h2>
-<p>It goes without saying that these playbooks are nothing too complicated. Again, I was looking at low hanging fruit to tackle when modernizing automated tasks as a DBA/DBRE.</p>
-<p><a href="https://github.com/randoneering/aws_db_ansible_playbooks">https://github.com/randoneering/aws_db_ansible_playbooks</a></p>
-<h2 id="hugo-template">Hugo Template</h2>
-<p>When it comes to HTML and CSS, I have no experience at all. However, I feel pretty confident in my ability to research, study, reverse engineer, and simply just ask those who do have experience for help. I originally found this Hugo template and immediately fell in love with it. It is simple, easy to read, and doesn&rsquo;t have too much going on. The point for this blog is to just write about my hobbies and things I find interesting. However, I wanted to make it tailored to my liking. I started to mess with the HTML and CSS code, and went down the path of just forking the original repo to create my own flavor. And of course, throwing the Dracula theme in the mix. This is an unofficial &ldquo;Dracula&rdquo; themed site, but I did use the official color scheme.</p>
-<p>To be honest, I am pretty proud of where I am with this. Sure, the readme needs work, and I still have to clean up the code a bit. But this is a true passion project that has no tie in with what I do with my job. I love to learn new aspects of technology, reverse engineer, and build off of the experience. Feel free to use this template for yourself!</p>
-<p><a href="https://github.com/randoneering/hugo-dracula-charlolamode">https://github.com/randoneering/hugo-dracula-charlolamode</a></p>
+  <h1 id="alf-chicago-marathon-2025-liver-life-challenge-update">ALF Chicago Marathon 2025 Liver Life Challenge Update</h1>
+<p>We are approaching our $1000 mark, with a strong $937 already raised in January! Thank you all for your support. Keep sharing the link with whomever you come across, and do not forget to see if your employer matches your contributions!</p>
+<p><a href="https://liverlifechallenge.org/chicago/support/#jfrye">https://liverlifechallenge.org/chicago/support/#jfrye</a></p>
+<h1 id="distro-hoppin">Distro-hoppin'</h1>
+<h2 id="back-on-popos-2204-again">Back on pop!OS 22.04 again</h2>
+<p>After a failed upgrade to NixOS 24.11 and ultimately being annoyed with my drive to always make things perfect, I went back to my comfort zone. Naturally, I understand that I am on 22.04 and that I could have just gone with Ubuntu 24.04 to be more &ldquo;up to date.&rdquo; The problem is I actually went from Ubuntu 24.04 to NixOS because of how buggy it was! Between random crashes, file managers freezing (both Nautilus and Dolphin), and a pretty poor KDE experience, I left Ubuntu. Honestly, I always seem to leave vanilla Ubuntu because I feel more at home with pop!OS or pretty much any other distro (except Debian, please do not make me hate myself more and tell me to go to Debian).</p>
+<p>Personally, I really enjoy NixOS and the concept behind it. This second go was much easier and I invested a lot of my time in making my nix.configuration look great, enabling services, nfs mounts, and even dove into Home Manager. Yet, I wanted things just to work and be easy, and pop!OS has always been that. I love the COSMIC gestures, the system76 support, and the stability of the distro. When COSMIC DE went into public Alpha, I was dumb enough to jump to pop!OS 24.04 with COSMIC and, while it was extremely buggy, it was a glimpse of what my future would look like. The colors, minimalism, and window management was just what I wanted. Luckily, I can actually use some of the new applications that will be in 24.04 on 22.04 through the POP!Shop. Naturally, I grabbed the COSMIC terminal and considered the IDE, but I am still too integrated with vscodium and the extensions. Maybe in the future I will take the jump, but I use vscodium for both my personal work and at my jobby job. I have everything set the way I like it and I don&rsquo;t want to change that.</p>
+<figure><img src="/images/popstore.png"/><figcaption>
+            <h4>COSMIC apps in pop shop</h4>
+        </figcaption>
+</figure>
+
+<figure><img src="/images/shellide.png"/><figcaption>
+            <h4>COSMIC Text Editor and Shell, side-by-side</h4>
+        </figcaption>
+</figure>
+
+<p>Something that I really need to do is actually manage my .dot files so if I ever needed to jump to another distro, or better yet, need a fresh install, I could just pull those files down. In addition, I am trying to focus on using one package manager (flatpaks) to avoid being in a spot where I have to make sure I update everything via 3-4 different commands (apt, snap, appimage, etc). Unfortunately, I do not know how long this will last as I am sure I will find something I use that just is just at the point of obscurity that I have to compile from source or someone&rsquo;s shell script. I really do not enjoy jumping from distro to distro. It gets exhausting and is really time consuming. It takes me away from being able to work on my projects or even just use the laptop itself. Here&rsquo;s to staying put until pop!OS 24.04 is available and stable.</p>
+<h2 id="for-those-looking-to-the-fediverse">For Those Looking to The Fediverse</h2>
+<p>The following list contains &ldquo;alternative&rdquo; services/apps you can use if you are leaving the major social apps</p>
+<p><a href="https://pixelfed.org/">Pixelfed</a> - Instagram Alternative</p>
+<p><a href="https://joinpeertube.org/">Peertube</a> - Youtube Alternative</p>
+<p><a href="https://join-lemmy.org/">Lemmy</a> - Reddit Alternative (sorta)</p>
+<p><a href="https://joinmastodon.org/">Mastodon</a> - Twitter Alternative</p>
+<p>I know most of the tech savvy people have already heard of these, and I avoided making this list of other obscure social apps that, more than likely, normies would never look at. If that is something you are into, however, I think you already have found your way into those niche platforms.</p>
+<p>But if you are a normie and are still interested, most of these sites have walkthroughs on how to join the Fediverse. While nothing is perfect, you will find that most of the communities in the Fediverse are moderated and have a common goal of not putting up with assholes. If you are that asshole, well, then stay on Twitter.</p>
+<h2 id="tool-shed">Tool Shed</h2>
+<h3 id="atuin-shell-history">Atuin (Shell History)</h3>
+<p><a href="https://atuin.sh/">https://atuin.sh/</a></p>
 
   </div>
 
@@ -109,7 +140,7 @@
 
 <div class="share-buttons">
 
-    <a target="_blank" rel="noopener noreferrer" aria-label="share DBRE Terraform Modules, Ansible-Playbooks, and my first Public Project on linkedin"
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Weekly Post (2025-01-25) on linkedin"
         href="https://www.linkedin.com/in/justin-frye-b4b14763/">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path

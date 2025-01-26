@@ -11,7 +11,7 @@
 <meta name="author" content="Justin@Randoneering">
 <link rel="canonical" href="/blog/freshrssdocker/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.8550f40606bc997610bf512fb7e6b88d8d608543e163d892a5ff925458006087.css" integrity="sha256-hVD0Bga8mXYQv1Evt&#43;a4jY1ghUPhY9iSpf&#43;SVFgAYIc=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js" integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY="
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -20,7 +20,6 @@
 <link rel="mask-icon" href="/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="/blog/freshrssdocker/" />
 <noscript>
     <style>
         #theme-toggle,
@@ -57,7 +56,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/blog/">Blog</a></div>
+    <div class="breadcrumbs"><a href="">Home</a>&nbsp;»&nbsp;<a href="/blog/">Blog</a></div>
     <h1 class="post-title">
       FreshRSS, but using Docker Compose
     </h1>
@@ -91,35 +90,35 @@
 <p>I went with the instructions and image curated by linuxserver.io:</p>
 <p><a href="https://docs.linuxserver.io/images/docker-freshrss">https://docs.linuxserver.io/images/docker-freshrss</a></p>
 <p>This cuts out a lot of the work, and actually setups up a cronjob to refresh your feeds automatically. No fussing around with systemd or crontabs yourself. Here is my docker-compose</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;2.1&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">freshrss</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">lscr.io/linuxserver/freshrss:latest</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">freshrss</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">PUID=1000</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">PGID=1000</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">TZ=America/Chicago</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/path/to/data:/config</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
-</span></span></code></pre></div><p>However, if docker cmd is your thing:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --name<span style="color:#f92672">=</span>freshrss <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e PUID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e PGID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e TZ<span style="color:#f92672">=</span>Etc/UTC <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 80:80 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v /path/to/data:/config <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --restart unless-stopped <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  lscr.io/linuxserver/freshrss:latest
-</span></span></code></pre></div><p>These are pretty much exact copies from the linuxserver.io site but as far as database backend, I actually reused the same database server (mariadb) that I used in the previous post. However, you can stick with sqlite and go through the install instructions once you have connected to the server url.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">---
+<span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;2.1&#34;</span>
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">freshrss</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">lscr.io/linuxserver/freshrss:latest</span>
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">freshrss</span>
+    <span style="color:#f92672">environment</span>:
+      - <span style="color:#ae81ff">PUID=1000</span>
+      - <span style="color:#ae81ff">PGID=1000</span>
+      - <span style="color:#ae81ff">TZ=America/Chicago</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">/path/to/data:/config</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
+</code></pre></div><p>However, if docker cmd is your thing:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -d <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --name<span style="color:#f92672">=</span>freshrss <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -e PUID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -e PGID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -e TZ<span style="color:#f92672">=</span>Etc/UTC <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -p 80:80 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -v /path/to/data:/config <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --restart unless-stopped <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  lscr.io/linuxserver/freshrss:latest
+</code></pre></div><p>These are pretty much exact copies from the linuxserver.io site but as far as database backend, I actually reused the same database server (mariadb) that I used in the previous post. However, you can stick with sqlite and go through the install instructions once you have connected to the server url.</p>
 <h1 id="next-project-please">Next project please</h1>
 <p>This time round, I went with the FeedMe rss reader, added tailscale on the server I was running the image one and went on my way. And, I didn&rsquo;t have to reset my feeds, I just simply exported my feeds and import into the new FreshRSS server.</p>
-<figure><img src="/images/importexport.png">
+<figure><img src="/images/importexport.png"/>
 </figure>
 
 
