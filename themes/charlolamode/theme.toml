@@ -35,9 +35,6 @@ features = [
   "scroll-to-top",
 ]
 
-
-
-
 [author]
   name = "Justin Frye"
   homepage = "https://github.com/randoneering"
@@ -51,7 +48,6 @@ features = [
   homepage = "https://github.com/charlola/"
   repo = "https://github.com/charlola/hugo-theme-charlolamode/"
 
-[]
 # If porting an existing theme
 [original]
   name = "Paper"
@@ -64,3 +60,4 @@ features = [
   name = "Paper"
   author = "adityatelange"
   homepage = "https://github.com/adityatelange"
+  repo = "https://github.com/adityatelange/hugo-PaperMod"
