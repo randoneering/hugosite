@@ -64,4 +64,3 @@ features = [
   name = "Paper"
   author = "adityatelange"
   homepage = "https://github.com/adityatelange"
-  repo = "https://github.com/adityatelange/hugo-PaperMod"
