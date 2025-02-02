@@ -36,6 +36,14 @@ features = [
 ]
 
 
+
+
+[author]
+  name = "Justin Frye"
+  homepage = "https://github.com/randoneering"
+  repo = "https://github.com/randoneering/hugo-dracula-charlolamode"
+
+
 # If porting an existing theme
 [original]
   name = "charlolamode"
