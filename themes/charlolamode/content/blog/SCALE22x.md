@@ -6,7 +6,6 @@ topic: SCALE/Open Source
 publishDate: 2025-03-10
 ---
 
-# SCALE 22x
 
 {{< figure src="/images/scale22x.jpeg" title="Welcome to SCALE 22x!" >}}
 
@@ -16,7 +15,7 @@ This year is my first, and hopefully not last, time attending SCALE (Southern Ca
 
 With an expo like this, of course you will be right to assume that various related companies would be hosting talks, manning booths, and various after hours activites. My favorite part, of course, is the old school "networking" that  happens everywhere outside of rooms. As a type A person, I thrive on these conversations and I feel completely at home here at SCALE. Numerous times I found myself starting a conversation with a complete stranger in passing, commenting on my tattoos or band t-shirt they are wearing. We start talking, in comes someone else interested in what we are talking about, it shifts to homelab, then Nix, then more people join, and soon enough there are about 15 people in the group all talking about different topics at the same time. All naturally forming, no judgment of technical skill, their appearance, their pronouns, just human beings having passionate talks about the things they love (and things they don't). 
 
-# ALF Chicago Marathon 2025 Liver Life Challenge Update
+## ALF Chicago Marathon 2025 Liver Life Challenge Update
 
 I haven't provided an update in awhile, but we are still just shy of $1000 milestone!
 
