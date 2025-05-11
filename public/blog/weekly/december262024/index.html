@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>FreshRSS, but using Docker Compose | </title>
+<title>Weekly Post (2024-12-26) | </title>
 <meta name="keywords" content="" />
-<meta name="description" content="Don&#39;t like running LAMP stacks? Well, there is a docker image for that.">
+<meta name="description" content="News, Projects, Meditation, and Tangents">
 <meta name="author" content="Justin@Randoneering">
-<link rel="canonical" href="//localhost:1313/blog/homelab/freshrssdocker/" />
+<link rel="canonical" href="//localhost:1313/blog/weekly/december262024/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.62d7562978a37edf25a23b592a9bff9e34f66e80efcc9cf2fd267942b990cf7a.css" integrity="sha256-YtdWKXijft8lojtZKpv/njT2boDvzJzy/SZ5QrmQz3o=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js" integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -20,7 +20,7 @@
 <link rel="mask-icon" href="//localhost:1313/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="//localhost:1313/blog/homelab/freshrssdocker/" />
+<link rel="alternate" hreflang="en" href="//localhost:1313/blog/weekly/december262024/" />
 <noscript>
     <style>
         #theme-toggle,
@@ -87,12 +87,12 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="//localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="//localhost:1313/blog/">Blog</a></div>
     <h1 class="post-title">
-      FreshRSS, but using Docker Compose
+      Weekly Post (2024-12-26)
     </h1>
     <div class="post-description">
-      Don&#39;t like running LAMP stacks? Well, there is a docker image for that.
+      News, Projects, Meditation, and Tangents
     </div>
-    <div class="post-meta">July 4, 2023 - 2 min - Justin@Randoneering</div>
+    <div class="post-meta">December 26, 2024 - 5 min - Justin@Randoneering</div>
   </header> <div class="toc">
     <details >
         <summary accesskey="c" title="(Alt + C)">
@@ -101,55 +101,67 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#this-is-a-quick-one" aria-label="This is a quick one">This is a quick one</a></li>
+                    <a href="#notable-articles" aria-label="Notable Articles">Notable Articles</a><ul>
+                        
                 <li>
-                    <a href="#oh-linuxserverio-how-i-adore-you" aria-label="Oh, linuxserver.io, how I adore you">Oh, linuxserver.io, how I adore you</a></li>
+                    <a href="#gordon-mah-ung" aria-label="Gordon Mah Ung">Gordon Mah Ung</a></li>
                 <li>
-                    <a href="#next-project-please" aria-label="Next project please">Next project please</a>
+                    <a href="#we-use-our-own-gear" aria-label="We use our own gear">We use our own gear</a></li>
+                <li>
+                    <a href="#mastodons-2023-annual-report-alittle-late-but-life-happens" aria-label="Mastodon&rsquo;s 2023 Annual Report (alittle late, but life happens)">Mastodon&rsquo;s 2023 Annual Report (alittle late, but life happens)</a></li></ul>
                 </li>
+                <li>
+                    <a href="#things-this-week" aria-label="Things This Week">Things This Week</a><ul>
+                        
+                <li>
+                    <a href="#self-hosted-voice-assistant" aria-label="Self-Hosted Voice Assistant">Self-Hosted Voice Assistant</a></li>
+                <li>
+                    <a href="#meditation-with-ross-rayburn" aria-label="Meditation with Ross Rayburn">Meditation with Ross Rayburn</a></li></ul>
+                </li>
+                <li>
+                    <a href="#tool-shed" aria-label="Tool Shed">Tool Shed</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#sucker-for-spooky-stuff-and-terminal-emulators" aria-label="Sucker for Spooky Stuff and Terminal Emulators">Sucker for Spooky Stuff and Terminal Emulators</a></li>
+                <li>
+                    <a href="#lobstrshacker-news-article-comparison-tool" aria-label="Lobst.rs/Hacker News article comparison tool">Lobst.rs/Hacker News article comparison tool</a>
+                </li>
+            </ul>
+            </ul>
+            </li>
             </ul>
         </div>
     </details>
 </div>
 
   <div class="post-content">
-  <h1 id="this-is-a-quick-one">This is a quick one</h1>
-<p>To prove a point, and make it &ldquo;easier&rdquo;, you could just use docker and run FreshRSS that way. It takes less time, honestly, and less complicated. So, why not:</p>
-<h1 id="oh-linuxserverio-how-i-adore-you">Oh, linuxserver.io, how I adore you</h1>
-<p>I went with the instructions and image curated by linuxserver.io:</p>
-<p><a href="https://docs.linuxserver.io/images/docker-freshrss">https://docs.linuxserver.io/images/docker-freshrss</a></p>
-<p>This cuts out a lot of the work, and actually setups up a cronjob to refresh your feeds automatically. No fussing around with systemd or crontabs yourself. Here is my docker-compose</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;2.1&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">freshrss</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">lscr.io/linuxserver/freshrss:latest</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">freshrss</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">PUID=1000</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">PGID=1000</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">TZ=America/Chicago</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/path/to/data:/config</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
-</span></span></code></pre></div><p>However, if docker cmd is your thing:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --name<span style="color:#f92672">=</span>freshrss <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e PUID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e PGID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e TZ<span style="color:#f92672">=</span>Etc/UTC <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 80:80 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v /path/to/data:/config <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --restart unless-stopped <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  lscr.io/linuxserver/freshrss:latest
-</span></span></code></pre></div><p>These are pretty much exact copies from the linuxserver.io site but as far as database backend, I actually reused the same database server (mariadb) that I used in the previous post. However, you can stick with sqlite and go through the install instructions once you have connected to the server url.</p>
-<h1 id="next-project-please">Next project please</h1>
-<p>This time round, I went with the FeedMe rss reader, added tailscale on the server I was running the image one and went on my way. And, I didn&rsquo;t have to reset my feeds, I just simply exported my feeds and import into the new FreshRSS server.</p>
-<figure><img src="/images/importexport.png">
-</figure>
-
+  <h1 id="notable-articles">Notable Articles</h1>
+<h2 id="gordon-mah-ung">Gordon Mah Ung</h2>
+<p><a href="https://www.pcworld.com/article/2564783/gordon-mah-ung-remembered.html">https://www.pcworld.com/article/2564783/gordon-mah-ung-remembered.html</a></p>
+<p>Growing up in my PC Master Race years, I remember reading PCWorld articles, and eventually, watching clips with Gordon in front of the camera in the early days of youtube. And, if I can remember correctly, I believe the PCWorld mag podcast was one of the first podcasts I ever subscribed to. Gordon left a huge mark on the industry, and he will be greatly missed. This one hit home for me.</p>
+<h2 id="we-use-our-own-gear">We use our own gear</h2>
+<p><a href="https://www.fastmail.com/blog/why-we-use-our-own-hardware/">https://www.fastmail.com/blog/why-we-use-our-own-hardware/</a></p>
+<p>Whether or not you believe in &ldquo;cloud repatriation&rdquo;, the idea of going against the grain tends to be my mentality. Hiring talent that knows they will need to truly know the equipment they work with in and out makes this look more like a true trade. I, for one, enjoy working with bare metal; knowing the quirks of a system and swapping out parts to upgrade/downgrade always felt rewarding. Like a mechanic, I could tell when something was wrong from sounds or the amount of heat the exhaust fans were shooting out into the room. While I have downgraded much of my server hardware to small form factor units (like the Lenovo m920qs), I still love working in my SuperMicro 826 chassis.</p>
+<p>In the same vein of the &ldquo;cloud repatriation&rdquo; discussion, I am starting to see the downfalls of moving from on-prem to major cloud providers. Too often I work with others who have never set up a service outside of a container or run a service through an unmanaged service. Knowing how it &ldquo;used&rdquo; to work helps me understand how the managed service should be running. At the end of the day, all the managed services we are all using are just running off someone else&rsquo;s servers in a data center somewhere.</p>
+<p>Oh, and serverless is dumb. Feel free to tell me why I am wrong.</p>
+<h2 id="mastodons-2023-annual-report-alittle-late-but-life-happens">Mastodon&rsquo;s 2023 Annual Report (alittle late, but life happens)</h2>
+<p><a href="https://joinmastodon.org/reports/Mastodon%20Annual%20Report%202023.pdf">https://joinmastodon.org/reports/Mastodon%20Annual%20Report%202023.pdf</a></p>
+<p>Not much to say here, but you should look at the financials here. Awesome to see Mastodon grow and watch the Fediverse become more popular as people leave the major social media platforms. Might need to grab myself a mug from the merch store.</p>
+<h1 id="things-this-week">Things This Week</h1>
+<h2 id="self-hosted-voice-assistant">Self-Hosted Voice Assistant</h2>
+<p><a href="https://www.home-assistant.io/blog/2024/12/19/voice-preview-edition-the-era-of-open-voice/">https://www.home-assistant.io/blog/2024/12/19/voice-preview-edition-the-era-of-open-voice/</a></p>
+<p>Technically, yes, this was announced last week. The Open Home-Assistant Foundation launched their voice assistant preview and I am extremely excited to see how this goes. I remember seeing early articles on HA&rsquo;s work on putting together the &ldquo;year of voice,&rdquo; and was curious to see how well things would actually go. Yes, I have plenty of echos in my house and I am eagar to get rid of them. Some think it is weird, but I truly try to be that security nut with a tinfoil hat telling you that the home assistants you get from the major corporations are listening/using your dialog. They are, and if you do not believe me, just ask Chat GPT. Do you see the irony here yet?</p>
+<p>While I realize that we are but a small percentage of the human population that like pain and self-host our services from our homelabs/prodlabs, getting into this &ldquo;niche&rdquo; becomes easier when things like this come out. I have been thinking about buying some of the other HA gear, just so I can support the cause. This might be the news I needed to start doubling down.</p>
+<h2 id="meditation-with-ross-rayburn">Meditation with Ross Rayburn</h2>
+<p>In 2020, I picked up meditation for various reasons, and one of them being an aid for my high anxiety and depression. While I have made attempts before, 2020 seemed to be the best year for me to try it again. Thankfully, it stuck and I bounced around from various platforms trying to find the right teacher. My wife and I bought a Peloton, like everyone else in the mother, and started paying for their monthly subscription. The bike was perfect for some cross-training with my running, and my occasional &ldquo;fine, I will do a full body workout.&rdquo; My go to source for meditations, guided or not, originally started in the &ldquo;Calm&rdquo; app. However, I grew pretty tired of the offering and found myself doing unguided meditations often. These were good, but I need someone to guide me through my meditations, remind myself of the breathing techniques, and to help me find the path to turning inward.</p>
+<p>Peloton offers(ed) some great teachers, and it was a joy to be able to bounce between a handful of them when doing my daily meditations. Ross Rayburn became my go to, and eventually, my &ldquo;meditation&rdquo; teacher. I am able to connect with what Ross says and how he teaches, and his mentality of &ldquo;turning inward&rdquo; helps me calm my anxiety and try to look at situations from a different light. This is not a plug for his book, but you should go read/listen to it if you have any interest in meditation.</p>
+<p>When he left Peloton this year, and we sold our bike off to another happy customer, I felt like I lost touch with a teacher I have never actually interacted with personally. Yet, I picked up his book and started saving some of the lessons he bakes in at the end of each chapter. These techniques range from thought invoking mediations, breathing techniques, and self internal/external reflection. So, while he has not come out with his own medium to take some of his teachings, I can hold onto the lessons he gave in the book in the meantime. Ross, if you read this (which there is no way you will, but hey&ndash;the world can be a small place), please get back to teaching please so I can have my guru back. Thanks!</p>
+<h1 id="tool-shed">Tool Shed</h1>
+<h3 id="sucker-for-spooky-stuff-and-terminal-emulators">Sucker for Spooky Stuff and Terminal Emulators</h3>
+<p><a href="https://ghostty.org/">https://ghostty.org/</a></p>
+<h3 id="lobstrshacker-news-article-comparison-tool">Lobst.rs/Hacker News article comparison tool</h3>
+<p><a href="https://lobhn.skyshelf.app/">https://lobhn.skyshelf.app/</a></p>
 
   </div>
 
@@ -157,7 +169,7 @@
 
 <div class="share-buttons">
 
-    <a target="_blank" rel="noopener noreferrer" aria-label="share FreshRSS, but using Docker Compose on linkedin"
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Weekly Post (2024-12-26) on linkedin"
         href="https://www.linkedin.com/in/justin-frye-b4b14763/">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path
