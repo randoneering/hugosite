@@ -1,90 +1,78 @@
-baseURL: 'https://randoneering.tech'
+baseURL: "https://randoneering.tech"
 title: Randoneering
 paginate: 5
 theme: charlolamode
 
-
-
 menu:
-    main:
-        - name: Contact
-          url: /contact/
-          weight: 30
-        - name: Blog
-          url: /blog/
-          weight: 20
+  main:
+    - name: Contact
+      url: /contact/
+      weight: 30
+    - name: Blog
+      url: /blog/
+      weight: 20
 
-     # - name: Categories
-        #   url: /categories/
-        #   weight: 10
-        # - name: new Tab
-        #   url: /newtab/
-        #   weight: defines order of tabs
-   
-
+    # - name: Categories
+    #   url: /categories/
+    #   weight: 10
+    # - name: new Tab
+    #   url: /newtab/
+    #   weight: defines order of tabs
 
 params:
-    author: Justin@Randoneering
+  author: Justin@Randoneering
+
+  defaultTheme: dark
+  ShowShareButtons: true
+  ShowReadingTime: true
+  displayFullLangName: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+
+  profileMode:
+    # Disable to populate home page with 'mainSections' content
+    enabled: true
+    title: Randoneering
+    description: Senior Database Engineer | Randoneer(TM)
 
 
-    defaultTheme: dark
-    ShowShareButtons: true
-    ShowReadingTime: true
-    displayFullLangName: true
-    ShowBreadCrumbs: true
-    ShowCodeCopyButtons: true
-    ShowToc: true
 
-    profileMode:
-        # Disable to populate home page with 'mainSections' content
-        enabled: true
-        title: Randoneering
-        description: 
+      I have too many hobbies and like tinkering, so I write about it.
 
-           
-           
-          Senior Database Engineer | Randoneer(TM) 
-           
-           
-           
-           I have too many hobbies and like tinkering, so I write about it.
+    imageUrl: "/images/randoneering_logo_only.jpg"
 
-        imageUrl: "/images/randoneering_logo_only.jpg"
+    #imageTitle:
+    #imageWidth: 375
+    #imageHeight: 350
+    buttons:
+      - name: Donate to my ALF Fundraiser!
+        url: https://liverlifechallenge.org/chicago/support/#jfrye
+  mainSections:
+    - blog
+  socialIcons:
+    - name: mastodon
+      url: "https://floss.social/@randoneering"
+    - name: github
+      url: "https://github.com/randoneering"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/justin-frye-b4b14763/"
 
-        #imageTitle:
-        #imageWidth: 375
-        #imageHeight: 350
-        buttons:
-            - name: Donate to my ALF Fundraiser!
-              url: https://liverlifechallenge.org/chicago/support/#jfrye
-    mainSections:
-      - blog
-    socialIcons:
-        - name: mastodon
-          url: "https://mastodon.social/@Randoneering@fosstodon.org"
-        - name: github
-          url: "https://github.com/randoneering"
-        - name: linkedin
-          url: "https://www.linkedin.com/in/justin-frye-b4b14763/"
+    # add more social icons. find more in svg.html file
+    # - name: youtube
+    #   url: yoururl
+    # - name: twitter
+    #   url: yoururl
+    # - name: facebook
+    #   url: yoururl
 
-      # add more social icons. find more in svg.html file
-      # - name: youtube
-      #   url: yoururl
-      # - name: twitter
-      #   url: yoururl
-      # - name: facebook
-      #   url: yoururl
-
-
-    # change favicon in images folder (icon for web tab)
-    assets:
-          favicon: "/images/favicon.ico"   
-          favicon16x16: "/images/favicon-16x16.png"
-          favicon32x32: "/images/favicon-32x32.png"
-          apple_touch_icon: "/images/apple-touch-icon.png"
-          safari_pinned_tab: "/images/apple-touch-icon.png"
-
-
+  # change favicon in images folder (icon for web tab)
+  assets:
+    favicon: "/images/favicon.ico"
+    favicon16x16: "/images/favicon-16x16.png"
+    favicon32x32: "/images/favicon-32x32.png"
+    apple_touch_icon: "/images/apple-touch-icon.png"
+    safari_pinned_tab: "/images/apple-touch-icon.png"
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -92,5 +80,4 @@ enableEmoji: true
 pygmentsUseClasses: true
 
 minify:
-    disableXML: true
-
+  disableXML: true
