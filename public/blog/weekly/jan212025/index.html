@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>FreshRSS, but using Docker Compose | </title>
+<title>Weekly Post (2025-01-25) | </title>
 <meta name="keywords" content="" />
-<meta name="description" content="Don&#39;t like running LAMP stacks? Well, there is a docker image for that.">
+<meta name="description" content="News, Projects, Meditation, and Tangents">
 <meta name="author" content="Justin@Randoneering">
-<link rel="canonical" href="//localhost:1313/blog/homelab/freshrssdocker/" />
+<link rel="canonical" href="//localhost:1313/blog/weekly/jan212025/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.62d7562978a37edf25a23b592a9bff9e34f66e80efcc9cf2fd267942b990cf7a.css" integrity="sha256-YtdWKXijft8lojtZKpv/njT2boDvzJzy/SZ5QrmQz3o=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js" integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -20,7 +20,7 @@
 <link rel="mask-icon" href="//localhost:1313/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="//localhost:1313/blog/homelab/freshrssdocker/" />
+<link rel="alternate" hreflang="en" href="//localhost:1313/blog/weekly/jan212025/" />
 <noscript>
     <style>
         #theme-toggle,
@@ -87,12 +87,12 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="//localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="//localhost:1313/blog/">Blog</a></div>
     <h1 class="post-title">
-      FreshRSS, but using Docker Compose
+      Weekly Post (2025-01-25)
     </h1>
     <div class="post-description">
-      Don&#39;t like running LAMP stacks? Well, there is a docker image for that.
+      News, Projects, Meditation, and Tangents
     </div>
-    <div class="post-meta">July 4, 2023 - 2 min - Justin@Randoneering</div>
+    <div class="post-meta">January 25, 2025 - 4 min - Justin@Randoneering</div>
   </header> <div class="toc">
     <details >
         <summary accesskey="c" title="(Alt + C)">
@@ -101,55 +101,67 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#this-is-a-quick-one" aria-label="This is a quick one">This is a quick one</a></li>
+                    <a href="#alf-chicago-marathon-2025-liver-life-challenge-update" aria-label="ALF Chicago Marathon 2025 Liver Life Challenge Update">ALF Chicago Marathon 2025 Liver Life Challenge Update</a></li>
                 <li>
-                    <a href="#oh-linuxserverio-how-i-adore-you" aria-label="Oh, linuxserver.io, how I adore you">Oh, linuxserver.io, how I adore you</a></li>
+                    <a href="#distro-hoppin" aria-label="Distro-hoppin&#39;">Distro-hoppin'</a><ul>
+                        
                 <li>
-                    <a href="#next-project-please" aria-label="Next project please">Next project please</a>
+                    <a href="#back-on-popos-2204-again" aria-label="Back on pop!OS 22.04 again">Back on pop!OS 22.04 again</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#" aria-label="COSMIC apps in pop shop">COSMIC apps in pop shop</a></li>
+                <li>
+                    <a href="#" aria-label="COSMIC Text Editor and Shell, side-by-side">COSMIC Text Editor and Shell, side-by-side</a></li></ul>
+                    </ul>
                 </li>
+                <li>
+                    <a href="#for-those-looking-to-the-fediverse" aria-label="For Those Looking to The Fediverse">For Those Looking to The Fediverse</a></li>
+                <li>
+                    <a href="#tool-shed" aria-label="Tool Shed">Tool Shed</a><ul>
+                        
+                <li>
+                    <a href="#atuin-shell-history" aria-label="Atuin (Shell History)">Atuin (Shell History)</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
             </ul>
         </div>
     </details>
 </div>
 
   <div class="post-content">
-  <h1 id="this-is-a-quick-one">This is a quick one</h1>
-<p>To prove a point, and make it &ldquo;easier&rdquo;, you could just use docker and run FreshRSS that way. It takes less time, honestly, and less complicated. So, why not:</p>
-<h1 id="oh-linuxserverio-how-i-adore-you">Oh, linuxserver.io, how I adore you</h1>
-<p>I went with the instructions and image curated by linuxserver.io:</p>
-<p><a href="https://docs.linuxserver.io/images/docker-freshrss">https://docs.linuxserver.io/images/docker-freshrss</a></p>
-<p>This cuts out a lot of the work, and actually setups up a cronjob to refresh your feeds automatically. No fussing around with systemd or crontabs yourself. Here is my docker-compose</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;2.1&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">freshrss</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">lscr.io/linuxserver/freshrss:latest</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">freshrss</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">PUID=1000</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">PGID=1000</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">TZ=America/Chicago</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/path/to/data:/config</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
-</span></span></code></pre></div><p>However, if docker cmd is your thing:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --name<span style="color:#f92672">=</span>freshrss <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e PUID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e PGID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e TZ<span style="color:#f92672">=</span>Etc/UTC <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 80:80 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v /path/to/data:/config <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --restart unless-stopped <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  lscr.io/linuxserver/freshrss:latest
-</span></span></code></pre></div><p>These are pretty much exact copies from the linuxserver.io site but as far as database backend, I actually reused the same database server (mariadb) that I used in the previous post. However, you can stick with sqlite and go through the install instructions once you have connected to the server url.</p>
-<h1 id="next-project-please">Next project please</h1>
-<p>This time round, I went with the FeedMe rss reader, added tailscale on the server I was running the image one and went on my way. And, I didn&rsquo;t have to reset my feeds, I just simply exported my feeds and import into the new FreshRSS server.</p>
-<figure><img src="/images/importexport.png">
+  <h1 id="alf-chicago-marathon-2025-liver-life-challenge-update">ALF Chicago Marathon 2025 Liver Life Challenge Update</h1>
+<p>We are approaching our $1000 mark, with a strong $937 already raised in January! Thank you all for your support. Keep sharing the link with whomever you come across, and do not forget to see if your employer matches your contributions!</p>
+<p><a href="https://liverlifechallenge.org/chicago/support/#jfrye">https://liverlifechallenge.org/chicago/support/#jfrye</a></p>
+<h1 id="distro-hoppin">Distro-hoppin'</h1>
+<h2 id="back-on-popos-2204-again">Back on pop!OS 22.04 again</h2>
+<p>After a failed upgrade to NixOS 24.11 and ultimately being annoyed with my drive to always make things perfect, I went back to my comfort zone. Naturally, I understand that I am on 22.04 and that I could have just gone with Ubuntu 24.04 to be more &ldquo;up to date.&rdquo; The problem is I actually went from Ubuntu 24.04 to NixOS because of how buggy it was! Between random crashes, file managers freezing (both Nautilus and Dolphin), and a pretty poor KDE experience, I left Ubuntu. Honestly, I always seem to leave vanilla Ubuntu because I feel more at home with pop!OS or pretty much any other distro (except Debian, please do not make me hate myself more and tell me to go to Debian).</p>
+<p>Personally, I really enjoy NixOS and the concept behind it. This second go was much easier and I invested a lot of my time in making my nix.configuration look great, enabling services, nfs mounts, and even dove into Home Manager. Yet, I wanted things just to work and be easy, and pop!OS has always been that. I love the COSMIC gestures, the system76 support, and the stability of the distro. When COSMIC DE went into public Alpha, I was dumb enough to jump to pop!OS 24.04 with COSMIC and, while it was extremely buggy, it was a glimpse of what my future would look like. The colors, minimalism, and window management was just what I wanted. Luckily, I can actually use some of the new applications that will be in 24.04 on 22.04 through the POP!Shop. Naturally, I grabbed the COSMIC terminal and considered the IDE, but I am still too integrated with vscodium and the extensions. Maybe in the future I will take the jump, but I use vscodium for both my personal work and at my jobby job. I have everything set the way I like it and I don&rsquo;t want to change that.</p>
+<figure><img src="/images/popstore.png"><figcaption>
+      <h4>COSMIC apps in pop shop</h4>
+    </figcaption>
 </figure>
 
+<figure><img src="/images/shellide.png"><figcaption>
+      <h4>COSMIC Text Editor and Shell, side-by-side</h4>
+    </figcaption>
+</figure>
+
+<p>Something that I really need to do is actually manage my .dot files so if I ever needed to jump to another distro, or better yet, need a fresh install, I could just pull those files down. In addition, I am trying to focus on using one package manager (flatpaks) to avoid being in a spot where I have to make sure I update everything via 3-4 different commands (apt, snap, appimage, etc). Unfortunately, I do not know how long this will last as I am sure I will find something I use that just is just at the point of obscurity that I have to compile from source or someone&rsquo;s shell script. I really do not enjoy jumping from distro to distro. It gets exhausting and is really time consuming. It takes me away from being able to work on my projects or even just use the laptop itself. Here&rsquo;s to staying put until pop!OS 24.04 is available and stable.</p>
+<h2 id="for-those-looking-to-the-fediverse">For Those Looking to The Fediverse</h2>
+<p>The following list contains &ldquo;alternative&rdquo; services/apps you can use if you are leaving the major social apps</p>
+<p><a href="https://pixelfed.org/">Pixelfed</a> - Instagram Alternative</p>
+<p><a href="https://joinpeertube.org/">Peertube</a> - Youtube Alternative</p>
+<p><a href="https://join-lemmy.org/">Lemmy</a> - Reddit Alternative (sorta)</p>
+<p><a href="https://joinmastodon.org/">Mastodon</a> - Twitter Alternative</p>
+<p>I know most of the tech savvy people have already heard of these, and I avoided making this list of other obscure social apps that, more than likely, normies would never look at. If that is something you are into, however, I think you already have found your way into those niche platforms.</p>
+<p>But if you are a normie and are still interested, most of these sites have walkthroughs on how to join the Fediverse. While nothing is perfect, you will find that most of the communities in the Fediverse are moderated and have a common goal of not putting up with assholes. If you are that asshole, well, then stay on Twitter.</p>
+<h2 id="tool-shed">Tool Shed</h2>
+<h3 id="atuin-shell-history">Atuin (Shell History)</h3>
+<p><a href="https://atuin.sh/">https://atuin.sh/</a></p>
 
   </div>
 
@@ -157,7 +169,7 @@
 
 <div class="share-buttons">
 
-    <a target="_blank" rel="noopener noreferrer" aria-label="share FreshRSS, but using Docker Compose on linkedin"
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Weekly Post (2025-01-25) on linkedin"
         href="https://www.linkedin.com/in/justin-frye-b4b14763/">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path
