@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>When Two Weather Stations Walk Into A Bar | </title>
+<title>SCALE 22x | </title>
 <meta name="keywords" content="" />
-<meta name="description" content="A gifted weather station starts a new hobby">
+<meta name="description" content="First visit to SCALE">
 <meta name="author" content="Justin@Randoneering">
-<link rel="canonical" href="/blog/weatherstation/" />
+<link rel="canonical" href="/blog/scale22x/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.62d7562978a37edf25a23b592a9bff9e34f66e80efcc9cf2fd267942b990cf7a.css" integrity="sha256-YtdWKXijft8lojtZKpv/njT2boDvzJzy/SZ5QrmQz3o=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js" integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -20,7 +20,7 @@
 <link rel="mask-icon" href="/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="/blog/weatherstation/" />
+<link rel="alternate" hreflang="en" href="/blog/scale22x/" />
 <noscript>
     <style>
         #theme-toggle,
@@ -87,36 +87,62 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/blog/">Blog</a></div>
     <h1 class="post-title">
-      When Two Weather Stations Walk Into A Bar
+      SCALE 22x
     </h1>
     <div class="post-description">
-      A gifted weather station starts a new hobby
+      First visit to SCALE
     </div>
-    <div class="post-meta">January 1, 2022 - 4 min - Justin@Randoneering</div>
-  </header> 
+    <div class="post-meta">March 10, 2025 - 5 min - Justin@Randoneering</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul><ul><ul>
+                <li>
+                    <a href="#" aria-label="Welcome to SCALE 22x!">Welcome to SCALE 22x!</a></li></ul>
+                    </ul>
+                    
+                <li>
+                    <a href="#alf-chicago-marathon-2025-liver-life-challenge-update" aria-label="ALF Chicago Marathon 2025 Liver Life Challenge Update">ALF Chicago Marathon 2025 Liver Life Challenge Update</a></li>
+                <li>
+                    <a href="#postgres-at-scale" aria-label="Postgres at Scale">Postgres at Scale</a></li>
+                <li>
+                    <a href="#planet-nix" aria-label="Planet Nix">Planet Nix</a></li>
+                <li>
+                    <a href="#expo" aria-label="Expo">Expo</a></li>
+                <li>
+                    <a href="#until-next-time" aria-label="Until Next Time">Until Next Time</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
   <div class="post-content">
-  <p><strong>Davis Vantage Pro2 Acquired</strong></p>
-<p>A few years ago, my wife&rsquo;s grandfather gifted me a Davis Vantage Pro2 weather station. Originally, he was given this weather station by one of his sons who was deployed on active duty  in the Middle East shortly after 9/11. This specific weather station was used at his post and when his deployment ended, and the station was gearing down, his son packed up the weather station. It made its way to my wife&rsquo;s grandfather, where it sat for fifteen years. That is when I walked into the family, and was given the station.</p>
-<figure><img src="/images/davis.jpeg">
+  <figure><img src="/images/scale22x.jpeg"><figcaption>
+      <h4>Welcome to SCALE 22x!</h4>
+    </figcaption>
 </figure>
 
-<p>My wife&rsquo;s grandfather knew I would get the station back and running, even if it did take me five years to finally get around to it. Kids and home ownership got in the way, but ironically, I fell into a job working for a company that dealt with weather data. Thus, a new project was born.</p>
-<p>Thankfully, the son packaged the weather station well, and all the parts were still intact when I got around to putting it together. Additionally, all of the mounting hardware and accessories were  still present, making my job a lot easier. I should have taken pictures of when I was cleaning the weather station, but it was a wild trip when I found myself cleaning off sand and debris that was most certainly not from this country. It was both exciting and humbling to break down the device, clean out the internals, and replace any lithium batteries that no longer could hold a charge.</p>
-<p>After putting the station back together, I immediately heard the fan start up (I believe it is the radiation fan) which gave me a sense of relief; it must work! Now, I just needed to get the ISS to communicate with the Display Monitor.</p>
-<figure><img src="/images/sidebyside.jpeg">
-</figure>
-
-<p>Luckily, the documentation Davis provides is pretty straightforward and detailed. The setup was a breeze, and soon enough, my station was sending data to my display console. Success! Time to mount the machine outside and work on the second weather station!</p>
-<p><strong>Weather Flow Tempest</strong></p>
-<p>Jumping from 20 year old technology to modern day weather stations was eye opening. Just in size, the Tempest stations are tiny in comparison to even the more modern Davis weather stations. Unfortunately, there is no special story behind this one, and the setup is even easier. In literally minutes of mounting the weather station and plugging in the wireless relay, I was getting data fed to my Tempest app. I officially had two weather stations actively working in my backyard. But you know it doesn&rsquo;t stop here&hellip;.</p>
-<figure><img src="/images/Tempest.jpeg">
-</figure>
-
-<p><strong>Hijacking the Davis ISS module</strong></p>
-<p>Full disclosure; you can pay anywhere from $150-200 to get an official Davis Weatherlink logger that connects to the serial port on the back of the display. Yet, in typical fashion, I wanted to find a route where I could use some inexpensive radios to hijack the frequency the ISS module used to deliver the data. I found several posts on various forums on how people worked their magic and ingested the data from their Davis stations using low powered devices. For me, I already have a Raspberry Pi 4 that I just recently decommissioned from its pihole and uptime-kuma duties, and already had plans to use it to also track air traffic. Everything was going to run in docker containers, so surely there was something out there that I could use that was inexpensive and the code could be maintained in a container.</p>
-<p><strong>Stay tuned for Part 2</strong></p>
-<p>At the time I am writing this, I have a few devices inbound that will make this project (and others) work. Once I have successfully started collecting data, I will write up a detailed post on how I did this and what I used to do. The goal is to make this as easy as possible, and reproducible, so that anyone else with an itch for a new project could do the same. Until then, I will stare at my tracking numbers.</p>
+<p>This year is my first, and hopefully not last, time attending SCALE (Southern California Linux Expo). Yes, it is a conference full of Linux enthusiasts, and yes, we all look completely different. That is the joy about our community-we are fully accepting, and I am proud to be apart of it. With that, I am putting out a full disclosure-I am here on business. This trip was paid for by the company I work for and with the expectation that I would be attending the many Postgres related talks given. However, I also want to take full advantage of the many other paths/co-located events taking place here. I will not list them all, but you can take a look yourself by visiting the site.</p>
+<p><a href="https://www.socallinuxexpo.org/scale/22x">SCALE 22x</a></p>
+<p>With an expo like this, of course you will be right to assume that various related companies would be hosting talks, manning booths, and various after hours activites. My favorite part, of course, is the old school &ldquo;networking&rdquo; that  happens everywhere outside of rooms. As a type A person, I thrive on these conversations and I feel completely at home here at SCALE. Numerous times I found myself starting a conversation with a complete stranger in passing, commenting on my tattoos or band t-shirt they are wearing. We start talking, in comes someone else interested in what we are talking about, it shifts to homelab, then Nix, then more people join, and soon enough there are about 15 people in the group all talking about different topics at the same time. All naturally forming, no judgment of technical skill, their appearance, their pronouns, just human beings having passionate talks about the things they love (and things they don&rsquo;t).</p>
+<h2 id="alf-chicago-marathon-2025-liver-life-challenge-update">ALF Chicago Marathon 2025 Liver Life Challenge Update</h2>
+<p>I haven&rsquo;t provided an update in awhile, but we are still just shy of $1000 milestone!</p>
+<p><a href="https://liverlifechallenge.org/chicago/support/#jfrye">ALF Fundraiser</a></p>
+<h2 id="postgres-at-scale">Postgres at Scale</h2>
+<p>Luckily, I was able to attend this conference for both work and for my personal interests.  I was particularly excited to learn about pgBadger and the difficulties Postgres maintainers (and package maintainers) face when motivating authors of extensions to make them compatible with the latest version. Then, there was a talk about using FerretDB instead of MongoDB as it was the open source alternative, and uses Postgres as the backend. So developers who wanted MongoDB could continue to utilize javascript to communicate with FerretDB (which would then use a Postgres extension to enable JSON column storage for documents) and other users could still query the Postgres backend. Overall, I enjoyed the interactions I had with the speakers, maintainers, and community members present during the two days of Postgres related talks.</p>
+<h2 id="planet-nix">Planet Nix</h2>
+<p>Since SCALE was hosting several other co-located events, I was able to easily jump into some of the Planet Nix topics and discussions amongst the Nix community. As a fan of Nix and NixOS, it was great to drink the kool-aid with like minded people. Also, it was great to see competing companies discuss the future of Nix, how the Nix community continues to grow rapidly year over year, and see the financials and road map from the Nix Steering Committee and Foundation. Seeing companies and projects spin up, using Nix as their core, is pretty awesome. In addition, I met some pretty amazing people from the communitiy that I have only known via their handles on Mastodon or through Podcasts.</p>
+<p>Big shout out to Mike Kelly (Olympia Mike if you listen to Linux Unplugged by Jupiter Broadcasting) for his talk on turning old Chromebooks into &ldquo;Nixbooks.&rdquo; If the idea tickles your fancy, you can checkout the official repo here:</p>
+<p><a href="https://github.com/mkellyxp/Nixbook">NixBook</a></p>
+<h2 id="expo">Expo</h2>
+<p>No conference would be complete without an expo of various sponsors and vendors handing out swag, making connections, and trying to sell you their product. There isn&rsquo;t much to say about it here, but I really enjoyed the 1on1 conversations I had with key vendors that I work with at my jobby job. And I would be failing my duty as a System76 nerd if I didn&rsquo;t spend a considerable amount of time talking to the System76 folks. While I could turn my head and see Framework laptops all over the place at SCALE, I still find myself coming back to System76 for their laptops. I will be due for one soon, and it will be a difficult decision since the Oryx is no longer a part of their lineup.</p>
+<h2 id="until-next-time">Until Next Time</h2>
+<p>I left SCALE with a large to do list, for both my homelab (now turned Prod&hellip;lab?) and for my actual job. The event far exceeded my expectation, and I am truly excited to submit a paper for a talk at the next SCALE. There are a few ideas in my head on what I want to talk about, but that will have to be something that comes up at the end of the year. Who knows, maybe I will find a way to bring Nix into my daily workflow at work&hellip;..</p>
+<p>If you missed SCALE or want to see previous talks on SCALE, they will be posted on the site in the coming week.</p>
 
   </div>
 
@@ -124,7 +150,7 @@
 
 <div class="share-buttons">
 
-    <a target="_blank" rel="noopener noreferrer" aria-label="share When Two Weather Stations Walk Into A Bar on linkedin"
+    <a target="_blank" rel="noopener noreferrer" aria-label="share SCALE 22x on linkedin"
         href="https://www.linkedin.com/in/justin-frye-b4b14763/">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path

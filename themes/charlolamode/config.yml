@@ -52,7 +52,7 @@ params:
     - blog
   socialIcons:
     - name: mastodon
-      url: "https://floss.social/@randoneering"
+      url: "https://hachyderm.io/@randoneering"
     - name: github
       url: "https://github.com/randoneering"
     - name: linkedin

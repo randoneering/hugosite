@@ -10,8 +10,8 @@
 <meta name="description" content="What spending too much time in a single config file does to you">
 <meta name="author" content="Justin@Randoneering">
 <link rel="canonical" href="/blog/nixosjourneyp2/" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.8550f40606bc997610bf512fb7e6b88d8d608543e163d892a5ff925458006087.css" integrity="sha256-hVD0Bga8mXYQv1Evt&#43;a4jY1ghUPhY9iSpf&#43;SVFgAYIc=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.62d7562978a37edf25a23b592a9bff9e34f66e80efcc9cf2fd267942b990cf7a.css" integrity="sha256-YtdWKXijft8lojtZKpv/njT2boDvzJzy/SZ5QrmQz3o=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js" integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/blog/nixosjourneyp2/" />
 <noscript>
     <style>
         #theme-toggle,
@@ -32,9 +33,37 @@
 </head>
 
 <body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
 
 <header class="header">
     <nav class="nav">
+        <div class="logo">
+        <span class="logo-switches">
+            <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
         <ul id="menu">
             <li>
                 <a href="/" title="Home"><span>Home</span></a>
@@ -56,7 +85,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="">Home</a>&nbsp;»&nbsp;<a href="/blog/">Blog</a></div>
+    <div class="breadcrumbs"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/blog/">Blog</a></div>
     <h1 class="post-title">
       NixOS part 1.5
     </h1>
@@ -105,34 +134,30 @@
 <pre tabindex="0"><code class="language-conf" data-lang="conf">services.xserver.enable = true;
 services.xserver.displayManager.sddm.enable = true;
 services.xserver.desktopManager.plasma5.enabled = true;
-
 </code></pre><p>No catch here-that was really it. After my rebuild, I did a quick reboot for safe keepings and I was presented with a new login page. KDE, here we go!</p>
 <p>From there on, I continued to tweak my preferences in KDE only to ask myself &ldquo;How can I make sure that all of these customizations are in my config as well?&rdquo; I saw posts and mentions of Home Manager, but never really looked into it. You could add it as module in your config,  and from a high level you could essentially set it so your customizations are in the config just like everything else. Well, now I kind of want to do that! But, let&rsquo;s take a step back first because I didn&rsquo;t realize it at the time but I actually had something broken after switching to KDE that didn&rsquo;t surface until I picked up my laptop to bring to bed with me that night. Can you guess what wasn&rsquo;t working?</p>
 <p>If you said audio, nice guess but you are wrong. No, my audio was working like a charm. What was not working was my wifi! For some reason, the switch to KDE disabled my wifi so I figured a quick enabling of the service would do the trick. That didn&rsquo;t work either, which made me laugh. Did I just bork my wifi card?</p>
 <p>Again, back to documentation and posts I went and discovered others experienced this as well. Throwing in the following in my config did the trick:</p>
 <pre tabindex="0"><code class="language-conf" data-lang="conf">networking.wireless.enable = true;
 
-# Later I found out that I should have used below, for my specific setup since I kept losing wifi connection randomly. Found this in post in a thread (look for buovjaga's response) https://discourse.nixos.org/t/how-do-i-set-up-wifi-with-kde-plasma/18560/3
+# Later I found out that I should have used below, for my specific setup since I kept losing wifi connection randomly. Found this in post in a thread (look for buovjaga&#39;s response) https://discourse.nixos.org/t/how-do-i-set-up-wifi-with-kde-plasma/18560/3
 
 
 networking.networkmanager.enable = true; #should already be in your config
 networking.wireless.iwd.enable = true;
-networking.networkmanager.wifi.backend = &quot;iwd&quot;;
-
-
+networking.networkmanager.wifi.backend = &#34;iwd&#34;;
 </code></pre><p>I am sure there is a logical reason behind this, related to different network managers in KDE and Gnome, but I didn&rsquo;t care. It was working.</p>
 <h3 id="services">Services</h3>
 <p>Naturally, I use a few services that could be baked into my config. For the sake of this post, I will use talescale and syncthing. Watch as I enable both services, complete with the necessary settings, with just a few lines of code in your config.</p>
 <pre tabindex="0"><code class="language-conf" data-lang="conf"># Enable Syncthing
 services.syncthing = {
     enable = true;
-    user = &quot;randoneering&quot;;
-    dataDir = &quot;/home/randoneering/Documents/&quot;; # Default folder for new synced folders
-    configDir = &quot;/home/randoneering/Documents/.config/syncthing&quot;;
+    user = &#34;randoneering&#34;;
+    dataDir = &#34;/home/randoneering/Documents/&#34;; # Default folder for new synced folders
+    configDir = &#34;/home/randoneering/Documents/.config/syncthing&#34;;
     };
 # Enable Tailscale
 services.tailscale.enable = true; 
-
 </code></pre><h3 id="fixing-your-mistakes">Fixing your mistakes</h3>
 <p>Something we take for granted is having the ability to rollback the mistakes you make in life&hellip;wait, we don&rsquo;t get that luxury. Yet, if you bork your config, you can simply revert your changes. One way you can do this is by rebooting your session, selecting a previous build in the list. You will boot right up, using the previous config state. There, you can tiddy up your config or leave it. Make sure to do a <code>nix-collect-garbage -d</code> then <code>nixos-rebuild switch</code>. This cleans up the previous versions of your configs and updates the boot entries.</p>
 <h2 id="what-next">What next?</h2>
@@ -173,7 +198,7 @@ services.tailscale.enable = true;
     </main>
     
 <footer class="footer">
-    <span> Copyright© Randoneering 2024
+    <span> Copyright© Randoneering 2025
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

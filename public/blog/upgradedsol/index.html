@@ -10,8 +10,8 @@
 <meta name="description" content="Time to upgrade the SOLar Server">
 <meta name="author" content="Justin@Randoneering">
 <link rel="canonical" href="/blog/upgradedsol/" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.8550f40606bc997610bf512fb7e6b88d8d608543e163d892a5ff925458006087.css" integrity="sha256-hVD0Bga8mXYQv1Evt&#43;a4jY1ghUPhY9iSpf&#43;SVFgAYIc=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.62d7562978a37edf25a23b592a9bff9e34f66e80efcc9cf2fd267942b990cf7a.css" integrity="sha256-YtdWKXijft8lojtZKpv/njT2boDvzJzy/SZ5QrmQz3o=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js" integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/blog/upgradedsol/" />
 <noscript>
     <style>
         #theme-toggle,
@@ -32,9 +33,37 @@
 </head>
 
 <body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
 
 <header class="header">
     <nav class="nav">
+        <div class="logo">
+        <span class="logo-switches">
+            <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
         <ul id="menu">
             <li>
                 <a href="/" title="Home"><span>Home</span></a>
@@ -56,7 +85,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="">Home</a>&nbsp;»&nbsp;<a href="/blog/">Blog</a></div>
+    <div class="breadcrumbs"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/blog/">Blog</a></div>
     <h1 class="post-title">
       Upgraded SOL
     </h1>
@@ -71,21 +100,21 @@
 <p>So naturally, I looked into where I can cut some of the power. A friend of mine sent me a link on how to change the power settings in proxmox, which you can do for yourself from the information <a href="https://community.home-assistant.io/t/psa-how-to-configure-proxmox-for-lower-power-usage/323731">here</a>.</p>
 <p><strong>Xeon Comparison</strong></p>
 <p>L5640
-<figure><img src="/images/L5640.png"/>
+<figure><img src="/images/L5640.png">
 </figure>
 
 X5680
-<figure><img src="/images/X5680.png"/>
+<figure><img src="/images/X5680.png">
 </figure>
 </p>
 <p>Yet, I figured, while I was at it, I could replace the middle fans to lower power/lower rpm models. At the same time, I would be reducing some of the noise this server creates. After some research, I picked up three Noctua NF-A8 PWN fans. Now, it was how I was going to get these fans replaced that left me hoping someone out there created a 3d model of the hot swappable cases the supermicro fans come in. Lucky for me, someone did just that!</p>
 <p><a href="https://www.thingiverse.com/thing:5452309">Link to STL</a></p>
 <p>With the power script in place, it was just a matter of planning downtime to install the cpus and fans!</p>
 <p><strong>Final Product</strong>
-<figure><img src="/images/frontpicturefans.png"/>
+<figure><img src="/images/frontpicturefans.png">
 </figure>
 
-<figure><img src="/images/backpicturefans.png"/>
+<figure><img src="/images/backpicturefans.png">
 </figure>
 </p>
 <p>In typical fashion, the plan was solid. However, It seems I did not double check if the case for the fans would fit (they did, but needed modification) and I apparently was out of thermal paste. What would have been a one night upgrade, took two. I ended up using an oscillating saw to cut off the tabs since they were printed at 100% infill.</p>
@@ -127,7 +156,7 @@ X5680
     </main>
     
 <footer class="footer">
-    <span> Copyright© Randoneering 2024
+    <span> Copyright© Randoneering 2025
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

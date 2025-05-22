@@ -10,8 +10,8 @@
 <meta name="description" content="Self-host your own rss feed aggregator, and use your own app to read!">
 <meta name="author" content="Justin@Randoneering">
 <link rel="canonical" href="/blog/freshrss/" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.8550f40606bc997610bf512fb7e6b88d8d608543e163d892a5ff925458006087.css" integrity="sha256-hVD0Bga8mXYQv1Evt&#43;a4jY1ghUPhY9iSpf&#43;SVFgAYIc=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.62d7562978a37edf25a23b592a9bff9e34f66e80efcc9cf2fd267942b990cf7a.css" integrity="sha256-YtdWKXijft8lojtZKpv/njT2boDvzJzy/SZ5QrmQz3o=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js" integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -20,6 +20,7 @@
 <link rel="mask-icon" href="/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="/blog/freshrss/" />
 <noscript>
     <style>
         #theme-toggle,
@@ -32,9 +33,37 @@
 </head>
 
 <body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
 
 <header class="header">
     <nav class="nav">
+        <div class="logo">
+        <span class="logo-switches">
+            <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
         <ul id="menu">
             <li>
                 <a href="/" title="Home"><span>Home</span></a>
@@ -56,7 +85,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="">Home</a>&nbsp;»&nbsp;<a href="/blog/">Blog</a></div>
+    <div class="breadcrumbs"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/blog/">Blog</a></div>
     <h1 class="post-title">
       FreshRSS RSS Feed Aggregator
     </h1>
@@ -108,11 +137,11 @@
 <p><a href="https://github.com/FreshRSS/FreshRSS/releases/tag/1.21.0">https://github.com/FreshRSS/FreshRSS/releases/tag/1.21.0</a></p>
 <p>First, lets install our LAMP stack</p>
 <h2 id="lamp-stack">LAMP Stack</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install apache2 libapache2-mod-php mariadb-server php-curl php-mbstring php-mysql php-zip php-xml 
-</code></pre></div><h2 id="mysql-secure-install">MySQL Secure Install</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install apache2 libapache2-mod-php mariadb-server php-curl php-mbstring php-mysql php-zip php-xml 
+</span></span></code></pre></div><h2 id="mysql-secure-install">MySQL Secure Install</h2>
 <p>Once this has been completed, move to running mysql_secure_installation</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mysql_secure_installation
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mysql_secure_installation
+</span></span></code></pre></div><ol>
 <li>Enter Current Password for Root  (mysql/mariadb root user). If none, just press enter. However, I recommend setting your root password at this step. Just makes life easier later.</li>
 <li>Switch to Unix_Socket authentication? (Y)</li>
 <li>Change root password? (N, you already set one in step 1)</li>
@@ -122,52 +151,49 @@
 <li>Reload Privileges? (Y)</li>
 </ol>
 <h2 id="create-database-for-freshrss">Create Database for FreshRSS</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> freshrss;
-
-<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> <span style="color:#e6db74">&#39;freshrss&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span> IDENTIFIED <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;yourpasswordhere&#39;</span>;
-
-<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> freshrss.<span style="color:#f92672">*</span> <span style="color:#66d9ef">to</span> freshrss<span style="color:#f92672">@</span>localhost;
-
-</code></pre></div><h2 id="clone-freshrss-repo">Clone FreshRSS Repo</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/FreshRSS/FreshRSS.git
-
-</code></pre></div><h2 id="change-ownership-on-freshrss-directory">Change Ownership on FreshRSS Directory</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo chown -R yourlocaluser:yourlocaluser FreshRSS
-</code></pre></div><h2 id="change-ownership-on-data-directory">Change ownership on data directory</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo chown -R www-data:www-data data
-</code></pre></div><h2 id="edit-000-defaultconf-in-etcapache2sites-enabled">Edit 000-default.conf in /etc/apache2/sites-enabled</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nano /etc/appache2/sites-enabled/000-default.conf
-
-
-<span style="color:#75715e">## Change , in this file, DocumentRoot to where you have cloned the FreshRSS Repo, but add the P directoy</span>
-
-ServerAdmin webmaster@localhost
-DocumentRoot /var/www/FreshRSS/p
-
-</code></pre></div><h2 id="configurefinish-install-of-freshrss">Configure/Finish install of FreshRSS</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> freshrss;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> <span style="color:#e6db74">&#39;freshrss&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span> IDENTIFIED <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;yourpasswordhere&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> freshrss.<span style="color:#f92672">*</span> <span style="color:#66d9ef">to</span> freshrss<span style="color:#f92672">@</span>localhost;
+</span></span></code></pre></div><h2 id="clone-freshrss-repo">Clone FreshRSS Repo</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/FreshRSS/FreshRSS.git
+</span></span></code></pre></div><h2 id="change-ownership-on-freshrss-directory">Change Ownership on FreshRSS Directory</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chown -R yourlocaluser:yourlocaluser FreshRSS
+</span></span></code></pre></div><h2 id="change-ownership-on-data-directory">Change ownership on data directory</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chown -R www-data:www-data data
+</span></span></code></pre></div><h2 id="edit-000-defaultconf-in-etcapache2sites-enabled">Edit 000-default.conf in /etc/apache2/sites-enabled</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/appache2/sites-enabled/000-default.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Change , in this file, DocumentRoot to where you have cloned the FreshRSS Repo, but add the P directoy</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ServerAdmin webmaster@localhost
+</span></span><span style="display:flex;"><span>DocumentRoot /var/www/FreshRSS/p
+</span></span></code></pre></div><h2 id="configurefinish-install-of-freshrss">Configure/Finish install of FreshRSS</h2>
 <p>Go to your server site &ldquo;<a href="http://192.168.x.xxx/i%22">http://192.168.x.xxx/i&quot;</a> and follow the install steps using database user and password you created in the previous steps</p>
 <h1 id="post-install">Post-Install</h1>
 <p>Out of the box, my FreshRSS instance was not auto-refreshing my feeds. This made it pointless to use, honestly, and I almost just deleted the vm. However, I was shown a method via the following doc:</p>
 <p><a href="https://freshrss.github.io/FreshRSS/en/admins/08_FeedUpdates.html">https://freshrss.github.io/FreshRSS/en/admins/08_FeedUpdates.html</a></p>
 <p>In here, you can either create a cronjob or actually use systemd to create trigger and service to do the refreshing for you. Here is the example files (the trigger and service itself) that I created. Your&rsquo;s may vary depending on your install path and/or your user.</p>
 <p>freshrss.service</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> 
-<span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>                           
-Description<span style="color:#f92672">=</span>FreshRSS get new content        
-Wants<span style="color:#f92672">=</span>freshrss.timer                                               
-<span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>                                            
-User<span style="color:#f92672">=</span>www-data                                        
-Type<span style="color:#f92672">=</span>simple                                                                      
-ExecStart<span style="color:#f92672">=</span>/usr/bin/php /var/www/FreshRSS/app/actualize_script.php
-</code></pre></div><p>freshrss.trigger</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>                                                                           
-Description<span style="color:#f92672">=</span>FreshRSS get new content                                                                               
-<span style="color:#f92672">[</span>Timer<span style="color:#f92672">]</span>                                                                          
-OnBootSec<span style="color:#f92672">=</span>30s                                                                    
-OnCalendar<span style="color:#f92672">=</span>*:0/20                                                                                                  
-<span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>                                                              
-WantedBy<span style="color:#f92672">=</span>timers.target
-</code></pre></div><p>Once these have been created in /etc/systemd/system, enable the timer with <code>systemctl enable freshrss.timer</code> followed by reloading the systemd config with <code>systemctl daemon-reload</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>                           
+</span></span><span style="display:flex;"><span>Description<span style="color:#f92672">=</span>FreshRSS get new content        
+</span></span><span style="display:flex;"><span>Wants<span style="color:#f92672">=</span>freshrss.timer                                               
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>                                            
+</span></span><span style="display:flex;"><span>User<span style="color:#f92672">=</span>www-data                                        
+</span></span><span style="display:flex;"><span>Type<span style="color:#f92672">=</span>simple                                                                      
+</span></span><span style="display:flex;"><span>ExecStart<span style="color:#f92672">=</span>/usr/bin/php /var/www/FreshRSS/app/actualize_script.php
+</span></span></code></pre></div><p>freshrss.trigger</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>                                                                           
+</span></span><span style="display:flex;"><span>Description<span style="color:#f92672">=</span>FreshRSS get new content                                                                               
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Timer<span style="color:#f92672">]</span>                                                                          
+</span></span><span style="display:flex;"><span>OnBootSec<span style="color:#f92672">=</span>30s                                                                    
+</span></span><span style="display:flex;"><span>OnCalendar<span style="color:#f92672">=</span>*:0/20                                                                                                  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>                                                              
+</span></span><span style="display:flex;"><span>WantedBy<span style="color:#f92672">=</span>timers.target
+</span></span></code></pre></div><p>Once these have been created in /etc/systemd/system, enable the timer with <code>systemctl enable freshrss.timer</code> followed by reloading the systemd config with <code>systemctl daemon-reload</code>.</p>
 
   </div>
 
@@ -204,7 +230,7 @@ WantedBy<span style="color:#f92672">=</span>timers.target
     </main>
     
 <footer class="footer">
-    <span> Copyright© Randoneering 2024
+    <span> Copyright© Randoneering 2025
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
