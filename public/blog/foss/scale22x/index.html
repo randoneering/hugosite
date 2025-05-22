@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>FreshRSS, but using Docker Compose | </title>
+<title>SCALE 22x | </title>
 <meta name="keywords" content="" />
-<meta name="description" content="Don&#39;t like running LAMP stacks? Well, there is a docker image for that.">
+<meta name="description" content="First visit to SCALE">
 <meta name="author" content="Justin@Randoneering">
-<link rel="canonical" href="//localhost:1313/blog/homelab/freshrssdocker/" />
+<link rel="canonical" href="//localhost:1313/blog/foss/scale22x/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.62d7562978a37edf25a23b592a9bff9e34f66e80efcc9cf2fd267942b990cf7a.css" integrity="sha256-YtdWKXijft8lojtZKpv/njT2boDvzJzy/SZ5QrmQz3o=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js" integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -20,7 +20,7 @@
 <link rel="mask-icon" href="//localhost:1313/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="//localhost:1313/blog/homelab/freshrssdocker/" />
+<link rel="alternate" hreflang="en" href="//localhost:1313/blog/foss/scale22x/" />
 <noscript>
     <style>
         #theme-toggle,
@@ -87,25 +87,33 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="//localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="//localhost:1313/blog/">Blog</a></div>
     <h1 class="post-title">
-      FreshRSS, but using Docker Compose
+      SCALE 22x
     </h1>
     <div class="post-description">
-      Don&#39;t like running LAMP stacks? Well, there is a docker image for that.
+      First visit to SCALE
     </div>
-    <div class="post-meta">July 4, 2023 - 2 min - Justin@Randoneering</div>
+    <div class="post-meta">March 10, 2025 - 5 min - Justin@Randoneering</div>
   </header> <div class="toc">
     <details >
         <summary accesskey="c" title="(Alt + C)">
             <span class="details">Table of Contents</span>
         </summary>
 
-        <div class="inner"><ul>
+        <div class="inner"><ul><ul><ul>
                 <li>
-                    <a href="#this-is-a-quick-one" aria-label="This is a quick one">This is a quick one</a></li>
+                    <a href="#" aria-label="Welcome to SCALE 22x!">Welcome to SCALE 22x!</a></li></ul>
+                    </ul>
+                    
                 <li>
-                    <a href="#oh-linuxserverio-how-i-adore-you" aria-label="Oh, linuxserver.io, how I adore you">Oh, linuxserver.io, how I adore you</a></li>
+                    <a href="#alf-chicago-marathon-2025-liver-life-challenge-update" aria-label="ALF Chicago Marathon 2025 Liver Life Challenge Update">ALF Chicago Marathon 2025 Liver Life Challenge Update</a></li>
                 <li>
-                    <a href="#next-project-please" aria-label="Next project please">Next project please</a>
+                    <a href="#postgres-at-scale" aria-label="Postgres at Scale">Postgres at Scale</a></li>
+                <li>
+                    <a href="#planet-nix" aria-label="Planet Nix">Planet Nix</a></li>
+                <li>
+                    <a href="#expo" aria-label="Expo">Expo</a></li>
+                <li>
+                    <a href="#until-next-time" aria-label="Until Next Time">Until Next Time</a>
                 </li>
             </ul>
         </div>
@@ -113,43 +121,28 @@
 </div>
 
   <div class="post-content">
-  <h1 id="this-is-a-quick-one">This is a quick one</h1>
-<p>To prove a point, and make it &ldquo;easier&rdquo;, you could just use docker and run FreshRSS that way. It takes less time, honestly, and less complicated. So, why not:</p>
-<h1 id="oh-linuxserverio-how-i-adore-you">Oh, linuxserver.io, how I adore you</h1>
-<p>I went with the instructions and image curated by linuxserver.io:</p>
-<p><a href="https://docs.linuxserver.io/images/docker-freshrss">https://docs.linuxserver.io/images/docker-freshrss</a></p>
-<p>This cuts out a lot of the work, and actually setups up a cronjob to refresh your feeds automatically. No fussing around with systemd or crontabs yourself. Here is my docker-compose</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;2.1&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">freshrss</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">lscr.io/linuxserver/freshrss:latest</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">freshrss</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">PUID=1000</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">PGID=1000</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">TZ=America/Chicago</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/path/to/data:/config</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
-</span></span></code></pre></div><p>However, if docker cmd is your thing:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --name<span style="color:#f92672">=</span>freshrss <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e PUID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e PGID<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e TZ<span style="color:#f92672">=</span>Etc/UTC <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 80:80 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v /path/to/data:/config <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --restart unless-stopped <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  lscr.io/linuxserver/freshrss:latest
-</span></span></code></pre></div><p>These are pretty much exact copies from the linuxserver.io site but as far as database backend, I actually reused the same database server (mariadb) that I used in the previous post. However, you can stick with sqlite and go through the install instructions once you have connected to the server url.</p>
-<h1 id="next-project-please">Next project please</h1>
-<p>This time round, I went with the FeedMe rss reader, added tailscale on the server I was running the image one and went on my way. And, I didn&rsquo;t have to reset my feeds, I just simply exported my feeds and import into the new FreshRSS server.</p>
-<figure><img src="/images/importexport.png">
+  <figure><img src="/images/scale22x.jpeg"><figcaption>
+      <h4>Welcome to SCALE 22x!</h4>
+    </figcaption>
 </figure>
 
+<p>This year is my first, and hopefully not last, time attending SCALE (Southern California Linux Expo). Yes, it is a conference full of Linux enthusiasts, and yes, we all look completely different. That is the joy about our community-we are fully accepting, and I am proud to be apart of it. With that, I am putting out a full disclosure-I am here on business. This trip was paid for by the company I work for and with the expectation that I would be attending the many Postgres related talks given. However, I also want to take full advantage of the many other paths/co-located events taking place here. I will not list them all, but you can take a look yourself by visiting the site.</p>
+<p><a href="https://www.socallinuxexpo.org/scale/22x">SCALE 22x</a></p>
+<p>With an expo like this, of course you will be right to assume that various related companies would be hosting talks, manning booths, and various after hours activites. My favorite part, of course, is the old school &ldquo;networking&rdquo; that  happens everywhere outside of rooms. As a type A person, I thrive on these conversations and I feel completely at home here at SCALE. Numerous times I found myself starting a conversation with a complete stranger in passing, commenting on my tattoos or band t-shirt they are wearing. We start talking, in comes someone else interested in what we are talking about, it shifts to homelab, then Nix, then more people join, and soon enough there are about 15 people in the group all talking about different topics at the same time. All naturally forming, no judgment of technical skill, their appearance, their pronouns, just human beings having passionate talks about the things they love (and things they don&rsquo;t).</p>
+<h2 id="alf-chicago-marathon-2025-liver-life-challenge-update">ALF Chicago Marathon 2025 Liver Life Challenge Update</h2>
+<p>I haven&rsquo;t provided an update in awhile, but we are still just shy of $1000 milestone!</p>
+<p><a href="https://liverlifechallenge.org/chicago/support/#jfrye">ALF Fundraiser</a></p>
+<h2 id="postgres-at-scale">Postgres at Scale</h2>
+<p>Luckily, I was able to attend this conference for both work and for my personal interests.  I was particularly excited to learn about pgBadger and the difficulties Postgres maintainers (and package maintainers) face when motivating authors of extensions to make them compatible with the latest version. Then, there was a talk about using FerretDB instead of MongoDB as it was the open source alternative, and uses Postgres as the backend. So developers who wanted MongoDB could continue to utilize javascript to communicate with FerretDB (which would then use a Postgres extension to enable JSON column storage for documents) and other users could still query the Postgres backend. Overall, I enjoyed the interactions I had with the speakers, maintainers, and community members present during the two days of Postgres related talks.</p>
+<h2 id="planet-nix">Planet Nix</h2>
+<p>Since SCALE was hosting several other co-located events, I was able to easily jump into some of the Planet Nix topics and discussions amongst the Nix community. As a fan of Nix and NixOS, it was great to drink the kool-aid with like minded people. Also, it was great to see competing companies discuss the future of Nix, how the Nix community continues to grow rapidly year over year, and see the financials and road map from the Nix Steering Committee and Foundation. Seeing companies and projects spin up, using Nix as their core, is pretty awesome. In addition, I met some pretty amazing people from the communitiy that I have only known via their handles on Mastodon or through Podcasts.</p>
+<p>Big shout out to Mike Kelly (Olympia Mike if you listen to Linux Unplugged by Jupiter Broadcasting) for his talk on turning old Chromebooks into &ldquo;Nixbooks.&rdquo; If the idea tickles your fancy, you can checkout the official repo here:</p>
+<p><a href="https://github.com/mkellyxp/Nixbook">NixBook</a></p>
+<h2 id="expo">Expo</h2>
+<p>No conference would be complete without an expo of various sponsors and vendors handing out swag, making connections, and trying to sell you their product. There isn&rsquo;t much to say about it here, but I really enjoyed the 1on1 conversations I had with key vendors that I work with at my jobby job. And I would be failing my duty as a System76 nerd if I didn&rsquo;t spend a considerable amount of time talking to the System76 folks. While I could turn my head and see Framework laptops all over the place at SCALE, I still find myself coming back to System76 for their laptops. I will be due for one soon, and it will be a difficult decision since the Oryx is no longer a part of their lineup.</p>
+<h2 id="until-next-time">Until Next Time</h2>
+<p>I left SCALE with a large to do list, for both my homelab (now turned Prod&hellip;lab?) and for my actual job. The event far exceeded my expectation, and I am truly excited to submit a paper for a talk at the next SCALE. There are a few ideas in my head on what I want to talk about, but that will have to be something that comes up at the end of the year. Who knows, maybe I will find a way to bring Nix into my daily workflow at work&hellip;..</p>
+<p>If you missed SCALE or want to see previous talks on SCALE, they will be posted on the site in the coming week.</p>
 
   </div>
 
@@ -157,7 +150,7 @@
 
 <div class="share-buttons">
 
-    <a target="_blank" rel="noopener noreferrer" aria-label="share FreshRSS, but using Docker Compose on linkedin"
+    <a target="_blank" rel="noopener noreferrer" aria-label="share SCALE 22x on linkedin"
         href="https://www.linkedin.com/in/justin-frye-b4b14763/">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path
