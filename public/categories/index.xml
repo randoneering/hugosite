@@ -6,10 +6,6 @@
     <description>Recent content in Categories on </description>
     <generator>Hugo</generator>
     <language>en</language>
-<<<<<<< HEAD
-    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
-=======
     <atom:link href="//localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
->>>>>>> d17606b2f597c53af0924fe68e511b829e8ed0ac
   </channel>
 </rss>
