@@ -3,42 +3,21 @@ Title: Contact
 type: list
 ---
 
-## About Me
+## About Me (Justin/Randoneering)
 
+Privacy is important to me, and therefore I will keep my family out of the picture. However, I am a proud father of three kids, a husband to an amazing wife, and a human trying to avoid negative energy. While I enjoy spending time building complex systems, writing automation, expanding my love for Nix, I spend my spare time outside. I believe that everyone has a place in this world and that we should treat each other with the respect we deserve.
 
-As the name may suggest, I have plenty of hobbies. Coming from a family of talented artists and craftsmen and women, I have always liked to tinker with everything. While my profession is in IT, that has not restricted me from using some of the skills (and hobbies) I picked up along the way. This blog, site, KB article archive is meant for me to document my way through my various hobbies. Chances are, someone else out there has had the same question or itch. Therefore, I hope I can create some sort of content that you can enjoy or, atleast, learn from.
+Like my personal life, I like to keep my professional life private as well out of the respect for the people I work with. However, I am happy to speak about my experience. Finally, I consider myself an Open Source Evangelist and find ways I can contribute to the tools I depend, whether that is by physical code contributions or simply by monetary donations.
 
 This site's theme was inspired by a few things:
 1) This Hugo [theme](https://github.com/charlola/hugo-theme-charlolamode)
 2) My favorite theme for everything, [Dracula](https://draculatheme.com/)
-3) Minimal flashy animations. I don't need a headache trying to look through a website, neither do I want you to as well. 
+3) Minimal flashy animations. I don't need a headache trying to look through a website, neither do I want you to as well.
 
 
-
-Privacy is also important to me, and therefore I will keep my family out of the picture. However, I am a proud father of three kids, a husband to an amazing wife, and a human trying to avoid negative energy. 
-
-
-### Hobbies
-1. Music
-2. 3D Printing
-3. Homelab
-4. Carpentry
-5. Gardening
-6. Fishing
-7. Running
-8. Eletronic Repair
-9. Writing
-10. Reading (fantasy and science fiction..shocker)
-11. Collecting Stardew Valley stuff
-12. Video Games
-13. Anything space or science related
-14. Making/Crafting/Everything
-15. Meditation
-
-
-#### LinkedIn
+### LinkedIn
 Feel free to connect, but please do not spam.[LinkedIn](https://www.linkedin.com/in/justin-frye-b4b14763/).
 
 
-#### Email
+### Email
 For long form questions or business inquiries, use email [Email](justin@randoneering.tech).
