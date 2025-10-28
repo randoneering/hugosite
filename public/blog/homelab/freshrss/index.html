@@ -1,156 +1,148 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<meta property="og:url" content="//localhost:1313/blog/homelab/freshrss/">
-  <meta property="og:title" content="FreshRSS RSS Feed Aggregator">
-  <meta property="og:description" content="Self-host your own rss feed aggregator, and use your own app to read!">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blog">
-    <meta property="article:published_time" content="2023-06-23T00:00:00+00:00">
-    <meta property="article:modified_time" content="2023-06-23T00:00:00+00:00">
+<meta name="author" content="">
+<meta name="description" content="Self-host your own rss feed aggregator, and use your own app to read!" />
+<meta name="keywords" content="open-source, nixos, nix, linux, python, engineering" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="//localhost:1313/blog/homelab/freshrss/" />
 
 
-  <meta name="twitter:card" content="summary">
+    <title>
+        
+            FreshRSS RSS Feed Aggregator ::  
+        
+    </title>
+
+
+
+
+
+  <link rel="stylesheet" href="/main.min.ea5a9f9ee37239a768493f18c0bf2dd39e9fea23f0782bab8b97ec2f92e34ce4.css" integrity="sha256-6lqfnuNyOadoST8YwL8t056f6iPweCuri5fsL5LjTOQ=" crossorigin="anonymous">
+
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="FreshRSS RSS Feed Aggregator">
+  <meta itemprop="description" content="Self-host your own rss feed aggregator, and use your own app to read!">
+  <meta itemprop="datePublished" content="2023-06-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-06-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="430">
+  <meta itemprop="image" content="//localhost:1313/">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="//localhost:1313/">
   <meta name="twitter:title" content="FreshRSS RSS Feed Aggregator">
   <meta name="twitter:description" content="Self-host your own rss feed aggregator, and use your own app to read!">
 
-<title>FreshRSS RSS Feed Aggregator | </title>
-<meta name="keywords" content="" />
-<meta name="description" content="Self-host your own rss feed aggregator, and use your own app to read!">
-<meta name="author" content="Justin@Randoneering">
-<link rel="canonical" href="//localhost:1313/blog/homelab/freshrss/" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.62d7562978a37edf25a23b592a9bff9e34f66e80efcc9cf2fd267942b990cf7a.css" integrity="sha256-YtdWKXijft8lojtZKpv/njT2boDvzJzy/SZ5QrmQz3o=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2eadbb982468c11a433a3e291f01326f2ba43f065e256bf792dbd79640a92316.js" integrity="sha256-Lq27mCRowRpDOj4pHwEybyukPwZeJWv3ktvXlkCpIxY="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="//localhost:1313/images/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/images/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/images/favicon-32x32.png">
-<link rel="apple-touch-icon" href="//localhost:1313/images/apple-touch-icon.png">
-<link rel="mask-icon" href="//localhost:1313/images/apple-touch-icon.png">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="//localhost:1313/blog/homelab/freshrss/" />
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
 
-    </style>
-</noscript>
-</head>
 
-<body class=" dark" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    }
 
-</script>
 
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-        <span class="logo-switches">
-            <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
-            </button>
-        <ul id="menu">
-            <li>
-                <a href="/" title="Home"><span>Home</span></a>
-            </li>
-            <li>
-                <a href="//localhost:1313/services/" title="Hire Me">
-                    <span>Hire Me</span>
-                </a>
-            </li>
-            <li>
-                <a href="//localhost:1313/blog/" title="Blog">
-                    <span>Blog</span>
-                </a>
-            </li>
-            <li>
-                <a href="//localhost:1313/contact/" title="Contact">
-                    <span>Contact</span>
-                </a>
+
+
+    <meta property="article:published_time" content="2023-06-23 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text logo__pathname">
+                $ cd /home/randoneering/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#d79921;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/about/">about</a></li><li><a href="/blog/">blog</a></li><li><a href="/services/">services</a></li>
+        <ul class="submenu">
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">en</a>
+                <div class="dropdown-content">
+                        
+                </div>
             </li>
         </ul>
-    </nav>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
 </header>
-<main class="main">
 
-<article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="//localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="//localhost:1313/blog/">Blog</a></div>
-    <h1 class="post-title">
-      FreshRSS RSS Feed Aggregator
-    </h1>
-    <div class="post-description">
-      Self-host your own rss feed aggregator, and use your own app to read!
-    </div>
-    <div class="post-meta">June 23, 2023 - 3 min - Justin@Randoneering</div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#i-love-rss" aria-label="I love RSS">I love RSS</a></li>
-                <li>
-                    <a href="#install" aria-label="Install">Install</a><ul>
-                        
-                <li>
-                    <a href="#lamp-stack" aria-label="LAMP Stack">LAMP Stack</a></li>
-                <li>
-                    <a href="#mysql-secure-install" aria-label="MySQL Secure Install">MySQL Secure Install</a></li>
-                <li>
-                    <a href="#create-database-for-freshrss" aria-label="Create Database for FreshRSS">Create Database for FreshRSS</a></li>
-                <li>
-                    <a href="#clone-freshrss-repo" aria-label="Clone FreshRSS Repo">Clone FreshRSS Repo</a></li>
-                <li>
-                    <a href="#change-ownership-on-freshrss-directory" aria-label="Change Ownership on FreshRSS Directory">Change Ownership on FreshRSS Directory</a></li>
-                <li>
-                    <a href="#change-ownership-on-data-directory" aria-label="Change ownership on data directory">Change ownership on data directory</a></li>
-                <li>
-                    <a href="#edit-000-defaultconf-in-etcapache2sites-enabled" aria-label="Edit 000-default.conf in /etc/apache2/sites-enabled">Edit 000-default.conf in /etc/apache2/sites-enabled</a></li>
-                <li>
-                    <a href="#configurefinish-install-of-freshrss" aria-label="Configure/Finish install of FreshRSS">Configure/Finish install of FreshRSS</a></li></ul>
-                </li>
-                <li>
-                    <a href="#post-install" aria-label="Post-Install">Post-Install</a>
-                </li>
-            </ul>
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
         </div>
-    </details>
-</div>
 
-  <div class="post-content">
-  <h1 id="i-love-rss">I love RSS</h1>
+        <article>
+            <h2 class="post-title"><a href="//localhost:1313/blog/homelab/freshrss/">FreshRSS RSS Feed Aggregator</a></h2>
+
+            
+            
+            
+
+            <div class="post-content">
+                <h1 id="i-love-rss">I love RSS</h1>
 <p>If you are like me and love RSS, I highly recommend hosting your own RSS Feed aggregator. A fellow community member in the TechnoTim discord (Thanks Blade) introduced me to FressRSS. It is free, lightweight, relatively easy to work with, and fully customizable. Though, it seems I like to do things the &ldquo;hard way&rdquo; and decided against using the docker image.  So if you are looking for the fire and forget method you get with docker, then you are in the wrong place.</p>
 <h1 id="install">Install</h1>
 <p><a href="https://github.com/FreshRSS/FreshRSS/releases/tag/1.21.0">https://github.com/FreshRSS/FreshRSS/releases/tag/1.21.0</a></p>
@@ -190,7 +182,7 @@
 </span></span><span style="display:flex;"><span>ServerAdmin webmaster@localhost
 </span></span><span style="display:flex;"><span>DocumentRoot /var/www/FreshRSS/p
 </span></span></code></pre></div><h2 id="configurefinish-install-of-freshrss">Configure/Finish install of FreshRSS</h2>
-<p>Go to your server site &ldquo;<a href="http://192.168.x.xxx/i%22">http://192.168.x.xxx/i&quot;</a> and follow the install steps using database user and password you created in the previous steps</p>
+<p>Go to your server site &ldquo;<a href="http://192.168.x.xxx/i%22">http://192.168.x.xxx/i"</a> and follow the install steps using database user and password you created in the previous steps</p>
 <h1 id="post-install">Post-Install</h1>
 <p>Out of the box, my FreshRSS instance was not auto-refreshing my feeds. This made it pointless to use, honestly, and I almost just deleted the vm. However, I was shown a method via the following doc:</p>
 <p><a href="https://freshrss.github.io/FreshRSS/en/admins/08_FeedUpdates.html">https://freshrss.github.io/FreshRSS/en/admins/08_FeedUpdates.html</a></p>
@@ -214,151 +206,52 @@
 </span></span><span style="display:flex;"><span>WantedBy<span style="color:#f92672">=</span>timers.target
 </span></span></code></pre></div><p>Once these have been created in /etc/systemd/system, enable the timer with <code>systemctl enable freshrss.timer</code> followed by reloading the systemd config with <code>systemctl daemon-reload</code>.</p>
 
-  </div>
+            </div>
+        </article>
 
-  <footer class="post-footer">
+        <hr />
 
-<div class="share-buttons">
-
-    <a target="_blank" rel="noopener noreferrer" aria-label="share FreshRSS RSS Feed Aggregator on linkedin"
-        href="https://www.linkedin.com/in/justin-frye-b4b14763/">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
-            <path
-                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
-        </svg>
-    </a>
-</div>
-
-  </footer>
-  <script src="https://giscus.app/client.js"
-  data-repo="randoneering/hugosite"
-  data-repo-id="R_kgDOJ7Rs5w"
-  data-category="Announcements"
-  data-category-id="DIC_kwDOJ7Rs584Ck7Xe"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="bottom"
-  data-theme="transparent_dark"
-  data-lang="en"
-  crossorigin="anonymous"
-  async>
-</script>
-</article>
+        <div class="post-info">
+            
+            
+  		</div>
     </main>
+
+            </div>
+
+            
+                <footer class="footer">
     
-<footer class="footer">
-    <span> Copyright© Randoneering, LLC 2025
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2025</span>
+            <span><a href="//localhost:1313/">Justin Frye (Randoneering)</a></span>
+            <span></span>
+            <span><a href="//localhost:1313/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span></span>
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Made with &#9749 and random engineering</span>
+        </div>
+    </div>
+    
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
 
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
-
-        function copyingDone() {
-            copybutton.innerText = 'copied!';
-            setTimeout(() => {
-                copybutton.innerText = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
             
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
-</body>
+        </div>
 
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
+
+
+
+
+    </body>
 </html>
