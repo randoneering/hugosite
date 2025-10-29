@@ -2,69 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/</loc>
+    <loc>/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/random/aihypetrain/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/foss/scale22x/</loc>
     <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/</loc>
-    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/blog/foss/scale22x/</loc>
-    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/blog/weekly/jan212025/</loc>
+    <loc>/blog/weekly/jan212025/</loc>
     <lastmod>2025-01-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/weekly/jan122025/</loc>
+    <loc>/blog/weekly/jan122025/</loc>
     <lastmod>2025-01-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/weekly/jan052025/</loc>
+    <loc>/blog/weekly/jan052025/</loc>
     <lastmod>2025-01-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/weekly/december262024/</loc>
+    <loc>/blog/weekly/december262024/</loc>
     <lastmod>2024-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/weekly/december142024/</loc>
+    <loc>/blog/weekly/december142024/</loc>
     <lastmod>2024-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/change/</loc>
+    <loc>/blog/change/</loc>
     <lastmod>2024-12-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/homelab/projectupdate/</loc>
+    <loc>/blog/homelab/projectupdate/</loc>
     <lastmod>2024-07-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/nixos/nixosjourneyp2/</loc>
+    <loc>/blog/nixos/nixosjourneyp2/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/nixos/nixosjourneyp1/</loc>
+    <loc>/blog/nixos/nixosjourneyp1/</loc>
     <lastmod>2023-12-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/databases/automateddumpspt2/</loc>
+    <loc>/blog/databases/automateddumpspt2/</loc>
     <lastmod>2023-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/databases/automateddumpspt1/</loc>
+    <loc>/blog/databases/automateddumpspt1/</loc>
     <lastmod>2023-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/homelab/freshrssdocker/</loc>
+    <loc>/blog/homelab/freshrssdocker/</loc>
     <lastmod>2023-07-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/homelab/freshrss/</loc>
+    <loc>/blog/homelab/freshrss/</loc>
     <lastmod>2023-06-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/databases/mariadbplaybook/</loc>
+    <loc>/blog/databases/mariadbplaybook/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/homelab/upgradedsol/</loc>
+    <loc>/blog/homelab/upgradedsol/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/homelab/weatherstation/</loc>
+    <loc>/blog/homelab/weatherstation/</loc>
     <lastmod>2022-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/</loc>
+    <loc>/categories/</loc>
   </url><url>
-    <loc>//localhost:1313/contact/</loc>
+    <loc>/contact/</loc>
   </url><url>
-    <loc>//localhost:1313/services/</loc>
+    <loc>/services/</loc>
   </url><url>
-    <loc>//localhost:1313/tags/</loc>
+    <loc>/tags/</loc>
   </url>
 </urlset>
