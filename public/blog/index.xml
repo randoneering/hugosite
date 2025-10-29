@@ -6,8 +6,15 @@
     <description>Recent content in Blog on </description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Not Another AI Hype Train</title>
+      <link>//localhost:1313/blog/random/aihypetrain/</link>
+      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/blog/random/aihypetrain/</guid>
+      <description>&lt;h2 id=&#34;confessions&#34;&gt;Confessions&lt;/h2&gt;&#xA;&lt;p&gt;As the AI Chatbot Hype-Train started chugging along at the first announcement of OpenAI&amp;rsquo;s ChatGPT in November of 2022&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, I will admit that I was an immediate skeptic. Between the blatent dismissal of licenses and tactics to scrape the internet for training, I felt that this tool would be just like NFTs and Crypto Currency. The hype would be unreal for a few months, maybe a year, and then reality would set in that this was just another pipe dream to scam  humanity of its diginity (and money).&lt;/p&gt;</description>
+    </item>
     <item>
       <title>SCALE 22x</title>
       <link>//localhost:1313/blog/foss/scale22x/</link>
@@ -58,6 +65,13 @@
       <description>&lt;h1 id=&#34;i-still-use-this-website&#34;&gt;I Still Use This Website&lt;/h1&gt;&#xA;&lt;p&gt;Yet another large gap in my posts, and the only answer I can provide to you is lack of time and motivation to do anything about it. However, I have told myself that I should hold myself accountable for posting and doing research on the things that I love. If some of that becomes interesting enough to put on this site, then I can do that! Maybe, just maybe, I could get myself to setup an account on &lt;a href=&#34;https://lobste.rs/&#34;&gt;https://lobste.rs/&lt;/a&gt; and post there!&lt;/p&gt;</description>
     </item>
     <item>
+      <title>DBRE Terraform Modules, Ansible-Playbooks, and my first Public Project</title>
+      <link>//localhost:1313/blog/homelab/projectupdate/</link>
+      <pubDate>Sun, 14 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/blog/homelab/projectupdate/</guid>
+      <description>&lt;h1 id=&#34;i-have-been-busy&#34;&gt;I have been busy&lt;/h1&gt;&#xA;&lt;p&gt;You will notice how my posts are spread out, and my answer for that is simple; life. Between several life changes, a cross country move, and busy work life, it is hard for me to muster the energy to do anything other than meditate and go to sleep. So here are a few things I have been working on in the limited time I have.&lt;/p&gt;&#xA;&lt;h2 id=&#34;terraform-modules-for-dbres&#34;&gt;Terraform Modules for DBREs&lt;/h2&gt;&#xA;&lt;p&gt;Over the last few months, I have been working hard on deploying Database IaC at my jobby job. When I first started building the modules, I realized how much there WASN&amp;rsquo;T out there for fellow DBAs and DBREs. I would find overly complicated modules with more variables than members of the Duggar&amp;rsquo;s Family, embedded scripts to ping alerts, etc. So I started building out modules that were easy to use, without anything complicated to it. Over time, I will iterate from these as they are now, but they can serve as a good base for your journey into IaC as a DBA/DBRE with Terraform.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>NixOS part 1.5</title>
       <link>//localhost:1313/blog/nixos/nixosjourneyp2/</link>
       <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
@@ -86,6 +100,13 @@
       <description>&lt;h1 id=&#34;the-ask&#34;&gt;The Ask&lt;/h1&gt;&#xA;&lt;p&gt;I was asked to do the following. First, I needed to run a backup of specific databases, both in Postgres and MySQL. Second, I needed to gzip the backup. Finally, it had to be uploaded to an S3 bucket. Seemed straight forward enough.&lt;/p&gt;&#xA;&lt;h1 id=&#34;the-how&#34;&gt;The How&lt;/h1&gt;&#xA;&lt;p&gt;In a previous life, I worked in a Sysadmin/DBA hybrid role where I wrote a lot of powershell scripts for support. I would prefer to use this opportunity to learn python (which is in the works now), but I needed to get this done in a time frame that would not allow for me to learn it. So, I went to powershell.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>FreshRSS, but using Docker Compose</title>
+      <link>//localhost:1313/blog/homelab/freshrssdocker/</link>
+      <pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/blog/homelab/freshrssdocker/</guid>
+      <description>&lt;h1 id=&#34;this-is-a-quick-one&#34;&gt;This is a quick one&lt;/h1&gt;&#xA;&lt;p&gt;To prove a point, and make it &amp;ldquo;easier&amp;rdquo;, you could just use docker and run FreshRSS that way. It takes less time, honestly, and less complicated. So, why not:&lt;/p&gt;&#xA;&lt;h1 id=&#34;oh-linuxserverio-how-i-adore-you&#34;&gt;Oh, linuxserver.io, how I adore you&lt;/h1&gt;&#xA;&lt;p&gt;I went with the instructions and image curated by linuxserver.io:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.linuxserver.io/images/docker-freshrss&#34;&gt;https://docs.linuxserver.io/images/docker-freshrss&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;This cuts out a lot of the work, and actually setups up a cronjob to refresh your feeds automatically. No fussing around with systemd or crontabs yourself. Here is my docker-compose&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>FreshRSS RSS Feed Aggregator</title>
       <link>//localhost:1313/blog/homelab/freshrss/</link>
       <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
@@ -98,6 +119,20 @@
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/blog/databases/mariadbplaybook/</guid>
       <description>&lt;h1 id=&#34;getting-down-to-the-basics&#34;&gt;Getting Down to the Basics&lt;/h1&gt;&#xA;&lt;p&gt;This will be an ongoing task and is in a private repo currently. However, I wanted to share the core of the playbook here. Check back periodically where I will make adjustments to include other best practices. Once I feel like this is in a solid state, I will open up the github repo for easy of use.&lt;/p&gt;&#xA;&lt;h2 id=&#34;before-you-copy-pasta&#34;&gt;Before You Copy Pasta&lt;/h2&gt;&#xA;&lt;p&gt;Notice the variables-you will need to add your own vars file, inventory file, and your ansible.cfg file. This is not complete, but works in its current state. Feel free to use at your own discretion.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Upgraded SOL</title>
+      <link>//localhost:1313/blog/homelab/upgradedsol/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/blog/homelab/upgradedsol/</guid>
+      <description>&lt;p&gt;As a true homelab enthusiast, I decided to swap out the middle fans of my supermicro 826 server chassis and the two X5860s  with two L5640s. For months, I have left my lab running, but barely using the 20+ cores and 128GB of RAM I have in the box. Paired with a 1000w power supply, I was feeling pretty guilty having this old server sucking power and it not going to good use.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>When Two Weather Stations Walk Into A Bar</title>
+      <link>//localhost:1313/blog/homelab/weatherstation/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/blog/homelab/weatherstation/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Davis Vantage Pro2 Acquired&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;A few years ago, my wife&amp;rsquo;s grandfather gifted me a Davis Vantage Pro2 weather station. Originally, he was given this weather station by one of his sons who was deployed on active duty  in the Middle East shortly after 9/11. This specific weather station was used at his post and when his deployment ended, and the station was gearing down, his son packed up the weather station. It made its way to my wife&amp;rsquo;s grandfather, where it sat for fifteen years. That is when I walked into the family, and was given the station.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
