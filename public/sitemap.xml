@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<<<<<<< HEAD
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
@@ -71,3 +72,20 @@
     <loc>/tags/</loc>
   </url>
 </urlset>
+=======
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>//localhost:1313/en/sitemap.xml</loc>
+    
+      <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>//localhost:1313/fr/sitemap.xml</loc>
+    
+  </sitemap>
+  
+</sitemapindex>
+>>>>>>> 1261bdba16cbe221ad3ec3d9431fc97cd5a66987
