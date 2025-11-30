@@ -6,8 +6,15 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pgFirstAid - PostgreSQL Health Check</title>
+      <link>/blog/pgfirstaid/pgfirstaid/</link>
+      <pubDate>Sat, 29 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>/blog/pgfirstaid/pgfirstaid/</guid>
+      <description>&lt;h1 id=&#34;pgfirstaid-your-postgresql-servers-health-checkup&#34;&gt;pgFirstAid, your PostgreSQL Server&amp;rsquo;s health checkup&lt;/h1&gt;&#xA;&lt;p&gt;I started my career in data as a SQL Server DBA and was quickly introduced to &lt;a href=&#34;https://www.brentozar.com/first-aid/&#34;&gt;Brent Ozar&lt;/a&gt;. Many SQL Server DBAs will know the name, as well as Ola Hallengren&amp;rsquo;s infamous &lt;a href=&#34;https://ola.hallengren.com/&#34;&gt;maintenance.sql&lt;/a&gt; SQL Server maintenance plan. In the years I supported SQL Server, these tools were the backbone of my workflow when deploying and troubleshooting various versions of SQL Server. Combine this with the extremely active community that Brent has, it was a huge adjustment starting to support PostgreSQL without a tool like the &lt;code&gt;FirstResponderKit&lt;/code&gt;. There are plenty of extensions and, being the best (yes I said it) open-source database platform, I was able to manage.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Not Another AI Hype Train</title>
       <link>/blog/random/aihypetrain/</link>
