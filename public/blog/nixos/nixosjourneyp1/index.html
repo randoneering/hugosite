@@ -23,7 +23,7 @@
 
 
 
-  <link rel="stylesheet" href="/main.min.ecc6ec8f243acbd278a9df5ba1abeb98c3aa3b39f8f19074fb486b4583e8f517.css" integrity="sha256-7MbsjyQ6y9J4qd9boavrmMOqOzn48ZB0&#43;0hrRYPo9Rc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/main.min.3c911f7f09362ed6d9a46a7b4581715f31e432d12aa97963448ee9f2618fb0a1.css" integrity="sha256-PJEffwk2LtbZpGp7RYFxXzHkMtEqqXljRI7p8mGPsKE=" crossorigin="anonymous">
 
 
 
@@ -38,18 +38,14 @@
     <meta name="msapplication-TileColor" content="">
 
 
-
-  <meta itemprop="name" content="Stay awhile, and listen...to my nixOS journey!">
-  <meta itemprop="description" content="Taking immutable to a new level">
-  <meta itemprop="datePublished" content="2023-12-29T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2023-12-29T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1128">
-  <meta itemprop="image" content="/images/randoneering_logo_only.jpg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/images/randoneering_logo_only.jpg">
-  <meta name="twitter:title" content="Stay awhile, and listen...to my nixOS journey!">
-  <meta name="twitter:description" content="Taking immutable to a new level">
+<meta itemprop="name" content="Stay awhile, and listen...to my nixOS journey!">
+<meta itemprop="description" content="Taking immutable to a new level"><meta itemprop="datePublished" content="2023-12-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-12-29T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1128"><meta itemprop="image" content="/images/randoneering_logo_only.jpg" />
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="/images/randoneering_logo_only.jpg" /><meta name="twitter:title" content="Stay awhile, and listen...to my nixOS journey!"/>
+<meta name="twitter:description" content="Taking immutable to a new level"/>
 
 
 
@@ -101,8 +97,7 @@
         <ul class="submenu">
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">en</a>
-                <div class="dropdown-content">
-                        
+                <div class="dropdown-content"> 
                 </div>
             </li>
         </ul>
@@ -146,7 +141,7 @@
 <p>So, for those who have yet to go down this path, it would be helpful to explain what NixOS is. NixOS is a free and open-source Linux distribution. What sets itself apart from Pop!os, Debian, Ubuntu, Arch, and many others is that its entire operating system is built by the Nix package manager. This includes nix application packages, your kernel, system settings, SMB shares, and pretty much anything you can think of.</p>
 <p>What this allows the users to do is work within a declarativve configuration. If you make a change to the configuration file and want the changes to take, you run <code>nixos-rebuild switch</code>. NixOS then takes in the new changes, goes out to get new packages if needed, and generates a new configuration file. If this breaks anything or you just want to go back to the previous version, all you have to do is <code>nixos-rebuild switch --rollback</code>. Even on boot, you are presented with previous <code>nixos-rebuild</code> events that you can select and boot right into. Combine this with commiting to github or version control manager and you could start sharing your configs with other devices.</p>
 <h2 id="are-you-starting-to-get-it-yet">Are you starting to get it yet?</h2>
-<p>To most, even the seasoned Linux user, nixOS can be daunting at a glance. It takes every fiber of my being not to install packages via <code>apt install</code> or <code>snap install</code> or <code>yum install</code>. Finding packages that the community and nixOS team have compiled specifically for nixOS is easy, and can be done by searching directly on the site (<a href="https://search.nixos.org/packages%29">https://search.nixos.org/packages)</a>. However, there is a possibility that your favorite package may not be packaged yet. You can request that package be assembled via github (<a href="https://github.com/NixOS/nixpkgs/issues%29">https://github.com/NixOS/nixpkgs/issues)</a>. I am currently hoping for tabby.sh to be packaged up for me so I can use my favorite terminal app. Someone already requested it, but fingers crossed it gets done!</p>
+<p>To most, even the seasoned Linux user, nixOS can be daunting at a glance. It takes every fiber of my being not to install packages via <code>apt install</code> or <code>snap install</code> or <code>yum install</code>. Finding packages that the community and nixOS team have compiled specifically for nixOS is easy, and can be done by searching directly on the site (<a href="https://search.nixos.org/packages)">https://search.nixos.org/packages)</a>. However, there is a possibility that your favorite package may not be packaged yet. You can request that package be assembled via github (<a href="https://github.com/NixOS/nixpkgs/issues)">https://github.com/NixOS/nixpkgs/issues)</a>. I am currently hoping for tabby.sh to be packaged up for me so I can use my favorite terminal app. Someone already requested it, but fingers crossed it gets done!</p>
 <p>But the catch is, while you can &ldquo;install&rdquo; packages using <code>nix-env -iA cider</code>, for example. This installs at the user level, so it will not be system wide and will not appear in your nixOS config. Additionally, you can try out a package without installing it by running <code>nix shell</code>, and a shell instance will run the package. When the shell instance is terminated, it will no longer persist on your device.</p>
 <h2 id="the-nixos-config">The NixOS Config</h2>
 <p>I have referenced the &ldquo;nixOS config&rdquo; file a few times now, which is the whole reason why I wanted to try nixOS out. It is just like any config file, but you can declare your entire state in this SINGLE file. Got a bunch of guh-nome (gnome) extensions you always setup on a fresh install? Yeah, you can declare that in your nix config file. Packages? Easy, all in the config file. Services like your vpn, syncthing shared folders, and your tailscale mesh network? Ye&hellip;you get the point.</p>
@@ -385,7 +380,7 @@
 
 
 
-<script type="text/javascript" src="/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
+<script type="text/javascript" src="/bundle.min.ac2a4bcaed631ec2dc154407be7f09fc28da37de71fae6dee6711b2a3d1622770f87d3cda22c460e9a68ff619bdb1dd75cb7a5d33f159a54e419736cc4541087.js" integrity="sha512-rCpLyu1jHsLcFUQHvn8J/CjaN95x&#43;ube5nEbKj0WIncPh9PNoixGDppo/2Gb2x3XXLel0z8VmlTkGXNsxFQQhw=="></script>
 
 
 
