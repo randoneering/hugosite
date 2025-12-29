@@ -2,136 +2,136 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <link>/</link>
+    <link>//localhost:1313/</link>
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Not Another AI Hype Train</title>
-      <link>/blog/random/aihypetrain/</link>
+      <link>//localhost:1313/blog/random/aihypetrain/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>/blog/random/aihypetrain/</guid>
+      <guid>//localhost:1313/blog/random/aihypetrain/</guid>
       <description>Confessions As the AI Chatbot Hype-Train started chugging along at the first announcement of OpenAI&amp;rsquo;s ChatGPT in November of 20221, I will admit that I was an immediate skeptic. Between the blatent dismissal of licenses and tactics to scrape the internet for training, I felt that this tool would be just like NFTs and Crypto Currency. The hype would be unreal for a few months, maybe a year, and then reality would set in that this was just another pipe dream to scam humanity of its diginity (and money).</description>
     </item>
     <item>
       <title>SCALE 22x</title>
-      <link>/blog/foss/scale22x/</link>
+      <link>//localhost:1313/blog/foss/scale22x/</link>
       <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>/blog/foss/scale22x/</guid>
+      <guid>//localhost:1313/blog/foss/scale22x/</guid>
       <description>Welcome to SCALE 22x! This year is my first, and hopefully not last, time attending SCALE (Southern California Linux Expo). Yes, it is a conference full of Linux enthusiasts, and yes, we all look completely different. That is the joy about our community-we are fully accepting, and I am proud to be apart of it. With that, I am putting out a full disclosure-I am here on business. This trip was paid for by the company I work for and with the expectation that I would be attending the many Postgres related talks given.</description>
     </item>
     <item>
       <title>Weekly Post (2025-01-25)</title>
-      <link>/blog/weekly/jan212025/</link>
+      <link>//localhost:1313/blog/weekly/jan212025/</link>
       <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>/blog/weekly/jan212025/</guid>
+      <guid>//localhost:1313/blog/weekly/jan212025/</guid>
       <description>ALF Chicago Marathon 2025 Liver Life Challenge Update We are approaching our $1000 mark, with a strong $937 already raised in January! Thank you all for your support. Keep sharing the link with whomever you come across, and do not forget to see if your employer matches your contributions!&#xA;https://liverlifechallenge.org/chicago/support/#jfrye&#xA;Distro-hoppin&#39; Back on pop!OS 22.04 again After a failed upgrade to NixOS 24.11 and ultimately being annoyed with my drive to always make things perfect, I went back to my comfort zone.</description>
     </item>
     <item>
       <title>Weekly Post (2025-01-12)</title>
-      <link>/blog/weekly/jan122025/</link>
+      <link>//localhost:1313/blog/weekly/jan122025/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>/blog/weekly/jan122025/</guid>
+      <guid>//localhost:1313/blog/weekly/jan122025/</guid>
       <description>ALF Chicago Marathon 2025 Liver Life Challenge Update First, I want to thank everyone for donating! In the week I made my first post, so many people reached out and shared the link across their networks. With the help of the initial outreach, we raised $785! Humbled does not begin to describe how my family feels with all of your generous donations. Since we hit my first mental milestone, the grand-children will be busy at work making personalized thank yous for everyone who donated (and those who will donate in the future).</description>
     </item>
     <item>
       <title>Weekly Post (2025-01-05)</title>
-      <link>/blog/weekly/jan052025/</link>
+      <link>//localhost:1313/blog/weekly/jan052025/</link>
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>/blog/weekly/jan052025/</guid>
+      <guid>//localhost:1313/blog/weekly/jan052025/</guid>
       <description>Notable Articles More RTO Nonsense (no, not Recovery Time Objective&amp;hellip;.) https://www.msn.com/en-us/money/companies/nearly-half-of-dell-s-full-time-workforce-in-the-u-s-has-rejected-returning-to-the-office-they-d-rather-work-from-home-than-get-promoted/ar-BB1oBygb&#xA;Avoiding this conversation has been a little easier for me since my current and previous jobs hired me as a full time REMOTE employee. In 2020-2022, I did spend my time at a company that bounced back and forth between full remote to hybrid towards the middle/end of 2022. So, in my years in IT, I have worked in all three scenarios and personally like them all.</description>
     </item>
     <item>
       <title>Weekly Post (2024-12-26)</title>
-      <link>/blog/weekly/december262024/</link>
+      <link>//localhost:1313/blog/weekly/december262024/</link>
       <pubDate>Thu, 26 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/blog/weekly/december262024/</guid>
+      <guid>//localhost:1313/blog/weekly/december262024/</guid>
       <description>Notable Articles Gordon Mah Ung https://www.pcworld.com/article/2564783/gordon-mah-ung-remembered.html&#xA;Growing up in my PC Master Race years, I remember reading PCWorld articles, and eventually, watching clips with Gordon in front of the camera in the early days of youtube. And, if I can remember correctly, I believe the PCWorld mag podcast was one of the first podcasts I ever subscribed to. Gordon left a huge mark on the industry, and he will be greatly missed.</description>
     </item>
     <item>
       <title>Weekly Post (2024-12-15)</title>
-      <link>/blog/weekly/december142024/</link>
+      <link>//localhost:1313/blog/weekly/december142024/</link>
       <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/blog/weekly/december142024/</guid>
+      <guid>//localhost:1313/blog/weekly/december142024/</guid>
       <description>Notable Articles The &amp;ldquo;Ideal&amp;rdquo; Pull Request Template https://ashleemboyer.com/blog/pull-request-template/&#xA;I started to see this more at the company I work with now when I get tagged for schema reviews. To be honest, I love templates; I used to have a go to template for my test cases when I was a QA Test Lead. They helped me create repeatable tests that included the necessary information for anyone to pick it up and repeat that same test in the same manner.</description>
     </item>
     <item>
       <title>I swear I still write things.</title>
-      <link>/blog/change/</link>
+      <link>//localhost:1313/blog/change/</link>
       <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>/blog/change/</guid>
+      <guid>//localhost:1313/blog/change/</guid>
       <description>I Still Use This Website Yet another large gap in my posts, and the only answer I can provide to you is lack of time and motivation to do anything about it. However, I have told myself that I should hold myself accountable for posting and doing research on the things that I love. If some of that becomes interesting enough to put on this site, then I can do that!</description>
     </item>
     <item>
       <title>DBRE Terraform Modules, Ansible-Playbooks, and my first Public Project</title>
-      <link>/blog/homelab/projectupdate/</link>
+      <link>//localhost:1313/blog/homelab/projectupdate/</link>
       <pubDate>Sun, 14 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/projectupdate/</guid>
+      <guid>//localhost:1313/blog/homelab/projectupdate/</guid>
       <description>I have been busy You will notice how my posts are spread out, and my answer for that is simple; life. Between several life changes, a cross country move, and busy work life, it is hard for me to muster the energy to do anything other than meditate and go to sleep. So here are a few things I have been working on in the limited time I have.&#xA;Terraform Modules for DBREs Over the last few months, I have been working hard on deploying Database IaC at my jobby job.</description>
     </item>
     <item>
       <title>NixOS part 1.5</title>
-      <link>/blog/nixos/nixosjourneyp2/</link>
+      <link>//localhost:1313/blog/nixos/nixosjourneyp2/</link>
       <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>/blog/nixos/nixosjourneyp2/</guid>
+      <guid>//localhost:1313/blog/nixos/nixosjourneyp2/</guid>
       <description>I gave up To save the trouble of leaving you all on a cliff hanger, I switched back to pop_OS. I&amp;rsquo;ll explain, to my best ability why. But I do want to point out some of things I learned about NixOS that make it one of the best operating systems I have ever used. At the end of the day, I wanted to be on a platform that did not require me to fight to use every time I wanted to add something to my config file.</description>
     </item>
     <item>
       <title>Stay awhile, and listen...to my nixOS journey!</title>
-      <link>/blog/nixos/nixosjourneyp1/</link>
+      <link>//localhost:1313/blog/nixos/nixosjourneyp1/</link>
       <pubDate>Fri, 29 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>/blog/nixos/nixosjourneyp1/</guid>
+      <guid>//localhost:1313/blog/nixos/nixosjourneyp1/</guid>
       <description>NixOS Journey, Part 1 So, for those who have yet to go down this path, it would be helpful to explain what NixOS is. NixOS is a free and open-source Linux distribution. What sets itself apart from Pop!os, Debian, Ubuntu, Arch, and many others is that its entire operating system is built by the Nix package manager. This includes nix application packages, your kernel, system settings, SMB shares, and pretty much anything you can think of.</description>
     </item>
     <item>
       <title>Automate your dumps with Powershell(part 2)</title>
-      <link>/blog/databases/automateddumpspt2/</link>
+      <link>//localhost:1313/blog/databases/automateddumpspt2/</link>
       <pubDate>Sun, 29 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>/blog/databases/automateddumpspt2/</guid>
+      <guid>//localhost:1313/blog/databases/automateddumpspt2/</guid>
       <description>Time for mysqldump The script is identical other than two things. First, we have to use a separate secrets file to the user and password to execute mysqldump. Secondly, the parameter order is different for mysqldump, and it is very picky. I have included some source post and documentation that helped me get around a few issues.&#xA;Storing the password Like Postgres, I wanted to store the password somewhere so I wouldn&amp;rsquo;t need to manually enter for each dump (and avoid plain text exposure of my password when passing the command).</description>
     </item>
     <item>
       <title>Automate your dumps with Powershell(part 1)</title>
-      <link>/blog/databases/automateddumpspt1/</link>
+      <link>//localhost:1313/blog/databases/automateddumpspt1/</link>
       <pubDate>Fri, 27 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>/blog/databases/automateddumpspt1/</guid>
+      <guid>//localhost:1313/blog/databases/automateddumpspt1/</guid>
       <description>The Ask I was asked to do the following. First, I needed to run a backup of specific databases, both in Postgres and MySQL. Second, I needed to gzip the backup. Finally, it had to be uploaded to an S3 bucket. Seemed straight forward enough.&#xA;The How In a previous life, I worked in a Sysadmin/DBA hybrid role where I wrote a lot of powershell scripts for support. I would prefer to use this opportunity to learn python (which is in the works now), but I needed to get this done in a time frame that would not allow for me to learn it.</description>
     </item>
     <item>
       <title>FreshRSS, but using Docker Compose</title>
-      <link>/blog/homelab/freshrssdocker/</link>
+      <link>//localhost:1313/blog/homelab/freshrssdocker/</link>
       <pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/freshrssdocker/</guid>
+      <guid>//localhost:1313/blog/homelab/freshrssdocker/</guid>
       <description>This is a quick one To prove a point, and make it &amp;ldquo;easier&amp;rdquo;, you could just use docker and run FreshRSS that way. It takes less time, honestly, and less complicated. So, why not:&#xA;Oh, linuxserver.io, how I adore you I went with the instructions and image curated by linuxserver.io:&#xA;https://docs.linuxserver.io/images/docker-freshrss&#xA;This cuts out a lot of the work, and actually setups up a cronjob to refresh your feeds automatically. No fussing around with systemd or crontabs yourself.</description>
     </item>
     <item>
       <title>FreshRSS RSS Feed Aggregator</title>
-      <link>/blog/homelab/freshrss/</link>
+      <link>//localhost:1313/blog/homelab/freshrss/</link>
       <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/freshrss/</guid>
+      <guid>//localhost:1313/blog/homelab/freshrss/</guid>
       <description>I love RSS If you are like me and love RSS, I highly recommend hosting your own RSS Feed aggregator. A fellow community member in the TechnoTim discord (Thanks Blade) introduced me to FressRSS. It is free, lightweight, relatively easy to work with, and fully customizable. Though, it seems I like to do things the &amp;ldquo;hard way&amp;rdquo; and decided against using the docker image. So if you are looking for the fire and forget method you get with docker, then you are in the wrong place.</description>
     </item>
     <item>
       <title>Basic MariaDB Install Playbook</title>
-      <link>/blog/databases/mariadbplaybook/</link>
+      <link>//localhost:1313/blog/databases/mariadbplaybook/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>/blog/databases/mariadbplaybook/</guid>
+      <guid>//localhost:1313/blog/databases/mariadbplaybook/</guid>
       <description>Getting Down to the Basics This will be an ongoing task and is in a private repo currently. However, I wanted to share the core of the playbook here. Check back periodically where I will make adjustments to include other best practices. Once I feel like this is in a solid state, I will open up the github repo for easy of use.&#xA;Before You Copy Pasta Notice the variables-you will need to add your own vars file, inventory file, and your ansible.</description>
     </item>
     <item>
       <title>Upgraded SOL</title>
-      <link>/blog/homelab/upgradedsol/</link>
+      <link>//localhost:1313/blog/homelab/upgradedsol/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/upgradedsol/</guid>
+      <guid>//localhost:1313/blog/homelab/upgradedsol/</guid>
       <description>As a true homelab enthusiast, I decided to swap out the middle fans of my supermicro 826 server chassis and the two X5860s with two L5640s. For months, I have left my lab running, but barely using the 20+ cores and 128GB of RAM I have in the box. Paired with a 1000w power supply, I was feeling pretty guilty having this old server sucking power and it not going to good use.</description>
     </item>
     <item>
       <title>When Two Weather Stations Walk Into A Bar</title>
-      <link>/blog/homelab/weatherstation/</link>
+      <link>//localhost:1313/blog/homelab/weatherstation/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>/blog/homelab/weatherstation/</guid>
+      <guid>//localhost:1313/blog/homelab/weatherstation/</guid>
       <description>Davis Vantage Pro2 Acquired&#xA;A few years ago, my wife&amp;rsquo;s grandfather gifted me a Davis Vantage Pro2 weather station. Originally, he was given this weather station by one of his sons who was deployed on active duty in the Middle East shortly after 9/11. This specific weather station was used at his post and when his deployment ended, and the station was gearing down, his son packed up the weather station.</description>
     </item>
   </channel>
