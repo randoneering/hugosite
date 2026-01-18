@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
-<meta name="description" content="The release of pgFirstAid, inspired by FirstResponderKit" />
+<meta name="description" content="pgFirstAid, your PostgreSQL Server’s health checkup" />
 <meta name="keywords" content="open-source, nixos, nix, linux, python, engineering" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -23,7 +23,7 @@
 
 
 
-  <link rel="stylesheet" href="/main.min.ecc6ec8f243acbd278a9df5ba1abeb98c3aa3b39f8f19074fb486b4583e8f517.css" integrity="sha256-7MbsjyQ6y9J4qd9boavrmMOqOzn48ZB0&#43;0hrRYPo9Rc=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/main.min.4626de5b88dc6dfaac92903252fd2d7559d82dfd6c2105c333fa52090220ab60.css" integrity="sha256-RibeW4jcbfqskpAyUv0tdVnYLf1sIQXDM/pSCQIgq2A=" crossorigin="anonymous">
 
 
 
@@ -40,16 +40,16 @@
 
 
   <meta itemprop="name" content="pgFirstAid - PostgreSQL Health Check">
-  <meta itemprop="description" content="The release of pgFirstAid, inspired by FirstResponderKit">
-  <meta itemprop="datePublished" content="2025-11-29T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-11-29T00:00:00+00:00">
-  <meta itemprop="wordCount" content="855">
+  <meta itemprop="description" content="pgFirstAid, your PostgreSQL Server’s health checkup">
+  <meta itemprop="datePublished" content="2025-11-15T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-11-15T00:00:00+00:00">
+  <meta itemprop="wordCount" content="853">
   <meta itemprop="image" content="/images/randoneering_logo_only.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/images/randoneering_logo_only.jpg">
   <meta name="twitter:title" content="pgFirstAid - PostgreSQL Health Check">
-  <meta name="twitter:description" content="The release of pgFirstAid, inspired by FirstResponderKit">
+  <meta name="twitter:description" content="pgFirstAid, your PostgreSQL Server’s health checkup">
 
 
 
@@ -57,7 +57,7 @@
 
 
 
-    <meta property="article:published_time" content="2025-11-29 00:00:00 &#43;0000 UTC" />
+    <meta property="article:published_time" content="2025-11-15 00:00:00 &#43;0000 UTC" />
 
 
 
@@ -101,8 +101,7 @@
         <ul class="submenu">
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">en</a>
-                <div class="dropdown-content">
-                        
+                <div class="dropdown-content"> 
                 </div>
             </li>
         </ul>
@@ -142,27 +141,26 @@
             
 
             <div class="post-content">
-                <h1 id="pgfirstaid-your-postgresql-servers-health-checkup">pgFirstAid, your PostgreSQL Server&rsquo;s health checkup</h1>
-<p>I started my career in data as a SQL Server DBA and was quickly introduced to <a href="https://www.brentozar.com/first-aid/">Brent Ozar</a>. Many SQL Server DBAs will know the name, as well as Ola Hallengren&rsquo;s infamous <a href="https://ola.hallengren.com/">maintenance.sql</a> SQL Server maintenance plan. In the years I supported SQL Server, these tools were the backbone of my workflow when deploying and troubleshooting various versions of SQL Server. Combine this with the extremely active community that Brent has, it was a huge adjustment starting to support PostgreSQL without a tool like the <code>FirstResponderKit</code>. There are plenty of extensions and, being the best (yes I said it) open-source database platform, I was able to manage.</p>
-<p>Yet, there was still something missing. Bouncing around supporting managed and self-hosted/on-prem PostgreSQL servers showed me how crucial it was to have some sort of function that I could just run on any version of PostgreSQL without a worry of compatability. Managed services, like Aurora Postgres, prevent you from truly having superuser rights and only &ldquo;approved&rdquo; extensions can be used. This burned my team more than I can count and I wanted to find a solution that was fast, easy to use, and could be used by ANYONE. I loved the FirstResponderKit and the format; it was only a matter of replicating that feel in PostgreSQL without the need of actually installing anything else. That meant, anyone tasked with jumping into the server to troubleshoot could copy the function(or view), deploy, run, and immediately get a status check on their PostgreSQL server.</p>
+                <h1 id="pgfirstaid-your-postgresql-servers-health-checkup">pgFirstAid, your PostgreSQL Server’s health checkup</h1>
+<p>I started my career in data as a SQL Server DBA and was quickly introduced to Brent Ozar. Many SQL Server DBAs will know the name, as well as Ola Hallengren’s infamous maintenance.sql SQL Server maintenance plan. In the years I supported SQL Server, these tools were the backbone of my workflow when deploying and troubleshooting various versions of SQL Server. Combine this with the extremely active community that Brent has, it was a huge adjustment starting to support PostgreSQL without a tool like the FirstResponderKit. There are plenty of extensions and, being the best (yes I said it) open-source database platform, I was able to manage.</p>
+<p>Yet, there was still something missing. Bouncing around supporting managed and self-hosted/on-prem PostgreSQL servers showed me how crucial it was to have some sort of function that I could just run on any version of PostgreSQL without a worry of compatability. Managed services, like Aurora Postgres, prevent you from truly having superuser rights and only “approved” extensions can be used. This burned my team more than I can count and I wanted to find a solution that was fast, easy to use, and could be used by ANYONE. I loved the FirstResponderKit and the format; it was only a matter of replicating that feel in PostgreSQL without the need of actually installing anything else. That meant, anyone tasked with jumping into the server to troubleshoot could copy the function(or view), deploy, run, and immediately get a status check on their PostgreSQL server.</p>
 <p>Thus, <a href="https://github.com/randoneering/pgFirstAid">pgFirstAid</a> was born.</p>
 <h2 id="health-checks">Health Checks</h2>
 <p>The bread and butter of pgFirstAid is to give the user health checks with remediation actions to take. In addition, it provides a link to documentation to help support the suggested action. The health checks provide prioritized results (ranked by CRITICAL, HIGH, MEDIUM, LOW, and INFO) and can be easily filtered by severity or category.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>    <span style="color:#75715e">--Using the function
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> pg_firstAid() <span style="color:#66d9ef">WHERE</span> category <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;%Index%&#39;</span>;
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> pg_firstAid() <span style="color:#66d9ef">WHERE</span> category <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;%Index%&#39;</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">--Using the view
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> v_pgfirstAid <span style="color:#66d9ef">WHERE</span> severity <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;MEDIUM&#39;</span>;
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> v_pgfirstAid <span style="color:#66d9ef">WHERE</span> severity <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;MEDIUM&#39;</span>;
 </span></span></code></pre></div><p>As pgFirstAid grows, the list of health checks will expand to other categories. My dream is that others will find something missing in pgFirstAid and open up an issue with a feature request to add it. This is an open-source project, so I want to make sure others can contribute to this and help build out the features in the hopes of becoming the go to tool for quickly identifying issues on a target server and how to address them. pgFirstAid will enable users to have confidence in what to tackle first and at the same time teaching best practices for managing a PostgreSQL server.</p>
 <h2 id="server-info-checks">Server Info Checks</h2>
 <p>Similar to the health checks, the server info checks will provide details on the server configuration. The target here is to identify settings that should be adjusted out of the gate or flag parameters that are set incorrectly. They can also be used to identify key information like server uptime, current version, and location of logs that can be queried and export inputs to your automation. Since pgFirstAid will work for all versions 15 and up, regardless if you are using a managed deployment or not, you will still get details relevant to perfecting your server build.</p>
 <h2 id="inspirations">Inspirations</h2>
-<p>Like I mentioned early on, Brent Ozar&rsquo;s FirstResponderKit takes most of the inspiration points. I absolutely loved the tool set it provided when I was in the trenches as a SQL Server DBA. It was the first thing I put on every server I could when I accessed them for the first time and it saved my butt more times than I could count. I cannot replicate what Brent and the community have done with things like sp_blitz, but I can use it as inspiration to keep the project going.</p>
-<p>Additionally, I wanted to make sure this project remained FREE of charge, OPEN to the community, and a SAFE place for people to make suggestions/comments/critiques of the tool itself. I strongly believe in open-source and that PostgreSQL is the most versatile  database engine out there. I want others to see its true power and how sometimes the shiny new database engine isn&rsquo;t always the answer to your problem.</p>
+<p>Like I mentioned early on, Brent Ozar’s <a href="https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit">FirstResponderKit</a> takes most of the inspiration points. I absolutely loved the tool set it provided when I was in the trenches as a SQL Server DBA. It was the first thing I put on every server I could when I accessed them for the first time and it saved my butt more times than I could count. I cannot replicate what Brent and the community have done with things like sp_blitz, but I can use it as inspiration to keep the project going.</p>
+<p>Additionally, I wanted to make sure this project remained FREE of charge, OPEN to the community, and a SAFE place for people to make suggestions/comments/critiques of the tool itself. I strongly believe in open-source and that PostgreSQL is the most versatile database engine out there. I want others to see its true power and how sometimes the shiny new database engine isn’t always the answer to your problem.</p>
 <h2 id="future-of-pgfirstaid">Future of pgFirstAid</h2>
 <p>What do you think we should add to pgFirstAid? Are there checks we should include that we do not already have? Is there something in one of the checks you think we could do better? Let us know in github or message me through socials. The one thing I can promise you all on is that this will be a community driven project. Which means it will only get better with your input and not just mine alone.</p>
 <p>As this is a project I am doing in my free time, do not expect fast responses to messages or issues. My goal is to at least let you know that I saw your message but will respond later in detail. I find this respects my work/life balance and will carry that into my side work. Until then, star the repo or follow me on github to monitor the releases!</p>
-<p><a href="https://github.com/randoneering/pgFirstAid">Github Repo</a></p>
 
             </div>
         </article>
@@ -206,7 +204,7 @@
 
 
 
-<script type="text/javascript" src="/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
+<script type="text/javascript" src="/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
 
 
 

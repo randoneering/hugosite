@@ -6,8 +6,22 @@
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pgFirstAid - Milestone 2 and 3!</title>
+      <link>/blog/pgfirstaid/pgfirstaid_m3/</link>
+      <pubDate>Tue, 06 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>/blog/pgfirstaid/pgfirstaid_m3/</guid>
+      <description>&lt;h1 id=&#34;making-progress-one-check-at-a-time&#34;&gt;Making progress, one check at a time&lt;/h1&gt;&#xA;&lt;p&gt;Since I publicly announced pgFirstAid in November 2025, the project is somehow at 477 (as of 2026-01-06) stars on GitHub! Honestly, I was absolutely shocked to see how quickly things escalated. I remember the anxiety of submitting the first public acknowledgement on LinkedIn and Mastodon. I figured a few people would like it, maybe some of my colleagues would give thumbs up, and life would move along. Yet, one thing led to another, a friend messaged me about someone posting the tool on &lt;a href=&#34;https://news.ycombinator.com/item?id=45944951&#34;&gt;Hacker News&lt;/a&gt;, and the next thing I knew the project was mentioned in the &lt;a href=&#34;https://tldr.tech/data/2025-11-20&#34;&gt;TLDR Newsletter&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>pgFirstAid - PostgreSQL Health Check</title>
+      <link>/blog/pgfirstaid/pgfirstaid/</link>
+      <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>/blog/pgfirstaid/pgfirstaid/</guid>
+      <description>&lt;h1 id=&#34;pgfirstaid-your-postgresql-servers-health-checkup&#34;&gt;pgFirstAid, your PostgreSQL Server’s health checkup&lt;/h1&gt;&#xA;&lt;p&gt;I started my career in data as a SQL Server DBA and was quickly introduced to Brent Ozar. Many SQL Server DBAs will know the name, as well as Ola Hallengren’s infamous maintenance.sql SQL Server maintenance plan. In the years I supported SQL Server, these tools were the backbone of my workflow when deploying and troubleshooting various versions of SQL Server. Combine this with the extremely active community that Brent has, it was a huge adjustment starting to support PostgreSQL without a tool like the FirstResponderKit. There are plenty of extensions and, being the best (yes I said it) open-source database platform, I was able to manage.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Not Another AI Hype Train</title>
       <link>/blog/random/aihypetrain/</link>
