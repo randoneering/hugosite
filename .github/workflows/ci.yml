@@ -43,7 +43,7 @@ jobs:
       - name: Deploy the website
         run: |
           SSH_PORT="${DEPLOY_PORT:-22}"
-          rsync -avx --delete --exclude '.ssh' -e "ssh -p $SSH_PORT" public/ "$DEPLOY_USERNAME@$DEPLOY_SERVER:./"
+          rsync -avx --delete --exclude '.ssh' -e "ssh -p $SSH_PORT" public/ "$DEPLOY_USERNAME@$DEPLOY_SERVER:/var/www/html/randoneering.tech/public_html/"
         env:
           DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
           DEPLOY_USERNAME: ${{ secrets.DEPLOY_USERNAME }}
