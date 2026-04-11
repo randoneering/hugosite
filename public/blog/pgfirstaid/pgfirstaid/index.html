@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="">
+<meta name="author" content="Justin Frye (Randoneering)">
 <meta name="description" content="pgFirstAid, your PostgreSQL Server’s health checkup" />
 <meta name="keywords" content="open-source, nixos, nix, linux, python, engineering" />
 <meta name="robots" content="noodp" />
@@ -97,7 +97,7 @@
 
         <span class="header__right">
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="/about/">about</a></li><li><a href="/blog/">blog</a></li><li><a href="/services/">services</a></li>
+    <ul class="menu__inner"><li><a href="/services/">services</a></li><li><a href="/about/">about</a></li><li><a href="/blog/">blog</a></li>
         <ul class="submenu">
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">en</a>
@@ -130,7 +130,6 @@
 
         <div class="post-info">
             
-            </p>
         </div>
 
         <article>
@@ -147,12 +146,12 @@
 <p>Thus, <a href="https://github.com/randoneering/pgFirstAid">pgFirstAid</a> was born.</p>
 <h2 id="health-checks">Health Checks</h2>
 <p>The bread and butter of pgFirstAid is to give the user health checks with remediation actions to take. In addition, it provides a link to documentation to help support the suggested action. The health checks provide prioritized results (ranked by CRITICAL, HIGH, MEDIUM, LOW, and INFO) and can be easily filtered by severity or category.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>    <span style="color:#75715e">--Using the function
-</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> pg_firstAid() <span style="color:#66d9ef">WHERE</span> category <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;%Index%&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">--Using the view
-</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> v_pgfirstAid <span style="color:#66d9ef">WHERE</span> severity <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;MEDIUM&#39;</span>;
-</span></span></code></pre></div><p>As pgFirstAid grows, the list of health checks will expand to other categories. My dream is that others will find something missing in pgFirstAid and open up an issue with a feature request to add it. This is an open-source project, so I want to make sure others can contribute to this and help build out the features in the hopes of becoming the go to tool for quickly identifying issues on a target server and how to address them. pgFirstAid will enable users to have confidence in what to tackle first and at the same time teaching best practices for managing a PostgreSQL server.</p>
+<pre tabindex="0" class="language-sql"><code class="language-sql" data-lang="sql">    --Using the function
+    SELECT * FROM pg_firstAid() WHERE category LIKE &#39;%Index%&#39;;
+
+    --Using the view
+    SELECT * FROM v_pgfirstAid WHERE severity = &#39;MEDIUM&#39;;</code></pre>
+<p>As pgFirstAid grows, the list of health checks will expand to other categories. My dream is that others will find something missing in pgFirstAid and open up an issue with a feature request to add it. This is an open-source project, so I want to make sure others can contribute to this and help build out the features in the hopes of becoming the go to tool for quickly identifying issues on a target server and how to address them. pgFirstAid will enable users to have confidence in what to tackle first and at the same time teaching best practices for managing a PostgreSQL server.</p>
 <h2 id="server-info-checks">Server Info Checks</h2>
 <p>Similar to the health checks, the server info checks will provide details on the server configuration. The target here is to identify settings that should be adjusted out of the gate or flag parameters that are set incorrectly. They can also be used to identify key information like server uptime, current version, and location of logs that can be queried and export inputs to your automation. Since pgFirstAid will work for all versions 15 and up, regardless if you are using a managed deployment or not, you will still get details relevant to perfecting your server build.</p>
 <h2 id="inspirations">Inspirations</h2>
