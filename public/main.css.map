@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/home/justin/Documents/code/github/hugosite",
+	"sourceRoot": "/home/justin/Documents/code/github/hugosite/.worktrees/pr7-merge",
 	"sources": [
 		"themes/hello-friend-ng/assets/scss/main.scss",
 		".worktrees/pr7-merge/themes/hello-friend-ng/assets/scss/_normalize.scss",
