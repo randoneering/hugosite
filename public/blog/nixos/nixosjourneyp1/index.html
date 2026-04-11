@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <head>
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -10,7 +10,7 @@
 <meta name="keywords" content="open-source, nixos, nix, linux, python, engineering" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="//localhost:1313/blog/nixos/nixosjourneyp1/" />
+<link rel="canonical" href="/blog/nixos/nixosjourneyp1/" />
 
 
     <title>
@@ -44,10 +44,10 @@
   <meta itemprop="datePublished" content="2023-12-29T00:00:00+00:00">
   <meta itemprop="dateModified" content="2023-12-29T00:00:00+00:00">
   <meta itemprop="wordCount" content="1128">
-  <meta itemprop="image" content="//localhost:1313/images/randoneering_logo_only.jpg">
+  <meta itemprop="image" content="/images/randoneering_logo_only.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="//localhost:1313/images/randoneering_logo_only.jpg">
+  <meta name="twitter:image" content="/images/randoneering_logo_only.jpg">
   <meta name="twitter:title" content="Stay awhile, and listen...to my nixOS journey!">
   <meta name="twitter:description" content="Taking immutable to a new level">
 
@@ -97,7 +97,7 @@
 
         <span class="header__right">
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="/about/">about</a></li><li><a href="/blog/">blog</a></li><li><a href="/services/">services</a></li>
+    <ul class="menu__inner"><li><a href="/about/">about</a></li><li><a href="/blog/">blog</a></li>
         <ul class="submenu">
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">en</a>
@@ -130,11 +130,10 @@
 
         <div class="post-info">
             
-            </p>
         </div>
 
         <article>
-            <h2 class="post-title"><a href="//localhost:1313/blog/nixos/nixosjourneyp1/">Stay awhile, and listen&hellip;to my nixOS journey!</a></h2>
+            <h2 class="post-title"><a href="/blog/nixos/nixosjourneyp1/">Stay awhile, and listen&hellip;to my nixOS journey!</a></h2>
 
             
             
@@ -154,194 +153,194 @@
 <h3 id="the-stretch-goal">The Stretch Goal</h3>
 <p>You know what would be really nice? Moving all my servers over from Debian and Ubuntu to nixOS&hellip;&hellip;&hellip;..</p>
 <h3 id="nixos-config-as-of-20231229">NixOS Config (as of 2023/12/29)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span> config, pkgs, ... <span style="color:#f92672">}</span>:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  imports <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">[</span> <span style="color:#75715e"># Include the results of the hardware scan.</span>
-</span></span><span style="display:flex;"><span>      ./hardware-configuration.nix
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">]</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Bootloader.</span>
-</span></span><span style="display:flex;"><span>  boot.loader.systemd-boot.enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>  boot.loader.efi.canTouchEfiVariables <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  networking.hostName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;nixos&#34;</span>; <span style="color:#75715e"># Define your hostname.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Configure network proxy if necessary</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># networking.proxy.default = &#34;http://user:password@proxy:port/&#34;;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># networking.proxy.noProxy = &#34;127.0.0.1,localhost,internal.domain&#34;;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Enable networking</span>
-</span></span><span style="display:flex;"><span>  networking.networkmanager.enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Set your time zone.</span>
-</span></span><span style="display:flex;"><span>  time.timeZone <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;America/Chicago&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Select internationalisation properties.</span>
-</span></span><span style="display:flex;"><span>  i18n.defaultLocale <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  i18n.extraLocaleSettings <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    LC_ADDRESS <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>;
-</span></span><span style="display:flex;"><span>    LC_IDENTIFICATION <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>;
-</span></span><span style="display:flex;"><span>    LC_MEASUREMENT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>;
-</span></span><span style="display:flex;"><span>    LC_MONETARY <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>;
-</span></span><span style="display:flex;"><span>    LC_NAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>;
-</span></span><span style="display:flex;"><span>    LC_NUMERIC <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>;
-</span></span><span style="display:flex;"><span>    LC_PAPER <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>;
-</span></span><span style="display:flex;"><span>    LC_TELEPHONE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>;
-</span></span><span style="display:flex;"><span>    LC_TIME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;en_US.UTF-8&#34;</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Enable the X11 windowing system.</span>
-</span></span><span style="display:flex;"><span>  services.xserver.enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Enable the GNOME Desktop Environment.</span>
-</span></span><span style="display:flex;"><span>  services.xserver.displayManager.gdm.enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>  services.xserver.desktopManager.gnome.enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Tailcale</span>
-</span></span><span style="display:flex;"><span>  services.tailscale.enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Configure keymap in X11</span>
-</span></span><span style="display:flex;"><span>  services.xserver <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    layout <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;us&#34;</span>;
-</span></span><span style="display:flex;"><span>    xkbVariant <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Enable CUPS to print documents.</span>
-</span></span><span style="display:flex;"><span>  services.printing.enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Enable sound with pipewire.</span>
-</span></span><span style="display:flex;"><span>  sound.enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>  hardware.pulseaudio.enable <span style="color:#f92672">=</span> false;
-</span></span><span style="display:flex;"><span>  security.rtkit.enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>  services.pipewire <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>    alsa.enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>    alsa.support32Bit <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>    pulse.enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># If you want to use JACK applications, uncomment this</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#jack.enable = true;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># use the example session manager (no others are packaged yet so this is enabled by default,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># no need to redefine it in your config for now)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#media-session.enable = true;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Enable touchpad support (enabled default in most desktopManager).</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># services.xserver.libinput.enable = true;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Define a user account. Don&#39;t forget to set a password with ‘passwd’.</span>
-</span></span><span style="display:flex;"><span>  users.users.randoneering <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    isNormalUser <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>    description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;randoneering&#34;</span>;
-</span></span><span style="display:flex;"><span>    extraGroups <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;networkmanager&#34;</span> <span style="color:#e6db74">&#34;wheel&#34;</span> <span style="color:#f92672">]</span>;
-</span></span><span style="display:flex;"><span>    packages <span style="color:#f92672">=</span> with pkgs; <span style="color:#f92672">[</span>
-</span></span><span style="display:flex;"><span>      firefox
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#  thunderbird</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">]</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Allow unfree packages</span>
-</span></span><span style="display:flex;"><span>  nixpkgs.config.allowUnfree <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  nixpkgs.config.permittedInsecurePackages <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;electron-24.8.6&#34;</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">]</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># List packages installed in system profile. To search, run:</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># $ nix search wget</span>
-</span></span><span style="display:flex;"><span>  environment.systemPackages <span style="color:#f92672">=</span> with pkgs; <span style="color:#f92672">[</span>
-</span></span><span style="display:flex;"><span>      firefox
-</span></span><span style="display:flex;"><span>      element-desktop
-</span></span><span style="display:flex;"><span>      discord
-</span></span><span style="display:flex;"><span>      cider
-</span></span><span style="display:flex;"><span>      vscodium
-</span></span><span style="display:flex;"><span>      remmina
-</span></span><span style="display:flex;"><span>      wget
-</span></span><span style="display:flex;"><span>      neofetch
-</span></span><span style="display:flex;"><span>      signal-desktop
-</span></span><span style="display:flex;"><span>      obsidian
-</span></span><span style="display:flex;"><span>      syncthing
-</span></span><span style="display:flex;"><span>      gnome-extension-manager
-</span></span><span style="display:flex;"><span>      git
-</span></span><span style="display:flex;"><span>      steam
-</span></span><span style="display:flex;"><span>      bitwarden
-</span></span><span style="display:flex;"><span>      tailscale
-</span></span><span style="display:flex;"><span>      bash
-</span></span><span style="display:flex;"><span>      gnome.gnome-tweaks
-</span></span><span style="display:flex;"><span>      gnomeExtensions.tophat
-</span></span><span style="display:flex;"><span>      gnomeExtensions.dash-to-panel
-</span></span><span style="display:flex;"><span>      woeusb
-</span></span><span style="display:flex;"><span>      vlc
-</span></span><span style="display:flex;"><span>      bspwn
-</span></span><span style="display:flex;"><span>      python3
-</span></span><span style="display:flex;"><span>      bottom
-</span></span><span style="display:flex;"><span>      fish
-</span></span><span style="display:flex;"><span>      terminator
-</span></span><span style="display:flex;"><span>      openvpn3
-</span></span><span style="display:flex;"><span>      tuba
-</span></span><span style="display:flex;"><span>      zoom-us
-</span></span><span style="display:flex;"><span>      popsicle
-</span></span><span style="display:flex;"><span>      gimp
-</span></span><span style="display:flex;"><span>      inkscape
-</span></span><span style="display:flex;"><span>      flameshot
-</span></span><span style="display:flex;"><span>      gnupg
-</span></span><span style="display:flex;"><span>      hugo
-</span></span><span style="display:flex;"><span>      tailscale
-</span></span><span style="display:flex;"><span>      starship
-</span></span><span style="display:flex;"><span>      zip
-</span></span><span style="display:flex;"><span>      rake
-</span></span><span style="display:flex;"><span>      rubyPackages.rake
-</span></span><span style="display:flex;"><span>      libgtop
-</span></span><span style="display:flex;"><span>      gtop
-</span></span><span style="display:flex;"><span>      flameshot
-</span></span><span style="display:flex;"><span>      pinentry
-</span></span><span style="display:flex;"><span>      pinentry-curses
-</span></span><span style="display:flex;"><span>      pinentry-gtk2
-</span></span><span style="display:flex;"><span>      pinentry-gnome
-</span></span><span style="display:flex;"><span>      brave
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">]</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Some programs need SUID wrappers, can be configured further or are</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># started in user sessions.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># programs.mtr.enable = true;</span>
-</span></span><span style="display:flex;"><span>   programs.gnupg.agent <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>     enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>     pinentryFlavor <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gtk2&#34;</span>;
-</span></span><span style="display:flex;"><span>     enableSSHSupport <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># };</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># List services that you want to enable:</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Enable the OpenSSH daemon.</span>
-</span></span><span style="display:flex;"><span>   services.openssh.enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>   services.syncthing <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>     enable <span style="color:#f92672">=</span> true;
-</span></span><span style="display:flex;"><span>     user <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;randoneering&#34;</span>;
-</span></span><span style="display:flex;"><span>     dataDir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/home/randoneering/Documents/&#34;</span>; <span style="color:#75715e"># Default folder for new synced folders</span>
-</span></span><span style="display:flex;"><span>     configDir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/home/randoneering/Documents/.config/syncthing&#34;</span>;
-</span></span><span style="display:flex;"><span>     <span style="color:#f92672">}</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Open ports in the firewall.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># networking.firewall.allowedTCPPorts = [ ... ];</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># networking.firewall.allowedUDPPorts = [ ... ];</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Or disable the firewall altogether.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># networking.firewall.enable = false;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># This value determines the NixOS release from which the default</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># settings for stateful data, like file locations and database versions</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># on your system were taken. It‘s perfectly fine and recommended to leave</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># this value at the release version of the first install of this system.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Before changing this value read the documentation for this option</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).</span>
-</span></span><span style="display:flex;"><span>  system.stateVersion <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;23.05&#34;</span>; <span style="color:#75715e"># Did you read the comment?</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div>
+<pre tabindex="0" class="language-bash"><code class="language-bash" data-lang="bash">
+{ config, pkgs, ... }:
+
+{
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+    ];
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  networking.hostName = &#34;nixos&#34;; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Configure network proxy if necessary
+  # networking.proxy.default = &#34;http://user:password@proxy:port/&#34;;
+  # networking.proxy.noProxy = &#34;127.0.0.1,localhost,internal.domain&#34;;
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Set your time zone.
+  time.timeZone = &#34;America/Chicago&#34;;
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = &#34;en_US.UTF-8&#34;;
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = &#34;en_US.UTF-8&#34;;
+    LC_IDENTIFICATION = &#34;en_US.UTF-8&#34;;
+    LC_MEASUREMENT = &#34;en_US.UTF-8&#34;;
+    LC_MONETARY = &#34;en_US.UTF-8&#34;;
+    LC_NAME = &#34;en_US.UTF-8&#34;;
+    LC_NUMERIC = &#34;en_US.UTF-8&#34;;
+    LC_PAPER = &#34;en_US.UTF-8&#34;;
+    LC_TELEPHONE = &#34;en_US.UTF-8&#34;;
+    LC_TIME = &#34;en_US.UTF-8&#34;;
+  };
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  
+  # Tailcale
+  services.tailscale.enable = true;
+  
+  # Configure keymap in X11
+  services.xserver = {
+    layout = &#34;us&#34;;
+    xkbVariant = &#34;&#34;;
+  };
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
+
+  # Define a user account. Don&#39;t forget to set a password with ‘passwd’.
+  users.users.randoneering = {
+    isNormalUser = true;
+    description = &#34;randoneering&#34;;
+    extraGroups = [ &#34;networkmanager&#34; &#34;wheel&#34; ];
+    packages = with pkgs; [
+      firefox
+    #  thunderbird
+    ];
+  };
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config.permittedInsecurePackages = [
+                &#34;electron-24.8.6&#34;
+              ];
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+      firefox
+      element-desktop
+      discord
+      cider
+      vscodium
+      remmina
+      wget
+      neofetch
+      signal-desktop
+      obsidian
+      syncthing
+      gnome-extension-manager
+      git
+      steam
+      bitwarden
+      tailscale
+      bash
+      gnome.gnome-tweaks
+      gnomeExtensions.tophat
+      gnomeExtensions.dash-to-panel
+      woeusb
+      vlc
+      bspwn
+      python3
+      bottom
+      fish
+      terminator
+      openvpn3
+      tuba
+      zoom-us
+      popsicle
+      gimp
+      inkscape
+      flameshot
+      gnupg
+      hugo
+      tailscale
+      starship
+      zip
+      rake
+      rubyPackages.rake
+      libgtop
+      gtop
+      flameshot
+      pinentry
+      pinentry-curses
+      pinentry-gtk2
+      pinentry-gnome
+      brave
+
+  ];
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+   programs.gnupg.agent = {
+     enable = true;
+     pinentryFlavor = &#34;gtk2&#34;;
+     enableSSHSupport = true;
+  # };
+  #
+  # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+   services.openssh.enable = true;
+   services.syncthing = {
+     enable = true;
+     user = &#34;randoneering&#34;;
+     dataDir = &#34;/home/randoneering/Documents/&#34;; # Default folder for new synced folders
+     configDir = &#34;/home/randoneering/Documents/.config/syncthing&#34;;
+     };
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = &#34;23.05&#34;; # Did you read the comment?
+
+}</code></pre>
+
             </div>
         </article>
 
@@ -361,9 +360,9 @@
     <div class="footer__inner">
         <div class="footer__content">
             <span>&copy; 2025</span>
-            <span><a href="//localhost:1313/">Justin Frye (Randoneering)</a></span>
+            <span><a href="/">Justin Frye (Randoneering)</a></span>
             <span></span>
-            <span><a href="//localhost:1313/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span><a href="/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
             <span></span>
         </div>
     </div>
