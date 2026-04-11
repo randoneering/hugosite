@@ -29,21 +29,12 @@ jobs:
       - name: Build the website
         run: hugo
 
-      - name: Scan the host key
+      - name: Deploy the website
         run: |
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
           SSH_PORT="${DEPLOY_PORT:-22}"
-          ssh-keyscan -p "$SSH_PORT" -H -T 10 "$DEPLOY_SERVER" >> ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
-        env:
-          DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
-          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
-
-      - name: Deploy the website
-        run: |
-          SSH_PORT="${DEPLOY_PORT:-22}"
-          rsync -avx --delete --exclude '.ssh' -e "ssh -p $SSH_PORT" public/ "$DEPLOY_USERNAME@$DEPLOY_SERVER:/var/www/html/randoneering.tech/public_html/"
+          rsync -avx --delete --exclude '.ssh' -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=accept-new" public/ "$DEPLOY_USERNAME@$DEPLOY_SERVER:/var/www/html/randoneering.tech/public_html/"
         env:
           DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
           DEPLOY_USERNAME: ${{ secrets.DEPLOY_USERNAME }}
