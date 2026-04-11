@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="">
+<meta name="author" content="Justin Frye (Randoneering)">
 <meta name="description" content="Using Powershell to automate adhoc or scheduled database dumps for MySQL in next post" />
 <meta name="keywords" content="open-source, nixos, nix, linux, python, engineering" />
 <meta name="robots" content="noodp" />
@@ -146,12 +146,12 @@
 <h2 id="storing-the-password">Storing the password</h2>
 <p>Like Postgres, I wanted to store the password somewhere so I wouldn&rsquo;t need to manually enter for each dump (and avoid plain text exposure of my password when passing the command). This can be done by following the instructions here <a href="https://stackoverflow.com/questions/9293042/how-to-perform-a-mysqldump-without-a-password-prompt">https://stackoverflow.com/questions/9293042/how-to-perform-a-mysqldump-without-a-password-prompt</a> .
 This post, referencing official mysql documentation, states to do the following in /.my.cnf file.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>mysqldump<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>mysqldump<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>user<span style="color:#f92672">=</span>mysqluser
 </span></span><span style="display:flex;"><span>password<span style="color:#f92672">=</span>secret
 </span></span></code></pre></div><p>Be sure to set the correct permissions to the file (CHMOD 600 for unix), but Windows should do the same thing as your pgpass file and assume it is secure.</p>
 <h2 id="mysqldump-parameters">mysqldump parameters</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>.<span style="color:#960050;background-color:#1e0010">\</span>mysqldump.exe <span style="color:#75715e">--defaults-file=$mysqlpassword -u $user -h $server.hostname -B $database --set-gtid-purged=OFF --result-file=$dumpfile
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>.<span style="color:#960050;background-color:#1e0010">\</span>mysqldump.exe <span style="color:#75715e">--defaults-file=$mysqlpassword -u $user -h $server.hostname -B $database --set-gtid-purged=OFF --result-file=$dumpfile
 </span></span></span></code></pre></div><p>You will need to pass your &lsquo;&ndash;defaults-file=&rsquo; parameter first, as this should always be the first parameter passed if you are using it.</p>
 <p><a href="https://stackoverflow.com/questions/3836214/problem-with-mysqldump-defaults-extra-file-option-is-not-working-as-expecte">https://stackoverflow.com/questions/3836214/problem-with-mysqldump-defaults-extra-file-option-is-not-working-as-expecte</a></p>
 <p>Additionally, unless you are planning on using this dump for a replica instance (from a primary instance), I strongly suggest using &lsquo;&ndash;set-gtid-purged=off&rsquo;.</p>
@@ -160,7 +160,7 @@ This post, referencing official mysql documentation, states to do the following 
 <h1 id="the-script">The script</h1>
 <p>That covers a quick two part post. Find the script below, or on my github</p>
 <p><a href="https://github.com/randoneering/adhoc_mysqldumps">https://github.com/randoneering/adhoc_mysqldumps</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e">&lt;#
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e">&lt;#
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">Background info on issues with parameters I ran into
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
