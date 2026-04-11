@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout the current branch
         uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          fetch-depth: 0
 
       - name: Initialize the ssh-agent
         uses: webfactory/ssh-agent@v0.4.1
@@ -27,13 +30,21 @@ jobs:
         run: hugo
 
       - name: Scan the host key
-        run: mkdir -p ~/.ssh/ && ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          SSH_PORT="${DEPLOY_PORT:-22}"
+          ssh-keyscan -p "$SSH_PORT" -H -T 10 "$DEPLOY_SERVER" >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
         env:
           DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
 
       - name: Deploy the website
-        run: >-
-          rsync -avx --delete --exclude '.ssh' public/ $DEPLOY_USERNAME@$DEPLOY_SERVER:./
+        run: |
+          SSH_PORT="${DEPLOY_PORT:-22}"
+          rsync -avx --delete --exclude '.ssh' -e "ssh -p $SSH_PORT" public/ "$DEPLOY_USERNAME@$DEPLOY_SERVER:/var/www/html/randoneering.tech/public_html/"
         env:
           DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
           DEPLOY_USERNAME: ${{ secrets.DEPLOY_USERNAME }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
